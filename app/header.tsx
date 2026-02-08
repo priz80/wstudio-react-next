@@ -19,6 +19,11 @@ export default function Header () {
             className="man-container"
             alt="man"
           />
+          <div className="circle">
+            <div className="circle circle-m">
+              <div className="circle circle-s"></div>
+            </div>
+          </div>
 
           <div className="content">
             <div className="menu-container">
