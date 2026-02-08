@@ -1,4 +1,4 @@
-import "./button.css"
+import "./button.scss";
 
 const Button = ( { sizeButton = "medium", titleButton = "Кнопка"}) => {
     return (
