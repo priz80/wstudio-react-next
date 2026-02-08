@@ -12,7 +12,7 @@ import { Footer } from "@components/Footer/footer";
 import "./fonts.scss";
 import "./main-menu.scss";
 import "./burger.scss";
-import "./button.scss";
+/* import "./button.scss"; */
 
 
 export default function Home() {
