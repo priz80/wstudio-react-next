@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+
+:root {
+  --font-family: "Ruberoid", sans-serif;
+  --cursor: url('/img/pointer.png'), pointer;
+}
+
+* {
+  /* outline: auto; */
+}
+
+body {
+  background: #161617;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-family);
+  /* overflow: hidden; */
+}
+
+* > a {
+    cursor: var(--cursor);
+}
+
+a > button {
+  cursor: var(--cursor);
+}
+
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
+  
+}
+
+.content {
+  max-width: 1296px;
+  margin: 0 auto;
+  padding: 0 16px 0 8px;
+}
