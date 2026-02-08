@@ -1,0 +1,85 @@
+header {
+  min-height: 1060px;
+  background-image: url(../public/img/header_img/maska.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.lamp-container {
+  position: absolute;
+  right: 50.55%;
+}
+
+@media (max-width: 960px) {
+  .lamp-container {
+    visibility: hidden;
+  }
+}
+
+.aside-line {
+  position: absolute;
+  width: 1062px;
+  height: 2.5px;
+  transform: rotate(90deg);
+  background: linear-gradient(
+    135deg,
+    rgba(42, 188, 158, 0) 0%,
+    #2abc9e 48.65%,
+    rgba(42, 188, 158, 0) 100%
+  );
+  top: 531px;
+  left: -399px;
+}
+
+@media (max-width: 1919px) {
+  .aside-line {
+    visibility: hidden;
+  }
+}
+
+.man-container {
+  position: absolute;
+  right: 140px;
+  top: 211px;
+}
+
+@media (max-width: 1919px) {
+  .man-container {
+    right: 0;
+  }
+}
+
+@media (max-width: 1619px) {
+  .man-container {
+    right: -88px;
+  }
+}
+@media (max-width: 1350px) {
+  .man-container {
+    right: -136px;
+  }
+}
+@media (max-width: 1280px) {
+  .man-container {
+    right: -163px;
+  }
+}
+
+@media (max-width: 1079px) {
+  .man-container {
+    visibility: hidden;
+  }
+}
+
+.line-header {
+  position: absolute;
+  top: 1055px;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(
+    135deg,
+    rgba(42, 188, 158, 0) 0%,
+    #2abc9e 48.65%,
+    rgba(42, 188, 158, 0) 100%
+  );
+}
