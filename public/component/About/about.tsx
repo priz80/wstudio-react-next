@@ -1,6 +1,7 @@
 import Button from "../../../app/button";
 import "./about.module.scss";
 
+
 export const About = () => {
   return (
     <div className="container container-about"  id="about">
@@ -18,7 +19,7 @@ export const About = () => {
               </span>
             </p>
 
-            <Button titleButton="Портфолио" />
+            <Button sizeButton="button-portfolio" titleButton="Портфолио" />
           </div>
           <div className="about-tile"></div>
         </div>
