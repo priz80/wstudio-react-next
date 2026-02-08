@@ -1,5 +1,6 @@
 .container-about {
- min-height: 1062px;
+  min-height: 1062px;
+  padding-top: 104px;
 }
 
 .about-title_block {
@@ -31,6 +32,11 @@
   justify-content: space-between;
 }
 
+.button-portfolio {
+  width: 209px;
+  height: 68px;
+}
+
 @media (max-width: 1330px) {
   .about-tile_block {
     flex-direction: column;
@@ -51,5 +57,3 @@
     margin: 0 auto;
   }
 }
-
-
