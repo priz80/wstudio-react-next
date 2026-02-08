@@ -1,0 +1,28 @@
+h1 {
+  font-weight: 800;
+  font-size: 65px;
+  background: linear-gradient(149deg, #b5feef 0%, #2eecc5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 45px;
+  background: linear-gradient(149deg, #b5feef 0%, #2eecc5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+  padding-bottom: 33px;
+  line-height: 106%;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.65);
+  padding-bottom: 48px;
+}
