@@ -9,8 +9,10 @@ export const Portfolio = () => {
         <div className="title-portfolio_block">
           <h4>Наше портфолио</h4>
           <p>
+            <br />
             В данном портфолио вы сможете увидеть кейсы наших работ на 2025 -
             2026 год
+            <br /><br /><br />
           </p>
             <a href="/">
               <Button
