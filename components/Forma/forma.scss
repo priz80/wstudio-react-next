@@ -20,7 +20,8 @@
   min-height: 280px;
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: space-between; */
+  justify-content: space-between;
+  padding-bottom: 57px;
 }
 
 .forma-item {
@@ -36,6 +37,13 @@
   display: flex;
   flex-direction: column;
   padding-bottom: 19px;
+}
+
+.forma-item_button {
+  min-width: 439px;
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 26px;
 }
 
 .input-label {
@@ -54,4 +62,18 @@
   font-weight: 500;
   font-size: 17px;
   line-height: 154%;
+}
+
+@media (max-width: 960px) {
+  .forma-item_button {
+    justify-content: center;
+  }
+  .foma-block {
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .title-forma {
+    text-align: center;
+  }
 }
