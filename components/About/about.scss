@@ -33,9 +33,35 @@
   justify-content: space-between;
 }
 
-.button-portfolio {
+.button-about_block {
+  position: relative;
   width: 209px;
   height: 68px;
+}
+
+.button-about {
+  border: 1.5px solid #2eecc5;
+  border-radius: 4px;
+  width: 200px;
+  height: 57px;
+  box-shadow: 0 0 38px 0 rgba(46, 236, 197, 0.2);
+  background: #161617;
+}
+
+.button-font_about {
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.button-about_shadow {
+  position: absolute;
+  z-index: -1;
+  border: 1.5px solid rgba(46, 236, 197, 0.4);
+  border-radius: 4px;
+  width: 200px;
+  height: 57px;
+  top: 11px;
+  left: 9px;
 }
 
 @media (max-width: 1330px) {
