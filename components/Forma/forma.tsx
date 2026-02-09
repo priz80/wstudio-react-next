@@ -74,7 +74,7 @@ export const Forma = () => {
             />
           </div>
 
-          <a href="/"><Button sizeButton="button-forma" titleButton="Отправить" /></a>
+          <a href="/"><Button styleButton="button-forma" fontButton="button-font_forma" nameButton="Отправить" /></a>
         </form>
       </div>
     </div>
