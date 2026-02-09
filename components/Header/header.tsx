@@ -55,22 +55,22 @@ export const Header = () => {
                     </a>
                   </li>
                   <li>
-                    <a href="/" onClick={() => setIsMenuOpen(false)}>
+                    <a href="#about" onClick={() => setIsMenuOpen(false)}>
                       Почему именно мы?
                     </a>
                   </li>
                   <li className="mobile-only">
-                    <a href="/" onClick={() => setIsMenuOpen(false)}>
+                    <a href="#portfolio" onClick={() => setIsMenuOpen(false)}>
                       Портфолио
                     </a>
                   </li>
                   <li>
-                    <a href="/" onClick={() => setIsMenuOpen(false)}>
+                    <a href="#contacty" onClick={() => setIsMenuOpen(false)}>
                       Контакты
                     </a>
                   </li>
                   <li className="mobile-only">
-                    <a href="/" onClick={() => setIsMenuOpen(false)}>
+                    <a href="#forma" onClick={() => setIsMenuOpen(false)}>
                       Оставить заявку
                     </a>
                   </li>
@@ -78,7 +78,7 @@ export const Header = () => {
               </nav>
 
               {/* Кнопка "Заказать" */}
-              <a href="/">
+              <a href="#forma">
                 <Button styleButton="button-menu" fontButton="button-font_menu" nameButton="Заказать" />
               </a>
             </div>
@@ -96,7 +96,7 @@ export const Header = () => {
               сроки.
             </h3>
             <div className="question-block">
-              <a href="/">
+              <a href="#about">
                 <Button styleButton="button-header" fontButton="button-font_header" nameButton="Подробнее" />
               </a>
               <a href="/"><span className="question">Остались вопросы?</span></a>
