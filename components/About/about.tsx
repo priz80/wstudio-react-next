@@ -20,6 +20,7 @@ export const About = () => {
                 портфолио
                 <br /><br /><br />
               </span>
+              
             </p>
 
             <div className="button-about_block">
