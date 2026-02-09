@@ -1,7 +1,7 @@
 
 
 import type { Metadata } from "next";
-import "../styles/global.scss";
+import "./global.scss";
 
 
 
