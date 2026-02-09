@@ -1,0 +1,124 @@
+.tarif-contant {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-tarif_container {
+  padding-top: 41px;
+  width: 1200px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.slider-tarif {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+}
+
+.slide-tarif {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 36px;
+  width: 370px;
+  height: 570px;
+  background: linear-gradient(155deg, #313134 0%, #292929 51.31%, #282828 100%);
+  color: #fff;
+}
+
+.slide-text_block {
+  padding: 0 24px 0 23px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.slide-button_block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.slide-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.price {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 154%;
+  color: #fff;
+}
+
+.time {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 154%;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.arrow-tarif_container {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  left: 26px;
+  top: 490px;
+  gap: 1114px;
+}
+
+.arrow-tarif_circle {
+  border: 1.5px solid #153630;
+  border-radius: 49px;
+  min-width: 70px;
+  min-height: 70px;
+  box-shadow: 0 0 106px 0 rgba(46, 236, 197, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-tarif {
+  border: 1.5px solid rgba(46, 236, 197, 0.5);
+  border-radius: 49px;
+  min-width: 60px;
+  min-height: 60px;
+  box-shadow: 0 0 106px 0 rgba(46, 236, 197, 0.1);
+  background: linear-gradient(166deg, #19201f 0%, #323939 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: var(--cursor);
+}
+
+.slide-price_title {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 125%;
+  padding-bottom: 29px;
+  color: #fff;
+  margin-top: 43px;
+}
+
+.slide-price_subtitle {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 154%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.button-tarif {
+  width: 172px;
+  height: 57px;
+  margin-top: 5px;
+  margin-bottom: 23px;
+}
+
+.font-button_tarif {
+  font-weight: 600;
+  font-size: 17px;
+}
