@@ -20,9 +20,7 @@ export const About = () => {
                 портфолио
                 <br /><br /><br />
               </span>
-              
             </p>
-
             <div className="button-about_block">
               <a href="#portfolio"><Button styleButton="button-about" fontButton="button-font_about" nameButton="Портфолио" /></a>
               <div className="button-about_shadow"></div>
