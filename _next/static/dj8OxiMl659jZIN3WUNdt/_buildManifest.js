@@ -3,7 +3,7 @@ self.__BUILD_MANIFEST = {
     "afterFiles": [],
     "beforeFiles": [
       {
-        "source": "/wstudio-react-next//_next/:path+",
+        "source": "/wstudio-react-next/styles//_next/:path+",
         "destination": "/wstudio-react-next/_next/:path+"
       }
     ],
