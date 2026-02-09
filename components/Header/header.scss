@@ -20,27 +20,6 @@ header {
   }
 }
 
-.aside-line {
-  position: absolute;
-  width: 1062px;
-  height: 2.5px;
-  transform: rotate(90deg);
-  background: linear-gradient(
-    135deg,
-    rgba(42, 188, 158, 0) 0%,
-    #2abc9e 48.65%,
-    rgba(42, 188, 158, 0) 100%
-  );
-  top: 531px;
-  left: -399px;
-}
-
-@media (max-width: 1919px) {
-  .aside-line {
-    visibility: hidden;
-  }
-}
-
 .man-container {
   position: absolute;
   right: 140px;
@@ -65,7 +44,7 @@ header {
 }
 @media (max-width: 1280px) {
   .man-container {
-    right: -163px;
+    right: -174px;
   }
 }
 
@@ -103,7 +82,7 @@ header {
 }
 
 @media (max-width: 1919px) {
-/*   .man-container {
+  /*   .man-container {
     right: 0;
   } */
   .circle {
@@ -118,9 +97,9 @@ header {
 }
 
 @media (max-width: 1619px) {
-  .man-container {
+  /*  .man-container {
     right: -88px;
-  }
+  } */
   .circle {
     right: -198px;
   }
@@ -132,9 +111,9 @@ header {
   }
 }
 @media (max-width: 1350px) {
-  .man-container {
+  /* .man-container {
     right: -136px;
-  }
+  } */
   .circle {
     right: -246px;
   }
@@ -146,11 +125,11 @@ header {
   }
 }
 @media (max-width: 1280px) {
-  .man-container {
-    right: -163px;
-  }
+  /*   .man-container {
+    right: -1px;
+  } */
   .circle {
-    right: -274px;
+    right: -290px;
   }
   .circle-m {
     right: 58px;
@@ -178,6 +157,11 @@ header {
 .button-header {
   width: 200px;
   height: 57px;
+}
+
+.button-font_header {
+  font-weight: 600;
+  font-size: 19px;
 }
 
 .question {
