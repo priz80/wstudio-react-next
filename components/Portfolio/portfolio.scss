@@ -2,9 +2,15 @@
   min-height: 778px;
 }
 
+.portfolio-content {
+  /* position: relative; */
+  display: flex;
+  gap: 171px;
+}
+
 .title-portfolio_block {
   padding-top: 143px;
-  max-width: 526px;
+  min-width: 526px;
 }
 
 .button-portfolio {
@@ -15,4 +21,37 @@
 .button-font_portfolio {
   font-weight: 500;
   font-size: 17px;
+}
+
+@media (max-width: 1280px) {
+  .portfolio-content {
+    flex-direction: column;
+  }
+
+  .portfolio-content {
+    align-items: center;
+  }
+
+  .portfolio-content {
+    gap: 0;
+  }
+
+  .title-portfolio_block {
+  padding-top: 143px;
+  text-align: center;
+}
+
+.button-portfolio {
+  display: none;
+}
+
+  .arrow-container {
+    z-index: 1;
+    justify-content: space-between;
+    width: 641px;
+    display: flex;
+    position: absolute;
+    top: 290px;
+    right: 16px;
+}
 }
