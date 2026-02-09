@@ -6,8 +6,8 @@
 }
 
 .logo {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .logo-mobile {
@@ -15,11 +15,11 @@
 }
 
 @media (max-width: 960px) {
-  .logo{
+  .logo {
     display: none;
   }
 
-  .logo-mobile{
+  .logo-mobile {
     display: flex;
   }
 }
@@ -34,19 +34,19 @@
 }
 
 .logo-web {
-text-transform: uppercase;
-font-weight: 800;
-font-size: 40px;
-line-height: 45%;
-letter-spacing: -0.12em;
-color: #fff;
-rotate: 0.19deg;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 45%;
+  letter-spacing: -0.12em;
+  color: #fff;
+  rotate: 0.19deg;
 }
 
 .menu {
-    display: flex;
-    align-items: center;
-/*     gap: 88px; */
+  display: flex;
+  align-items: center;
+  /*     gap: 88px; */
 }
 
 ul {
@@ -67,13 +67,16 @@ li {
   margin-left: 88px;
 }
 
+.button-font_menu {
+  font-weight: 600;
+  font-size: 20px;
+}
+
 @media (max-width: 960px) {
   .button-menu {
     display: none;
   }
 }
-
-
 
 @media (max-width: 960px) {
   .menu-container {
@@ -81,10 +84,13 @@ li {
     align-items: center;
   }
 
-
-
   .nav-menu ul li:hover {
-    background: linear-gradient(100deg, #30dbb8 0%, #37a58f 36.1%, #398778 100%);
+    background: linear-gradient(
+      100deg,
+      #30dbb8 0%,
+      #37a58f 36.1%,
+      #398778 100%
+    );
   }
 
   /* === Мобильное меню === */
@@ -96,7 +102,6 @@ li {
     background-color: rgba(255, 255, 255, 0.2);
     transition: top 0.3s ease;
     z-index: 999;
-
   }
 
   .nav-menu.active {
