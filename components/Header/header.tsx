@@ -79,7 +79,7 @@ export const Header = () => {
 
               {/* Кнопка "Заказать" */}
               <a href="/">
-                <Button sizeButton="button-menu" titleButton="Заказать" />
+                <Button styleButton="button-menu" fontButton="button-font_menu" nameButton="Заказать" />
               </a>
             </div>
           </div>
@@ -97,7 +97,7 @@ export const Header = () => {
             </h3>
             <div className="question-block">
               <a href="/">
-                <Button sizeButton="button-header" titleButton="Подробнее" />
+                <Button styleButton="button-header" fontButton="button-font_header" nameButton="Подробнее" />
               </a>
               <a href="/"><span className="question">Остались вопросы?</span></a>
             </div>
