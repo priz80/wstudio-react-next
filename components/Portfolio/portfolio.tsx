@@ -70,12 +70,12 @@ export const Portfolio = () => {
         <div className="arrow-container">
           <div className="arrow-circle" onClick={prevSlide}>
             <div className="arrow" id="left">
-              <img src="./img/portfolio_img/arrowleft.svg" alt="" />
+              <img src="./img/arrowleft.svg" alt="" />
             </div>
           </div>
           <div className="arrow-circle" onClick={nextSlide}>
             <div className="arrow">
-              <img src="./img/portfolio_img/arrowright.svg" alt="" />
+              <img src="./img/arrowright.svg" alt="" />
             </div>
           </div>
         </div>
