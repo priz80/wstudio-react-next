@@ -10,6 +10,7 @@ export const About = () => {
           <div className="about-title">
             <h4>Причины сотрудничать с нами</h4>
             <p>
+              <br />
               Пока конкуренты говорят о том, что они лучшие - мы это доказываем
               делом.
               <span className="hide-span_about">
@@ -17,11 +18,12 @@ export const About = () => {
                 <br />
                 Вы можете ознакомиться с информацией о нас и посмотреть наше
                 портфолио
+                <br /><br /><br />
               </span>
             </p>
 
             <div className="button-about_block">
-              <Button styleButton="button-about" fontButton="button-font_about" nameButton="Портфолио" />
+              <a href="#portfolio"><Button styleButton="button-about" fontButton="button-font_about" nameButton="Портфолио" /></a>
               <div className="button-about_shadow"></div>
             </div>
           </div>
