@@ -39,7 +39,7 @@ export const Portfolio = () => {
       <div className="aside-line"></div>
       <div className="content portfolio-content">
         <div className="title-portfolio_block">
-          <h4>Наше портфолио</h4>
+          <h2>Наше портфолио</h2>
           <p>
             <br />
             В данном портфолио вы сможете увидеть кейсы наших работ на 2025 -
