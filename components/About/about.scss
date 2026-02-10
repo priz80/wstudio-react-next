@@ -88,7 +88,6 @@
   justify-content: space-between;
 }
 
-
 .tile-subtitle {
   font-weight: 500;
   font-size: 17px;
@@ -96,13 +95,8 @@
   opacity: 0.9;
 }
 
-@media (max-width: 1330px) {
+@media (max-width: 1440px) {
   .about-tile_block {
-    flex-direction: column;
-  }
-
-  .about-title_block {
-    align-items: center;
     flex-direction: column;
   }
 
@@ -119,7 +113,7 @@
     align-items: center;
   }
 
-    .about-title {
+  .about-title {
     text-align: center;
     margin: 0 auto;
   }
@@ -129,14 +123,41 @@
   }
 }
 
-@media (max-width: 960px) {
-/*   .about-title_block {
-    flex-direction: column;
-  } */
-
+@media (max-width: 1440px) {
   .hide-span_about {
-    visibility: hidden;
+    display: none;
   }
+}
 
-
+@media (max-width: 1440px) {
+  .container-about {
+    min-height: 1062px;
+    padding-top: 0;
+    padding-bottom: 148px;
+}
+  .block-about {
+    border: 1.5px solid #208c76;
+    border-radius: 41px;
+    width: 100%;
+    height: 38px;
+    box-shadow: 0 0 38px 0 rgba(46, 236, 197, 0.1);
+    background: rgba(46, 236, 197, 0.04);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 19px;
+    margin-bottom: 18px;
+  }
+  .block-about_textup > p::after {
+    content: 'Работаем в сфере web-разработки более 3-х лет<';
+  }
+  .block-about_textdown > p::after {
+    content: 'В нашей команде находятся лучшие исполнители';
+  }
+ .about-title_block {
+    padding-top: 68px;
+    padding-bottom: 17px;
+      align-items: center;
+    flex-direction: column;
+}
 }
