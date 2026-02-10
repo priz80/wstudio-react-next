@@ -37,23 +37,24 @@ header {
   }
 }
 
-@media (max-width: 1619px) {
+@media (max-width: 1440px) {
   .man-container {
-    right: -88px;
-  }
-}
-@media (max-width: 1350px) {
-  .man-container {
-    right: -136px;
-  }
-}
-@media (max-width: 1280px) {
-  .man-container {
-    right: -174px;
+    right: -100px;
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1280px) {
+  .man-container {
+    right: -172px;
+  }
+}
+/* @media (max-width: 1280px) {
+  .man-container {
+    right: -174px;
+  }
+} */
+
+@media (max-width: 1124px) {
   .man-container {
     visibility: hidden;
   }
@@ -64,7 +65,7 @@ header {
     visibility: visible;
     width: 330px;
     height: 412px;
-    top: 229px;
+    top: 245px;
     right: -89;
     background-image: url('/img/header_img/man-small.svg');
   }
@@ -109,7 +110,7 @@ header {
   }
 }
 
-@media (max-width: 1619px) {
+@media (max-width: 1440px) {
   .circle {
     right: -198px;
   }
@@ -120,7 +121,7 @@ header {
     right: 58px;
   }
 }
-@media (max-width: 1350px) {
+@media (max-width: 1280px) {
   .circle {
     right: -246px;
   }
@@ -131,21 +132,32 @@ header {
     right: 58px;
   }
 }
-@media (max-width: 1280px) {
+
+@media (max-width: 1124px) {
   .circle {
-    right: -290px;
-  }
-  .circle-m {
-    right: 58px;
-  }
-  .circle-s {
-    right: 58px;
+    visibility: hidden;
   }
 }
 
-@media (max-width: 1079px) {
+@media (max-width: 768px) {
   .circle {
-    visibility: hidden;
+    visibility: visible;
+    width: 347px;
+    height: 347px;
+    top: 299px;
+    right: -146px;
+  }
+  .circle-m {
+    right: 28px;
+    top: 28px;
+    width: 289px;
+    height: 289px;
+  }
+  .circle-s {
+    right: 28px;
+    top: 28px;
+    width: 231px;
+    height: 231px;
   }
 }
 
@@ -171,6 +183,7 @@ header {
 
 .header-manifesto {
   max-width: 522px;
+  /* height: 84px; */
   padding-top: 26px;
   padding-bottom: 48px;
 }
@@ -188,7 +201,7 @@ header {
   }
 
   .header-manifesto {
-    padding-top: 8px;
+    padding-top: 0;
     padding-bottom: 21px;
   }
 
@@ -202,12 +215,12 @@ header {
   }
 
   header {
-    max-height: 640px;
+    max-height: 656px;
   }
 
-  .line-header {
-    top: 641px;
-  }
+/*   .line-header {
+    top: 657px;
+  } */
 }
 
 .question-block {
@@ -258,6 +271,6 @@ header {
 
 @media (max-width: 768px) {
   .line-header {
-    top: 640px;
+    top: 657px;
   }
 }
