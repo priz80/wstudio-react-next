@@ -14,7 +14,8 @@ export const Header = () => {
           alt="lamp"
         />
         <div className="aside-line"></div>
-        <img src="img/header_img/man.png" className="man-container" alt="man" />
+        <div className="man-container"></div>
+        {/* <img src="img/header_img/man.png" className="man-container" alt="man" /> */}
         <div className="circle">
           <div className="circle circle-m">
             <div className="circle circle-s"></div>
@@ -87,14 +88,8 @@ export const Header = () => {
           {/* Основной заголовок */}
           <div className="title-block">
             <h1>Разработка сайтов</h1>
-            <p>Для твоего бизнеса</p>
-            <p>
-              Мы - студия web-разработки, работаем уже более 3-х
-              <br />
-              лет, готовы разработать для вас сайт в кротчайшие
-              <br />
-              сроки.
-            </p>
+            <span className="header-subtitle">Для твоего бизнеса</span>
+            <div className="header-manifesto"><p></p></div>
             <div className="question-block">
               <a href="#about">
                 <Button styleButton="button-header" fontButton="button-font_header" nameButton="Подробнее" />
