@@ -6,6 +6,8 @@ export const About = () => {
     <div className="container container-about" id="about">
       <div className="aside-line"></div>
       <div className="content">
+        <div className="block-about block-about_textup"><p></p></div>
+        <div className="block-about block-about_textdown"><p></p></div>
         <div className="about-title_block">
           <div className="about-title">
             <h2>Причины сотрудничать с нами</h2>
