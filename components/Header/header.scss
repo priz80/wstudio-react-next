@@ -1,5 +1,5 @@
 header {
-  min-height: 1060px;
+  max-height: 1060px;
   background-image: url(/img/header_img/maska.png);
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -22,8 +22,13 @@ header {
 
 .man-container {
   position: absolute;
+  width: 663px;
+  height: 844px;
   right: 140px;
   top: 211px;
+  background-image: url("/img/header_img/man.png");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 @media (max-width: 1919px) {
@@ -48,9 +53,20 @@ header {
   }
 }
 
-@media (max-width: 1079px) {
+@media (max-width: 992px) {
   .man-container {
     visibility: hidden;
+  }
+}
+
+@media (max-width: 768px) {
+  .man-container {
+    visibility: visible;
+    width: 330px;
+    height: 412px;
+    top: 229px;
+    right: -89;
+    background-image: url('/img/header_img/man-small.svg');
   }
 }
 
@@ -82,9 +98,6 @@ header {
 }
 
 @media (max-width: 1919px) {
-  /*   .man-container {
-    right: 0;
-  } */
   .circle {
     right: -110px;
   }
@@ -97,9 +110,6 @@ header {
 }
 
 @media (max-width: 1619px) {
-  /*  .man-container {
-    right: -88px;
-  } */
   .circle {
     right: -198px;
   }
@@ -111,9 +121,6 @@ header {
   }
 }
 @media (max-width: 1350px) {
-  /* .man-container {
-    right: -136px;
-  } */
   .circle {
     right: -246px;
   }
@@ -125,9 +132,6 @@ header {
   }
 }
 @media (max-width: 1280px) {
-  /*   .man-container {
-    right: -1px;
-  } */
   .circle {
     right: -290px;
   }
@@ -140,11 +144,69 @@ header {
 }
 
 @media (max-width: 1079px) {
-  .man-container {
-    visibility: hidden;
-  }
   .circle {
     visibility: hidden;
+  }
+}
+
+  .title-block {
+    max-width: 805px;
+  }
+
+  @media (max-width: 576px) {
+  .title-block {
+    max-width: 220px;
+  }
+  }
+
+.header-subtitle {
+  font-weight: 800;
+  font-size: 45px;
+  background: linear-gradient(149deg, #b5feef 0%, #2eecc5 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: uppercase;
+}
+
+.header-manifesto {
+  max-width: 522px;
+  padding-top: 26px;
+  padding-bottom: 48px;
+}
+
+.header-manifesto > p:before {
+  content: "Мы - студия web-разработки, работаем уже более 3-х лет, готовы разработать для вас сайт в кротчайшие сроки.";
+  font-weight: 500;
+  font-size: 22px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 768px) {
+  .header-subtitle {
+    display: none;
+  }
+
+  .header-manifesto {
+    padding-top: 8px;
+    padding-bottom: 21px;
+  }
+
+  .header-manifesto > p:before {
+    content: "Мы web-студия которая работает уже больше 3-х лет";
+    font-size: 13px;
+  }
+
+  .question {
+    display: none;
+  }
+
+  header {
+    max-height: 640px;
+  }
+
+  .line-header {
+    top: 641px;
   }
 }
 
@@ -192,4 +254,10 @@ header {
     #2abc9e 48.65%,
     rgba(42, 188, 158, 0) 100%
   );
+}
+
+@media (max-width: 768px) {
+  .line-header {
+    top: 640px;
+  }
 }
