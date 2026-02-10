@@ -6,16 +6,19 @@
 
 .slider-tarif_container {
   padding-top: 41px;
-  width: 1020px;
+  width: 100%;
+  max-width: 1016px;
+  overflow: hidden;
   display: flex;
   justify-content: center;
-  overflow: hidden;
 }
 
 .slider-tarif {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
+  /* display: flex; */
+  /* gap: 32px; */
+  position: relative;
+  width: max-content; // важно!
+  left: 745px;
 }
 
 .slide-tarif {
@@ -25,10 +28,28 @@
   height: 570px;
   background: linear-gradient(155deg, #313134 0%, #292929 51.31%, #282828 100%);
   color: #fff;
+  opacity: 0.65;
+  transform: scale(0.72);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+
+  &.visible {
+    opacity: 0.7;
+  }
+
+  &.center {
+    opacity: 1;
+    transform: scale(1);
+    border: 1px solid #2eecc5;
+    box-shadow: 0 0 30px rgba(46, 236, 197, 0.25);
+    z-index: 2;
+  }
 }
 
 .slide-text_block {
-  padding: 0 24px 0 23px;
+  padding: 44px 24px 23px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -39,6 +60,7 @@
 .slide-button_block {
   display: flex;
   justify-content: space-between;
+  margin-top: auto;
 }
 
 .slide-price {
@@ -62,52 +84,56 @@
 }
 
 .arrow-tarif_container {
-  position: absolute;
   display: flex;
   justify-content: space-between;
-  left: 96px;
-  top: 490px;
-  gap: 960px;
+  width: 100%;
+  max-width: 1020px;
+  margin-top: 30px;
 }
 
 .arrow-tarif_circle {
   border: 1.5px solid #153630;
   border-radius: 49px;
-  min-width: 70px;
-  min-height: 70px;
+  width: 70px;
+  height: 70px;
   box-shadow: 0 0 106px 0 rgba(46, 236, 197, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: transform 0s ease;
+
+  &:hover {
+    transform: scale(1);
+  }
 }
 
 .arrow-tarif {
   border: 1.5px solid rgba(46, 236, 197, 0.5);
   border-radius: 49px;
-  min-width: 60px;
-  min-height: 60px;
+  width: 60px;
+  height: 60px;
   box-shadow: 0 0 106px 0 rgba(46, 236, 197, 0.1);
   background: linear-gradient(166deg, #19201f 0%, #323939 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: var(--cursor);
+  cursor: pointer;
 }
 
 .slide-price_title {
   font-weight: 700;
   font-size: 32px;
   line-height: 125%;
-  padding-bottom: 29px;
   color: #fff;
   margin-top: 43px;
+  margin-bottom: 29px;
 }
 
 .slide-price_subtitle {
   font-weight: 500;
   font-size: 17px;
   line-height: 154%;
-  text-align: center;
   color: rgba(255, 255, 255, 0.75);
 }
 
@@ -121,15 +147,4 @@
 .font-button_tarif {
   font-weight: 600;
   font-size: 17px;
-}
-
-
-
-@media (max-width: 1280px) {
-  .arrow-tarif_container {
-    gap: 114px;
-    position: relative;
-    top: 50px;
-    left: 0px;
-}
 }
