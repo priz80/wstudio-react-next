@@ -62,21 +62,28 @@ p {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   h1 {
     font-size: 27px;
   }
 
   h2 {
-    display: none;
-  }
-  h3 {
-    font-size: 13px;
-  }
-  h4 {
     font-size: 30px;
   }
+  
+  h3 {
+    font-size: 22px;
+  }
+
+  h4 {
+    font-size: 25px;
+  }
+
   h5 {
     font-size: 37px;
+  }
+
+  p {
+    font-size: 11px;
   }
 }
