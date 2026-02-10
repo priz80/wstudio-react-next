@@ -46,8 +46,6 @@ header {
   .man-container {
     right: -174px;
   }
-
-  
 }
 
 @media (max-width: 1079px) {
@@ -164,6 +162,17 @@ header {
 .button-font_header {
   font-weight: 600;
   font-size: 19px;
+}
+
+@media (max-width: 768px) {
+  .button-header {
+    width: 129px;
+    height: 38px;
+  }
+
+  .button-font_header {
+    font-size: 11px;
+  }
 }
 
 .question {
