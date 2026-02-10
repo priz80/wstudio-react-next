@@ -7,7 +7,7 @@ export const Tarif = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const totalSlides = 7;
+  const totalSlides = 9;
   const visibleSlides = 3; // количество видимых слайдов
 
   // --- Динамическая ширина слайда (включая gap) ---
@@ -56,6 +56,18 @@ export const Tarif = () => {
       price: 'от 35.000Р',
       time: 'От 7 дней',
       desc: 'Профессиональный сайт для компаний среднего бизнеса с портфолио, услугами и формой обратной связи.',
+    },
+    {
+      title: 'Сайт "Каталог"',
+      price: 'от 60.000Р',
+      time: 'От 15 дней',
+      desc: 'Сайт-каталог – это полноценный веб-ресурс, в котором потребители могут ознакомиться с товарами или услугами компании.',
+    },
+    {
+      title: 'Сайт "Визитка"',
+      price: 'от 30.000Р',
+      time: 'От 5 дней',
+      desc: 'Сайт-визитка — компактный веб-ресурс для старта бизнеса в интернете. Содержит информацию о компании и контакты.',
     },
   ];
 
@@ -106,7 +118,7 @@ export const Tarif = () => {
           className="slider-tarif"
           style={{
             display: "flex",
-            transition: "transform 0.7s ease", // плавная анимация
+            transition: "transform 0.s ease", // плавная анимация
           }}
         >
           {slides.map((slide, index) => {
