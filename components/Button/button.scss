@@ -5,3 +5,11 @@
   box-shadow: 0 0 62px 0 rgba(46, 236, 197, 0.15);
   color: #fff;
 }
+
+@media (max-width: 768px) {
+  .button {
+    border-radius: 41px;
+    box-shadow: 0 0 38px 0 rgba(46, 236, 197, 0.15);
+    background: rgba(46, 236, 197, 0.1);
+  }
+}
