@@ -107,7 +107,7 @@ export const Tarif = () => {
       <div className="aside-line"></div>
       <div className="content tarif-contant">
         <div className="title-tarif">
-          <h4>Тарифы</h4>
+          <h2>Тарифы</h2>
         </div>
       </div>
 
@@ -132,7 +132,7 @@ export const Tarif = () => {
               >
                 <div className="slide-text_block">
                   <div>
-                    <p className="slide-price_title">{slide.title}</p>
+                    <h4 className="slide-price_title">{slide.title}</h4>
                     <p className="slide-price_subtitle">{slide.desc}</p>
                   </div>
                   <div className="slide-button_block">
