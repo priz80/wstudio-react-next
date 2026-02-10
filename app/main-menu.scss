@@ -5,6 +5,13 @@
   padding-bottom: 215px;
 }
 
+@media (max-width: 768px) {
+  .menu-container {
+    padding-top: 56px;
+    padding-bottom: 140px;
+}
+}
+
 .logo {
   display: flex;
   flex-direction: column;
