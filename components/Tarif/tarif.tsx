@@ -86,7 +86,7 @@ export const Tarif = () => {
             className="slider-tarif"
             style={{
               display: "flex",
-              transition: "transform 0.5s ease",
+              transition: "transform 0s ease",
               width: `${totalSlides * slideWidth}px`,
             }}
           >
