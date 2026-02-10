@@ -87,14 +87,14 @@ export const Header = () => {
           {/* Основной заголовок */}
           <div className="title-block">
             <h1>Разработка сайтов</h1>
-            <h2>Для твоего бизнеса</h2>
-            <h3>
+            <p>Для твоего бизнеса</p>
+            <p>
               Мы - студия web-разработки, работаем уже более 3-х
               <br />
               лет, готовы разработать для вас сайт в кротчайшие
               <br />
               сроки.
-            </h3>
+            </p>
             <div className="question-block">
               <a href="#about">
                 <Button styleButton="button-header" fontButton="button-font_header" nameButton="Подробнее" />
