@@ -8,7 +8,7 @@ export const About = () => {
       <div className="content">
         <div className="about-title_block">
           <div className="about-title">
-            <h4>Причины сотрудничать с нами</h4>
+            <h2>Причины сотрудничать с нами</h2>
             <p>
               <br />
               Пока конкуренты говорят о том, что они лучшие - мы это доказываем
@@ -36,13 +36,13 @@ export const About = () => {
           </div>
           <div className="about-tile about-tile_money">
             <div className="tile-text_block">
-              <p className="tile-title">
+              <h3>
                 Приемлемые
                 <br />
                 цены
                 <br />
                 <br />
-              </p>
+              </h3>
               <p className="tile-subtitle">
                 Мы максимально оптимизируем наш труд, для того, чтобы цены были
                 доступными
@@ -85,13 +85,13 @@ export const About = () => {
         <div className="about-tile_block">
           <div className="about-tile about-tile_support">
             <div className="tile-text_block">
-              <p className="tile-title">
+              <h3>
                 В сроки сдаем
                 <br />
                 работу!
                 <br />
                 <br />
-              </p>
+              </h3>
               <p className="tile-subtitle">
                 Расписываем каждый этап по срокам, и придерживаемся дедлайнов
               </p>
@@ -141,13 +141,13 @@ export const About = () => {
           </div>
           <div className="about-tile about-tile_support">
             <div className="tile-text_block">
-              <p className="tile-title">
+              <h3>
                 Команда
                 <br />
                 специалистов
                 <br />
                 <br />
-              </p>
+              </h3>
               <p className="tile-subtitle">
                 В нашей команде множество специалистов, и каждый из них хорошо
                 знает свое дело
@@ -188,13 +188,13 @@ export const About = () => {
           </div>
           <div className="about-tile about-tile_support">
             <div className="tile-text_block">
-              <p className="tile-title">
+              <h3>
                 Консультация
                 <br />
                 перед заказом
                 <br />
                 <br />
-              </p>
+              </h3>
               <p className="tile-subtitle">
                 Наши менеджеры в сети 24/7, и готовы помочь вам, а так же
                 ответить на ваши вопросы
