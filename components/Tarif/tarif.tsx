@@ -7,11 +7,14 @@ export const Tarif = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
-  const totalSlides = 7;
-  const slideWidth = 372; // ширина слайда + gap (учтён в CSS)
-  const visibleSlides = 3; // сколько видно одновременно
+  const totalSlides = 9;
+  const visibleSlides = 3; // количество видимых слайдов
+
+  // --- Динамическая ширина слайда (включая gap) ---
+  const [slideWidth, setSlideWidth] = useState(372);
 
   const slides = [
+    
     {
       title: 'Сайт "Каталог"',
       price: 'от 60.000Р',
@@ -54,6 +57,18 @@ export const Tarif = () => {
       time: 'От 7 дней',
       desc: 'Профессиональный сайт для компаний среднего бизнеса с портфолио, услугами и формой обратной связи.',
     },
+    {
+      title: 'Сайт "Каталог"',
+      price: 'от 60.000Р',
+      time: 'От 15 дней',
+      desc: 'Сайт-каталог – это полноценный веб-ресурс, в котором потребители могут ознакомиться с товарами или услугами компании.',
+    },
+    {
+      title: 'Сайт "Визитка"',
+      price: 'от 30.000Р',
+      time: 'От 5 дней',
+      desc: 'Сайт-визитка — компактный веб-ресурс для старта бизнеса в интернете. Содержит информацию о компании и контакты.',
+    },
   ];
 
   const nextSlide = () => {
@@ -65,9 +80,24 @@ export const Tarif = () => {
     setCurrentIndex((prev) => (prev - 1 + maxIndex + 1) % (maxIndex + 1));
   };
 
+  // --- Определение ширины слайда в зависимости от размера экрана ---
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 1280) {
+        setSlideWidth(303); // 274 (ширина) + 27 (gap)
+      } else {
+        setSlideWidth(373); // 370 + 2 (gap, как было)
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // --- Применение сдвига слайдера ---
   useEffect(() => {
     if (sliderRef.current) {
-      // Сдвигаем так, чтобы currentIndex был первым из трёх видимых
       sliderRef.current.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
     }
   }, [currentIndex, slideWidth]);
@@ -79,56 +109,62 @@ export const Tarif = () => {
         <div className="title-tarif">
           <h4>Тарифы</h4>
         </div>
+      </div>
 
-        {/* Контейнер слайдера */}
-        <div className="slider-tarif_container">
-          <div
-            ref={sliderRef}
-            className="slider-tarif"
-            style={{
-              display: "flex",
-              transition: "transform 0s ease",
-            }}
-          >
-            {slides.map((slide, index) => {
-              const isCenter = index === currentIndex + 1; // второй из трёх — центр
-              const isVisible = index >= currentIndex && index < currentIndex + visibleSlides;
+      {/* Контейнер слайдера */}
+      <div className="slider-tarif_container">
+        <div
+          ref={sliderRef}
+          className="slider-tarif"
+          style={{
+            display: "flex",
+            transition: "transform 0s ease", // плавная анимация
+          }}
+        >
+          {slides.map((slide, index) => {
+            const isCenter = index === currentIndex + 1;
+            const isVisible = index >= currentIndex && index < currentIndex + visibleSlides;
 
-              return (
-                <div
-                  className={`slide-tarif ${isVisible ? 'visible' : ''} ${isCenter ? 'center' : ''}`}
-                  key={index}
-                >
-                  <div className="slide-text_block">
-                    <div>
-                      <p className="slide-price_title">{slide.title}</p>
-                      <p className="slide-price_subtitle">{slide.desc}</p>
+            return (
+              <div
+                className={`slide-tarif ${isVisible ? "visible" : ""} ${isCenter ? "center" : ""}`}
+                key={index}
+              >
+                <div className="slide-text_block">
+                  <div>
+                    <p className="slide-price_title">{slide.title}</p>
+                    <p className="slide-price_subtitle">{slide.desc}</p>
+                  </div>
+                  <div className="slide-button_block">
+                    <div className="slide-price">
+                      <p className="price">{slide.price}</p>
+                      <p className="time">{slide.time}</p>
                     </div>
-                    <div className="slide-button_block">
-                      <div className="slide-price">
-                        <p className="price">{slide.price}</p>
-                        <p className="time">{slide.time}</p>
-                      </div>
-                      <a href="/"><Button styleButton="button-tarif" fontButton="font-button_tarif" nameButton="Подробнее"/></a>
-                    </div>
+                    <a href="/">
+                      <Button
+                        styleButton="button-tarif"
+                        fontButton="font-button_tarif"
+                        nameButton="Подробнее"
+                      />
+                    </a>
                   </div>
                 </div>
-              );
-            })}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Стрелки */}
+      <div className="arrow-tarif_container">
+        <div className="arrow-tarif_circle" onClick={prevSlide}>
+          <div className="arrow-tarif" id="left">
+            <img src="./img/arrowleft.svg" alt="Previous" />
           </div>
         </div>
-
-        {/* Стрелки */}
-        <div className="arrow-tarif_container">
-          <div className="arrow-tarif_circle" onClick={prevSlide}>
-            <div className="arrow-tarif" id="left">
-              <img src="./img/arrowleft.svg" alt="Previous" />
-            </div>
-          </div>
-          <div className="arrow-tarif_circle" onClick={nextSlide}>
-            <div className="arrow-tarif" id="right">
-              <img src="./img/arrowright.svg" alt="Next" />
-            </div>
+        <div className="arrow-tarif_circle" onClick={nextSlide}>
+          <div className="arrow-tarif" id="right">
+            <img src="./img/arrowright.svg" alt="Next" />
           </div>
         </div>
       </div>
