@@ -61,3 +61,28 @@ p {
   font-size: 17px;
   color: rgba(255, 255, 255, 0.65);
 }
+
+@media (max-width: 768px) {
+ h6 {
+  display: none;
+ }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 27px;
+  }
+
+  h2 {
+    display: none;
+  }
+  h3 {
+    font-size: 13px;
+  }
+  h4 {
+    font-size: 30px;
+  }
+  h5 {
+    font-size: 37px;
+  }
+}
