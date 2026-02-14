@@ -4,7 +4,7 @@
 
 .slider-portfolio_container {
   overflow: hidden;
-  max-width: 567px;
+  max-width: 573px;
 }
 
 .arrow-container {
@@ -19,7 +19,8 @@
 
 .slider {
   display: flex;
-  gap: 104px;
+  width: 6611px;
+  justify-content: space-between;
 }
 
 .slide {
