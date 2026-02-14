@@ -3,14 +3,13 @@
 }
 
 .portfolio-content {
-  /* position: relative; */
   display: flex;
-  gap: 171px;
+  justify-content: space-between;
 }
 
 .title-portfolio_block {
   padding-top: 143px;
-  min-width: 526px;
+  max-width: 526px;
 }
 
 .button-portfolio {
@@ -37,13 +36,13 @@
   }
 
   .title-portfolio_block {
-  padding-top: 143px;
-  text-align: center;
-}
+    padding-top: 143px;
+    text-align: center;
+  }
 
-.button-portfolio {
-  display: none;
-}
+  .button-portfolio {
+    display: none;
+  }
 
   .arrow-container {
     z-index: 1;
@@ -53,5 +52,5 @@
     position: absolute;
     top: 290px;
     right: 16px;
-}
+  }
 }
