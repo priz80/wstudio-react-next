@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // важно для статической сборки
-  // basePath: '/wstudio-react-next',
-  // assetPrefix: '/wstudio-react-next/', // Временно отключён для локальной разработки, можно включить при сборке
+  output: 'export',
+  // Можно добавить basePath, если репозиторий не корневой
+  // basePath: '/your-repo-name',
+  // trailingSlash: true, // опционально — чтобы пути были с / в конце
 };
 
 module.exports = nextConfig;
-
