@@ -87,15 +87,15 @@
   transition: all 0.3s ease;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1480px) {
   .slider-block {
     padding-top: 0;
-    padding-left: 18px;
+    padding-left: 26px;
   }
 
   .arrow-container {
     position: relative;
-    width: 261px;
+    width: 175px;
     right: 0px;
     top: 0px;
     padding-top: 60px;
@@ -104,7 +104,7 @@
 
   .slider-portfolio_container {
     position: relative;
-    max-width: 360px;
+    width: 360px;
   }
 
   .slider {
