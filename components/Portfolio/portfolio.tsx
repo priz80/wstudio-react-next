@@ -1,6 +1,6 @@
 import Button from "@/Button/button";
-import "@/Portfolio/portfolio.scss";
-import "@/Portfolio/slider-portfolio.scss";
+import style from "@/Portfolio/portfolio.module.scss";
+import sliderStyle from "@/Portfolio/slider-portfolio.module.scss";
 import { useEffect, useRef } from 'react';
 
 export const Portfolio = () => {
@@ -123,10 +123,10 @@ export const Portfolio = () => {
   }, []);
 
   return (
-    <div className="container container-portfolio" id="portfolio">
-      <div className="aside-line"></div>
-      <div className="content portfolio-content">
-        <div className="title-portfolio_block">
+    <div className={`'container' ${style['container-portfolio']}`} id="portfolio">
+      <div className={style['aside-line']}></div>
+      <div className={`'content' ${style['portfolio-content']}`}>
+        <div className={style['title-portfolio_block']}>
           <h2>Наше портфолио</h2>
           <p>
             <br />
@@ -138,36 +138,36 @@ export const Portfolio = () => {
           </p>
           <a href="/">
             <Button
-              styleButton="button-portfolio"
-              fontButton="button-font_portfolio"
+              styleButton={style['button-portfolio']}
+              fontButton={style['button-font_portfolio']}
               nameButton="Компьютерные версии"
             />
           </a>
         </div>
-        <div className="slider-block">
-          <div className="slider-portfolio_container">
-            <div ref={sliderRef} className="slider">
-              <div className="slide slide7"></div>
-              <div className="slide slide1"></div>
-              <div className="slide slide2"></div>
-              <div className="slide slide3"></div>
-              <div className="slide slide4"></div>
-              <div className="slide slide5"></div>
-              <div className="slide slide6"></div>
-              <div className="slide slide7"></div>
-              <div className="slide slide1"></div>
-              <div className="slide slide2"></div>
+        <div className={sliderStyle['slider-block']}>
+          <div className={sliderStyle['slider-portfolio_container']}>
+            <div ref={sliderRef} className={sliderStyle.slider}>
+              <div className={`${sliderStyle.slide} ${sliderStyle.slide7}`}></div>
+              <div className={`${sliderStyle.slide} ${sliderStyle.slide1}`}></div>
+              <div className={`${sliderStyle.slide} ${sliderStyle.slide2}`}></div>
+              <div className={`${sliderStyle.slide} ${sliderStyle.slide3}`}></div>
+              <div className={`${sliderStyle.slide} ${sliderStyle.slide4}`}></div>
+              <div className={`${sliderStyle.slide} ${sliderStyle.slide5}`}></div>
+              <div className={`${sliderStyle.slide} ${sliderStyle.slide6}`}></div>
+              <div className={`${sliderStyle.slide} ${sliderStyle.slide7}`}></div>
+              <div className={`${sliderStyle.slide} ${sliderStyle.slide1}`}></div>
+              <div className={`${sliderStyle.slide} ${sliderStyle.slide2}`}></div>
             </div>
           </div>
         </div>
-        <div className="arrow-container">
-          <button ref={btnLeftRef} className="arrow-circle" id="left" aria-label="Previous slide">
-            <div className="arrow">
+        <div className={sliderStyle['arrow-container']}>
+          <button ref={btnLeftRef} className={sliderStyle['arrow-circle']} id="left" aria-label="Previous slide">
+            <div className={sliderStyle.arrow}>
               <img src="./img/arrowleft.svg" alt="Previous" />
             </div>
           </button>
-          <button ref={btnRightRef} className="arrow-circle" id="right" aria-label="Next slide">
-            <div className="arrow">
+          <button ref={btnRightRef} className={sliderStyle['arrow-circle']} id="right" aria-label="Next slide">
+            <div className={sliderStyle.arrow}>
               <img src="./img/arrowright.svg" alt="Next" />
             </div>
           </button>
