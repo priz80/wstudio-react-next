@@ -23,10 +23,13 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
+.min-h-screen, .bg-black, .text-white, .relative, .font-family {
+  min-height: 100%;
   background: #161617;
   box-sizing: border-box;
   font-family: var(--font-family);
+  color: #fff;
+  position: relative;
 }
 
 a {
