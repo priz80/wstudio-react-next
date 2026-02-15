@@ -14,25 +14,24 @@ export const Portfolio = () => {
     transitionTime: 0.7, // секунды
   };
 
-  let slideWidth, gap, step: number, trackLength: number, offset: number;
+  let slideWidth: number, step: number, trackLength: number, offset: number;
   let isAnimating = false;
 
   // Настройки под размер экрана
   const getBreakpointConfig = () => {
     const innerWidth = window.innerWidth;
-    return innerWidth >= 992
-      ? { slideWidth: 567, gap: 104 }
-      : { slideWidth: 258, gap: 37 };
+    return innerWidth >= 1480
+      ? { slideWidth: 671}
+      : { slideWidth: 295};
   };
 
   // Обновление параметров слайдера
   const updateConfig = () => {
-    const { slideWidth: width, gap: gapSize } = getBreakpointConfig();
+    const { slideWidth: width } = getBreakpointConfig();
     slideWidth = width;
-    gap = gapSize;
-    step = slideWidth + gap;
-    trackLength = config.totalUniqueSlides * step;
-    offset = -step; // начальное смещение
+  
+    trackLength = config.totalUniqueSlides * slideWidth;
+    offset = -slideWidth; // начальное смещение
 
     // Применяем без анимации
     if (sliderRef.current) {
@@ -47,7 +46,7 @@ export const Portfolio = () => {
     isAnimating = true;
 
     // direction: +1 ←, -1 →
-    offset -= direction * step;
+    offset -= direction * slideWidth;
 
     // Анимация
     sliderRef.current.style.transition = `${config.transitionTime}s`;
@@ -58,8 +57,6 @@ export const Portfolio = () => {
 
     // Бесконечная прокрутка — коррекция после анимации
     const handleInfiniteScroll = () => {
-        console.log('offset:', offset, 'trackLength:', trackLength, 'step * 3.5:', step * 3.5)
-
 
       if (offset <= -trackLength) {
         // Сброс влево (после последнего уникального слайда)
