@@ -1,0 +1,94 @@
+.title-contacty {
+  max-width: 497px;
+  margin: 0 auto;
+  padding-top: 70px;
+  /* padding-bottom: 38px; */
+}
+
+.ball-block_contacty {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 814px;
+  height: 167px;
+  margin: 0 auto;
+}
+
+.ball-circle {
+  width: 110px;
+  height: 110px;
+  border-radius: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ball {
+  width: 90px;
+  height: 90px;
+  background: #fff;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ball-circle:hover {
+  width: 165px;
+  height: 165px;
+  border: 1px solid rgba(46, 236, 197, 0.1);
+  .ball {
+    width: 140px;
+    height: 140px;
+    background-image: radial-gradient(
+      77.86% 77.86% at 49.29% 50.71%,
+      rgb(46, 236, 197) 0%,
+      rgb(0, 100, 79) 100%
+    );
+  }
+}
+
+
+.ball-icon {
+  border-radius: 100%;
+}
+
+@media (max-width: 768px) {
+  .ball-block_contacty {
+    max-height: 86px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(
+      110deg,
+      #313134 0%,
+      #222224 42.27%,
+      #292929 100%
+    );
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .ball-circle {
+    width: 55px;
+    height: 55px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+  }
+
+  .ball {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(181deg, #fff 2.5%, rgba(255,255,255,0) 100%);
+  }
+
+  .ball-circle:hover {
+  width: 65px;
+  height: 65px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  .ball {
+    width: 55px;
+    height: 55px;
+    background-image: radial-gradient(74.19% 74.19% at 50% 50%, rgb(46, 236, 197) 2.5%, rgb(0, 148, 117) 100%);
+  }
+}
+}
