@@ -1,7 +1,7 @@
-import "./tarif.scss";
-import "./slider-tarif.scss";
+import "@/Tarif/tarif.scss";
+import "@/Tarif/slider-tarif.scss";
 import { useState, useRef, useEffect } from "react";
-import Button from "../Button/button";
+import Button from "@/Button/button";
 
 export const Tarif = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
