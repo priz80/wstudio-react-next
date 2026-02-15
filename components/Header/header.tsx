@@ -1,76 +1,78 @@
 import { useState } from "react";
-import Button from "../Button/button";
-import "./header.scss";
+import Button from "@/Button/button";
+import headerStyles from "@/Header/headers.module.scss";
+import menuStyles from "@/Header/main-menu.module.scss";
+import burgerStyles from "@/Header/burger.module.scss";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <header className="header">
+    <header className={headerStyles.header}>
       
-      <div className="container container-header"  id="header">
+      <div className={`container ${headerStyles['container-header']}`}  id="header">
         <img
           src="img/header_img/lamp.svg"
-          className="lamp-container"
+          className={headerStyles['lamp-container']}
           alt="lamp"
         />
         <div className="aside-line"></div>
-        <div className="man-container"></div>
+        <div className={headerStyles['man-container']}></div>
         {/* <img src="img/header_img/man.png" className="man-container" alt="man" /> */}
-        <div className="circle">
-          <div className="circle circle-m">
-            <div className="circle circle-s"></div>
+        <div className={headerStyles.circle}>
+          <div className={`${headerStyles.circle} ${headerStyles['circle-m']}`}>
+            <div className={`${headerStyles.circle} ${headerStyles['circle-s']}`}></div>
           </div>
         </div>
 
         <div className="content">
-          <div className="menu-container">
-            <div className="logo">
-              <p className="logo-studio">Studio</p>
-              <p className="logo-web">Web</p>
+          <div className={menuStyles['menu-container']}>
+            <div className={menuStyles.logo}>
+              <p className={menuStyles['logo-studio']}>Studio</p>
+              <p className={menuStyles['logo-web']}>Web</p>
             </div>
             <img
               src="/img/header_img/logo.svg"
-              className="logo-mobile"
+              className={menuStyles['logo-mobile']}
               alt="logo"
             />
-            <div className="menu">
+            <div className={menuStyles.menu}>
               {/* Бургер-иконка */}
               <div
-                className={`burger ${isMenuOpen ? "active" : ""}`}
+                className={`${burgerStyles.burger} ${isMenuOpen ? burgerStyles.active : ""}`}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
               >
-                <span className="span"></span>
-                <span className="span span-m"></span>
-                <span className="span span"></span>
+                <span className={burgerStyles.span}></span>
+                <span className={`${burgerStyles.span} ${burgerStyles['span-m']}`}></span>
+                <span className={burgerStyles.span}></span>
               </div>
 
               {/* Основное меню (бургер-версия + десктоп) */}
               <nav
                 onClick={() => setIsMenuOpen(false)}
-                className={`nav-menu ${isMenuOpen ? "active" : ""}`}
+                className={`${menuStyles['nav-menu']} ${isMenuOpen ? menuStyles.active : ""}`}
               >
-                <ul>
+                <ul className={menuStyles.menuUl}>
                   <li>
-                    <a href="/" onClick={() => setIsMenuOpen(false)}>
+                    <a className={menuStyles.menuLink} href="/" onClick={() => setIsMenuOpen(false)}>
                       Главная
                     </a>
                   </li>
                   <li>
-                    <a href="#about" onClick={() => setIsMenuOpen(false)}>
+                    <a className={menuStyles.menuLink} href="#about" onClick={() => setIsMenuOpen(false)}>
                       Почему именно мы?
                     </a>
                   </li>
-                  <li className="mobile-only">
-                    <a href="#portfolio" onClick={() => setIsMenuOpen(false)}>
+                  <li className={menuStyles['mobile-only']}>
+                    <a className={menuStyles.menuLink} href="#portfolio" onClick={() => setIsMenuOpen(false)}>
                       Портфолио
                     </a>
                   </li>
                   <li>
-                    <a href="#contacty" onClick={() => setIsMenuOpen(false)}>
+                    <a className={menuStyles.menuLink} href="#contacty" onClick={() => setIsMenuOpen(false)}>
                       Контакты
                     </a>
                   </li>
-                  <li className="mobile-only">
+                  <li className={menuStyles['mobile-only']}>
                     <a href="#forma" onClick={() => setIsMenuOpen(false)}>
                       Оставить заявку
                     </a>
@@ -80,27 +82,27 @@ export const Header = () => {
 
               {/* Кнопка "Заказать" */}
               <a href="#forma">
-                <Button styleButton="button-menu" fontButton="button-font_menu" nameButton="Заказать" />
+                <Button styleButton={menuStyles['button-menu']} fontButton={menuStyles['button-font_menu']} nameButton="Заказать" />
               </a>
             </div>
           </div>
 
           {/* Основной заголовок */}
-          <div className="title-block">
+          <div className={headerStyles['title-block']}>
             <h1>Разработка сайтов</h1>
-            <span className="header-subtitle">Для твоего бизнеса</span>
-            <div className="header-manifesto"><p></p></div>
-            <div className="question-block">
+            <span className={headerStyles['header-subtitle']}>Для твоего бизнеса</span>
+            <div className={headerStyles['header-manifesto']}><p></p></div>
+            <div className={headerStyles['question-block']}>
               <a href="#about">
-                <Button styleButton="button-header" fontButton="button-font_header" nameButton="Подробнее" />
+                <Button styleButton={headerStyles['button-header']} fontButton={headerStyles['buttonFontHeader']} nameButton="Подробнее" />
               </a>
-              <a href="/"><span className="question">Остались вопросы?</span></a>
+              <a href="/"><span className={headerStyles.question}>Остались вопросы?</span></a>
             </div>
           </div>
         </div>
         
       </div>
-      <div className="line-header"></div>
+      <div className={headerStyles['line-header']}></div>
     </header>
   );
 }
