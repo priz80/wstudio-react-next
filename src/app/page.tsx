@@ -9,11 +9,6 @@ import { Contacty } from "../components/Contacty/contacty";
 import { Footer } from "../components/Footer/footer";
 
 
-import "./fonts.scss";
-/* import "./main-menu.scss"; */
-/* import "./burger.scss"; */
-import "./aside-menu.scss";
-
 
 export default function Home() {
   return (
