@@ -3,18 +3,18 @@ import styles from "./about.module.scss";
 
 export const About = () => {
   return (
-    <div className="container container-about-new" id="about">
-      <div className="aside-line-new"></div>
-      <div className="content-new">
-        <div className="block-about-new block-about_textup-new"><p></p></div>
+    <div className={`container ${styles["container-about"]}`} id="about">
+      <div className="aside-line"></div>
+      <div className="content">
+        <div className="block-about block-about_textup"><p></p></div>
         <div className="block-about block-about_textdown"><p></p></div>
-        <div className="about-title_block">
-          <div className="about-title">
+        <div className={styles.aboutTitleBlock}>
+          <div className={styles.aboutTitle}>
             <h2>Причины сотрудничать с нами</h2>
             <p>
               <br />
-              Пока конкуренты говорят о том, что они лучшие - мы это доказываем
-              делом.
+              Пока конкуренты говорят, что они лучшие — мы это доказываем
+              делом
               <span className="hide-span_about">
                 <br />
                 <br />
@@ -25,19 +25,19 @@ export const About = () => {
                 <br />
               </span>
             </p>
-            <div className="button-about_block">
+            <div className={styles.buttonAboutBlock}>
               <a href="#portfolio">
                 <Button
-                  styleButton="button-about"
-                  fontButton="button-font_about"
+                  styleButton={styles.buttonAbout}
+                  fontButton={styles.buttonFontAbout}
                   nameButton="Портфолио"
                 />
               </a>
-              <div className="button-about_shadow"></div>
+              <div className={styles.buttonAboutShadow}></div>
             </div>
           </div>
-          <div className="about-tile about-tile_money">
-            <div className="tile-text_block">
+          <div className={`${styles['about-tile']} ${styles['about-tile_money']}`}>
+            <div className={styles.tileTextBlock}>
               <h3>
                 Приемлемые
                 <br />
@@ -45,12 +45,12 @@ export const About = () => {
                 <br />
                 <br />
               </h3>
-              <p className="tile-subtitle">
+              <p className={styles['tile-subtitle']}>
                 Мы максимально оптимизируем наш труд, для того, чтобы цены были
                 доступными
               </p>
             </div>
-            <div className="tile-img_money">
+            <div className={styles.tileImgMoney}>
               <svg
                 width="211"
                 height="211"
@@ -84,9 +84,9 @@ export const About = () => {
             </div>
           </div>
         </div>
-        <div className="about-tile_block">
-          <div className="about-tile about-tile_support">
-            <div className="tile-text_block">
+        <div className={styles.aboutTileBlock}>
+          <div className={`${styles['about-tile']} ${styles['about-tile_support']}`}>
+            <div className={styles.tileTextBlock}>
               <h3>
                 В сроки сдаем
                 <br />
@@ -94,11 +94,11 @@ export const About = () => {
                 <br />
                 <br />
               </h3>
-              <p className="tile-subtitle">
+              <p className={styles['tile-subtitle']}>
                 Расписываем каждый этап по срокам, и придерживаемся дедлайнов
               </p>
             </div>
-            <div className="tile-img_money">
+            <div className={styles.tileImgMoney}>
               <svg
                 width="200"
                 height="189"
@@ -141,8 +141,8 @@ export const About = () => {
               </svg>
             </div>
           </div>
-          <div className="about-tile about-tile_support">
-            <div className="tile-text_block">
+          <div className={`${styles['about-tile']} ${styles['about-tile_support']}`}>
+            <div className={styles.tileTextBlock}>
               <h3>
                 Команда
                 <br />
@@ -150,12 +150,12 @@ export const About = () => {
                 <br />
                 <br />
               </h3>
-              <p className="tile-subtitle">
+              <p className={styles['tile-subtitle']}>
                 В нашей команде множество специалистов, и каждый из них хорошо
                 знает свое дело
               </p>
             </div>
-            <div className="tile-img_money">
+            <div className={styles.tileImgMoney}>
               <svg
                 width="156"
                 height="189"
@@ -188,8 +188,8 @@ export const About = () => {
               </svg>
             </div>
           </div>
-          <div className="about-tile about-tile_support">
-            <div className="tile-text_block">
+          <div className={`${styles['about-tile']} ${styles['about-tile_support']}`}>
+            <div className={styles.tileTextBlock}>
               <h3>
                 Консультация
                 <br />
@@ -197,12 +197,12 @@ export const About = () => {
                 <br />
                 <br />
               </h3>
-              <p className="tile-subtitle">
+              <p className={styles['tile-subtitle']}>
                 Наши менеджеры в сети 24/7, и готовы помочь вам, а так же
                 ответить на ваши вопросы
               </p>
             </div>
-            <div className="tile-img_money">
+            <div className={styles.tileImgMoney}>
               <svg
                 width="183"
                 height="189"
