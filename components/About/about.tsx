@@ -1,12 +1,12 @@
 import Button from "../Button/button";
-import "./about.scss";
+import styles from "./about.module.scss";
 
 export const About = () => {
   return (
-    <div className="container container-about" id="about">
-      <div className="aside-line"></div>
-      <div className="content">
-        <div className="block-about block-about_textup"><p></p></div>
+    <div className="container container-about-new" id="about">
+      <div className="aside-line-new"></div>
+      <div className="content-new">
+        <div className="block-about-new block-about_textup-new"><p></p></div>
         <div className="block-about block-about_textdown"><p></p></div>
         <div className="about-title_block">
           <div className="about-title">
