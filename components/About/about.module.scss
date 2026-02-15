@@ -1,0 +1,163 @@
+.container-about {
+  min-height: 1062px;
+  padding-top: 104px;
+  padding-bottom: 148px;
+}
+
+.about-title_block {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 104px;
+  padding-bottom: 32px;
+}
+
+.about-title {
+  max-width: 672px;
+}
+
+.button-about_block {
+  position: relative;
+  width: 209px;
+  height: 68px;
+}
+
+.button-about {
+  border: 1.5px solid #2eecc5;
+  border-radius: 4px;
+  width: 200px;
+  height: 57px;
+  box-shadow: 0 0 38px 0 rgba(46, 236, 197, 0.2);
+  background: #161617;
+}
+
+.button-font_about {
+  font-weight: 600;
+  font-size: 19px;
+}
+
+.button-about_shadow {
+  position: absolute;
+  z-index: -1;
+  border: 1.5px solid rgba(46, 236, 197, 0.4);
+  border-radius: 4px;
+  width: 200px;
+  height: 57px;
+  top: 11px;
+  left: 9px;
+}
+
+.about-tile {
+  position: relative;
+  border-radius: 6px;
+  width: 400px;
+  height: 400px;
+}
+
+.about-tile_money {
+  box-shadow: 0 0 150px 0 rgba(59, 95, 150, 0.35);
+  background: linear-gradient(
+    140deg,
+    #527791 0%,
+    #325597 51.98%,
+    #193895 92.79%
+  );
+}
+
+.tile-img_money {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.about-tile_support {
+  box-shadow: 0 0 80px 0 rgba(44, 44, 45, 0.35);
+  background: linear-gradient(
+    140deg,
+    #303134 0%,
+    #282828 51.98%,
+    #282828 92.79%
+  );
+}
+
+.tile-text_block {
+  padding: 42px 41px 0 45px;
+}
+
+.about-tile_block {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tile-subtitle {
+  font-weight: 500;
+  font-size: 17px;
+  line-height: 123%;
+  opacity: 0.9;
+}
+
+@media (max-width: 1440px) {
+  .about-tile_block {
+    flex-direction: column;
+  }
+
+  .about-title {
+    text-align: center;
+    padding-bottom: 45px;
+  }
+
+  .button-about_block {
+    margin: 0 auto;
+  }
+
+  .about-tile_block {
+    align-items: center;
+  }
+
+  .about-title {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .about-tile_block {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .hide-span_about {
+    display: none;
+  }
+}
+
+@media (max-width: 1440px) {
+  .container-about {
+    min-height: 1062px;
+    padding-top: 0;
+    padding-bottom: 148px;
+}
+  .block-about {
+    border: 1.5px solid #208c76;
+    border-radius: 41px;
+    width: 100%;
+    height: 38px;
+    box-shadow: 0 0 38px 0 rgba(46, 236, 197, 0.1);
+    background: rgba(46, 236, 197, 0.04);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 19px;
+    margin-bottom: 18px;
+  }
+  .block-about_textup > p::after {
+    content: 'Работаем в сфере web-разработки более 3-х лет<';
+  }
+  .block-about_textdown > p::after {
+    content: 'В нашей команде находятся лучшие исполнители';
+  }
+ .about-title_block {
+    padding-top: 68px;
+    padding-bottom: 17px;
+      align-items: center;
+    flex-direction: column;
+}
+}
