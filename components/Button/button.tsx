@@ -1,4 +1,4 @@
-import "./button.scss"
+import styles from "./button.module.scss";
 
 type ButtonProps = {
   styleButton?: string;
@@ -6,13 +6,13 @@ type ButtonProps = {
   nameButton?: string;
 };
 
-const Button = ({ 
-  styleButton = "medium", 
-  fontButton = "default-font",
-  nameButton = "Кнопка" 
+const Button = ({
+  styleButton = styles.medium,     // используем классы из модуля
+  fontButton = styles["default-font"],
+  nameButton = "Кнопка",
 }: ButtonProps) => {
   return (
-    <button type="button" className={`button ${fontButton} ${styleButton}`}>
+    <button type="button" className={`${styles.button} ${fontButton} ${styleButton}`}>
       {nameButton}
     </button>
   );
