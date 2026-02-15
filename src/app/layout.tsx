@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./global.scss";
+import "./fonts.scss";
+import "./aside-menu.scss";
 
 export const metadata: Metadata = {
   title: "Web Studio",
