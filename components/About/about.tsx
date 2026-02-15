@@ -1,5 +1,5 @@
-import Button from "../Button/button";
-import styles from "./about.module.scss";
+import Button from "@/Button/button";
+import styles from "@/About/about.module.scss";
 
 export const About = () => {
   return (
