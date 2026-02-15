@@ -11,7 +11,7 @@ export const Header = () => {
       
       <div className={`container ${headerStyles['container-header']}`}  id="header">
         <img
-          src="img/header_img/lamp.svg"
+          src="/img/header_img/lamp.svg"
           className={headerStyles['lamp-container']}
           alt="lamp"
         />
