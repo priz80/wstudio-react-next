@@ -1,6 +1,6 @@
-import Button from "../Button/button";
-import "./portfolio.scss";
-import "./slider-portfolio.scss";
+import Button from "@/Button/button";
+import "@/Portfolio/portfolio.scss";
+import "@/Portfolio/slider-portfolio.scss";
 import { useEffect, useRef } from 'react';
 
 export const Portfolio = () => {
