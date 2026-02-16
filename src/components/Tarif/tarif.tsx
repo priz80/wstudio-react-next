@@ -104,7 +104,7 @@ export const Tarif = () => {
 
   return (
     <div className={`'container' ${style['container-tarif']}`} id="tarif">
-      <div className="aside-line"></div>
+      {/* <div className="aside-line"></div> */}
       <div className={`'content' ${styleSlider['tarif-contant']}`}>
         <div className={style['title-tarif']}>
           <h2>Тарифы</h2>
