@@ -2,7 +2,7 @@
 const nextConfig = {
   output: 'export',
   basePath: '/wstudio-react-next',
-  trailingSlash: true,
+  trailingSlash: false,
   images: {
     unoptimized: true,
   },
