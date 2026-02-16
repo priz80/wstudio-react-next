@@ -3,14 +3,13 @@
   "name": "wstudio-react-next",
   "version": "0.1.0",
   "private": true,
+  
   "scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start",
-  "lint": "next lint",
-  "export": "next build",
-  "deploy": "gh-pages -d out"
-},
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "next lint",
+    "deploy": "next build --webpack && echo. > out\\.nojekyll && git add out -f && git commit -m \"Deploy\" || exit 0 && git subtree push --prefix out origin gh-pages"  },
 
   "dependencies": {
     "next": "^16.1.6",
