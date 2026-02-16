@@ -3,7 +3,7 @@ import styles from "./forma.module.scss";
 
 export const Forma = () => {
   return (
-    <div className={`container ${styles["forma-container"]}`} id="forma">
+    <div className={styles["forma-container"]} id="forma">
       <div className="content">
         <div className={styles["title-forma"]}>
           <h5>Оставь заявку</h5>
