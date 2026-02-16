@@ -1,24 +1,25 @@
 // next.config.js
+
+const isProd = process.env.NODE_ENV === "production";
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Экспорт в статический сайт (генерирует папку out)
-  output: 'export',
+  reactCompiler: false,
+  output: "export",
+  basePath: isProd ? "/wstudio-react-next" : "",
+  assetPrefix: isProd ? "/wstudio-react-next" : "",
+  images: {
+    unoptimized: true,
+  },
+  trailingSlash: true,
 
-  // Базовый путь — важно для GitHub Pages
-  // basePath: '/wstudio-react-next',
+  experimental: {
+    externalDir: true,
+  },
 
-  
-
-  // Отключаем строгий режим React (опционально, но безопаснее при миграции)
-  reactStrictMode: false,
-
-  // Убираем ВСЕ устаревшие experimental флаги
-  // serverActions, serverComponents, appDir — больше не настраиваются здесь
+  webpack: (config, { dev, isServer }) => {
+    return config;
+  },
 };
 
-module.exports = {
-  basePath: '/wstudio-react-next',
-  assetPrefix: '/wstudio-react-next/',
-}
-
-module.exports = nextConfig;
+export default nextConfig;
