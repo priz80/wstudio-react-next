@@ -26,9 +26,10 @@
   height: 844px;
   right: 140px;
   top: 211px;
-  background-image: url("/images/man.png");
-  background-repeat: no-repeat;
-  background-size: contain;
+}
+
+.man-container-small {
+  display: none;
 }
 
 @media (max-width: 1919px) {
@@ -56,13 +57,18 @@
 }
 
 @media (max-width: 768px) {
-  .man-container {
-    visibility: visible;
+  .man-container{
+    display: none;
+  }
+
+  .man-container-small {
+    position: absolute;
+    display: block;
     width: 330px;
     height: 412px;
     top: 245px;
     right: -89px;
-    background-image: url('/images/man-small.svg');
+    /* background-image: url('/images/man-small.svg'); */
   }
 }
 
