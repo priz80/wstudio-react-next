@@ -1,4 +1,3 @@
-
 .slider-block {
   padding-top: 144px;
 }
@@ -41,7 +40,7 @@
   border: 1.5px solid #153630;
   border-radius: 49%;
   box-shadow: 0 0 106px 0 rgba(46, 236, 197, 0.1);
-  cursor: pointer;
+  cursor: var(--cursor), pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -89,32 +88,10 @@
     justify-content: space-between;
     width: 2918px;
     display: flex;
-}
+  }
 
-   .slide {
+  .slide {
     min-width: 259px;
     height: 153px;
-  }
-
-  /* .slide1 {
-    background-image: url("./images/portfolio_img/slide1-small.png");
-  }
-  .slide2 {
-    background-image: url("./images/portfolio_img/slide2-small.png");
-  }
-  .slide3 {
-    background-image: url("./images/portfolio_img/slide3-small.png");
-  }
-  .slide4 {
-    background-image: url("./images/portfolio_img/slide4-small.png");
-  }
-  .slide5 {
-    background-image: url("./images/portfolio_img/slide5-small.png");
-  }
-  .slide6 {
-    background-image: url("./images/portfolio_img/slide6-small.png");
-  }
-  .slide7 {
-    background-image: url("./images/portfolio_img/slide7-small.png");
-  } */
+  } 
 }
