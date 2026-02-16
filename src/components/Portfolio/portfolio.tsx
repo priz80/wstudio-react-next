@@ -2,13 +2,13 @@ import Button from "../Button/button";
 import style from "./portfolio.module.scss";
 import sliderStyle from "./slider-portfolio.module.scss";
 import { useEffect, useRef } from "react";
-import slide1 from "public/images/portfolio_img/slide1.png";
-import slide2 from "public/images/portfolio_img/slide2.png";
-import slide3 from "public/images/portfolio_img/slide3.png";
-import slide4 from "public/images/portfolio_img/slide4.png";
-import slide5 from "public/images/portfolio_img/slide5.png";
-import slide6 from "public/images/portfolio_img/slide6.png";
-import slide7 from "public/images/portfolio_img/slide7.png";
+import slide1 from "public/images/slide1.png";
+import slide2 from "public/images/slide2.png";
+import slide3 from "public/images/slide3.png";
+import slide4 from "public/images/slide4.png";
+import slide5 from "public/images/slide5.png";
+import slide6 from "public/images/slide6.png";
+import slide7 from "public/images/slide7.png";
 
 const slides = [slide7, slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide1, slide2];
 
