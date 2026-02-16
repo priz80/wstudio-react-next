@@ -1,8 +1,16 @@
 import Button from "../Button/button";
 import style from "./portfolio.module.scss";
 import sliderStyle from "./slider-portfolio.module.scss";
-import { useEffect, useRef } from 'react';
-import Image from 'next/image';
+import { useEffect, useRef } from "react";
+import slide1 from "public/images/portfolio_img/slide1.png";
+import slide2 from "public/images/portfolio_img/slide2.png";
+import slide3 from "public/images/portfolio_img/slide3.png";
+import slide4 from "public/images/portfolio_img/slide4.png";
+import slide5 from "public/images/portfolio_img/slide5.png";
+import slide6 from "public/images/portfolio_img/slide6.png";
+import slide7 from "public/images/portfolio_img/slide7.png";
+
+const slides = [slide7, slide1, slide2, slide3, slide4, slide5, slide6, slide7, slide1, slide2];
 
 export const Portfolio = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -21,22 +29,20 @@ export const Portfolio = () => {
   // Настройки под размер экрана
   const getBreakpointConfig = () => {
     const innerWidth = window.innerWidth;
-    return innerWidth >= 1480
-      ? { slideWidth: 671}
-      : { slideWidth: 295};
+    return innerWidth >= 1480 ? { slideWidth: 671 } : { slideWidth: 295 };
   };
 
   // Обновление параметров слайдера
   const updateConfig = () => {
     const { slideWidth: width } = getBreakpointConfig();
     slideWidth = width;
-  
+
     trackLength = config.totalUniqueSlides * slideWidth;
     offset = -slideWidth; // начальное смещение
 
     // Применяем без анимации
     if (sliderRef.current) {
-      sliderRef.current.style.transition = '0s';
+      sliderRef.current.style.transition = "0s";
       sliderRef.current.style.transform = `translateX(${offset}px)`;
     }
   };
@@ -53,12 +59,8 @@ export const Portfolio = () => {
     sliderRef.current.style.transition = `${config.transitionTime}s`;
     sliderRef.current.style.transform = `translateX(${offset}px)`;
 
-
-
-
     // Бесконечная прокрутка — коррекция после анимации
     const handleInfiniteScroll = () => {
-
       if (offset <= -trackLength) {
         // Сброс влево (после последнего уникального слайда)
         offset = 0; // возвращаемся к начальной видимой позиции
@@ -70,7 +72,7 @@ export const Portfolio = () => {
       }
 
       // Мгновенный переход без анимации
-      sliderRef.current!.style.transition = '0s';
+      sliderRef.current!.style.transition = "0s";
       sliderRef.current!.style.transform = `translateX(${offset}px)`;
     };
 
@@ -88,15 +90,15 @@ export const Portfolio = () => {
       clearTimeout((window as any).resizeTimeout);
       (window as any).resizeTimeout = setTimeout(() => {
         updateConfig();
-        console.log('Окно изменено. Конфиг обновлён.');
+        console.log("Окно изменено. Конфиг обновлён.");
       }, 100);
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Очистка
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
       if ((window as any).resizeTimeout) {
         clearTimeout((window as any).resizeTimeout);
       }
@@ -114,20 +116,20 @@ export const Portfolio = () => {
     const clickLeft = () => moveSlider(1);
     const clickRight = () => moveSlider(-1);
 
-    leftBtn.addEventListener('click', clickLeft);
-    rightBtn.addEventListener('click', clickRight);
+    leftBtn.addEventListener("click", clickLeft);
+    rightBtn.addEventListener("click", clickRight);
 
     return () => {
-      leftBtn.removeEventListener('click', clickLeft);
-      rightBtn.removeEventListener('click', clickRight);
+      leftBtn.removeEventListener("click", clickLeft);
+      rightBtn.removeEventListener("click", clickRight);
     };
   }, []);
 
   return (
-    <div className={`container ${style['container-portfolio']}`} id="portfolio">
-      <div className='aside-line'></div>
-      <div className={`content ${style['portfolio-content']}`}>
-        <div className={style['title-portfolio_block']}>
+    <div className={`container ${style["container-portfolio"]}`} id="portfolio">
+      <div className="aside-line"></div>
+      <div className={`content ${style["portfolio-content"]}`}>
+        <div className={style["title-portfolio_block"]}>
           <h2>Наше портфолио</h2>
           <p>
             <br />
@@ -139,37 +141,46 @@ export const Portfolio = () => {
           </p>
           <a href="/">
             <Button
-              styleButton={style['button-portfolio']}
-              fontButton={style['button-font_portfolio']}
+              styleButton={style["button-portfolio"]}
+              fontButton={style["button-font_portfolio"]}
               nameButton="Компьютерные версии"
             />
           </a>
         </div>
-        <div className={sliderStyle['slider-block']}>
-          <div className={sliderStyle['slider-portfolio_container']}>
+        <div className={sliderStyle["slider-block"]}>
+          <div className={sliderStyle["slider-portfolio_container"]}>
             <div ref={sliderRef} className={sliderStyle.slider}>
-              <div className={`${sliderStyle.slide} ${sliderStyle.slide7}`}></div>
-              <div className={`${sliderStyle.slide} ${sliderStyle.slide1}`}></div>
-              <div className={`${sliderStyle.slide} ${sliderStyle.slide2}`}></div>
-              <div className={`${sliderStyle.slide} ${sliderStyle.slide3}`}></div>
-              <div className={`${sliderStyle.slide} ${sliderStyle.slide4}`}></div>
-              <div className={`${sliderStyle.slide} ${sliderStyle.slide5}`}></div>
-              <div className={`${sliderStyle.slide} ${sliderStyle.slide6}`}></div>
-              <div className={`${sliderStyle.slide} ${sliderStyle.slide7}`}></div>
-              <div className={`${sliderStyle.slide} ${sliderStyle.slide1}`}></div>
-              <div className={`${sliderStyle.slide} ${sliderStyle.slide2}`}></div>
+              {slides.map((slide, index) => (
+                <div
+                  key={index}
+                  className={sliderStyle.slide}
+                >
+                  <img src={slide.src} alt={`Slide ${index + 1}`} />
+                  
+                </div>
+              ))}
             </div>
           </div>
         </div>
-        <div className={sliderStyle['arrow-container']}>
-          <button ref={btnLeftRef} className={sliderStyle['arrow-circle']} id="left" aria-label="Previous slide">
+        <div className={sliderStyle["arrow-container"]}>
+          <button
+            ref={btnLeftRef}
+            className={sliderStyle["arrow-circle"]}
+            id="left"
+            aria-label="Previous slide"
+          >
             <div className={sliderStyle.arrow}>
-              <img src="/images/arrowleft.svg" alt="Previous" />
+              <img src="./images/arrowleft.svg" alt="Previous" />
             </div>
           </button>
-          <button ref={btnRightRef} className={sliderStyle['arrow-circle']} id="right" aria-label="Next slide">
+          <button
+            ref={btnRightRef}
+            className={sliderStyle["arrow-circle"]}
+            id="right"
+            aria-label="Next slide"
+          >
             <div className={sliderStyle.arrow}>
-              <img src="/images/arrowright.svg" alt="Next" />
+              <img src="./images/arrowright.svg" alt="Next" />
             </div>
           </button>
         </div>
