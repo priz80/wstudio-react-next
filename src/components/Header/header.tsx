@@ -31,7 +31,7 @@ export const Header = () => {
               <p className={menuStyles['logo-web']}>Web</p>
             </div>
             <img
-              src="/images/header_img/logo.svg"
+              src="./images/header_img/logo.svg"
               className={menuStyles['logo-mobile']}
               alt="logo"
             />
