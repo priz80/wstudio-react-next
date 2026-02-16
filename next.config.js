@@ -5,7 +5,9 @@ const nextConfig = {
   output: 'export',
 
   // Базовый путь — важно для GitHub Pages
-  basePath: '/wstudio-react-next',
+  // basePath: '/wstudio-react-next',
+
+  
 
   // Отключаем строгий режим React (опционально, но безопаснее при миграции)
   reactStrictMode: false,
@@ -13,5 +15,10 @@ const nextConfig = {
   // Убираем ВСЕ устаревшие experimental флаги
   // serverActions, serverComponents, appDir — больше не настраиваются здесь
 };
+
+module.exports = {
+  basePath: '/wstudio-react-next',
+  assetPrefix: '/wstudio-react-next/',
+}
 
 module.exports = nextConfig;
