@@ -124,9 +124,9 @@ export const Portfolio = () => {
   }, []);
 
   return (
-    <div className={`'container' ${style['container-portfolio']}`} id="portfolio">
-      <div className={style['aside-line']}></div>
-      <div className={`'content' ${style['portfolio-content']}`}>
+    <div className={`container ${style['container-portfolio']}`} id="portfolio">
+      <div className='aside-line'></div>
+      <div className={`content ${style['portfolio-content']}`}>
         <div className={style['title-portfolio_block']}>
           <h2>Наше портфолио</h2>
           <p>
