@@ -3,8 +3,7 @@ import Button from "../Button/button";
 import headerStyles from "./headers.module.scss";
 import menuStyles from "./main-menu.module.scss";
 import burgerStyles from "./burger.module.scss";
-import imageMan from "public/images/man.png"
-import imageManSmall from "public/images/man-small.png"
+
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,8 +17,8 @@ export const Header = () => {
           alt="lamp"
         />
         <div className="aside-line"></div>
-        <div className={headerStyles['man-container']}> <img src={imageMan.src} alt="Man" /> </div>
-        <div className={headerStyles['man-container-small']}> <img src={imageManSmall.src} alt="Man" /> </div>
+        <div className={headerStyles['man-container']}> <img src="./images/man.png" alt="Man" /> </div>
+        <div className={headerStyles['man-container-small']}> <img src="./images/man-small.png" alt="Man" /> </div>
         <div className={headerStyles.circle}>
           <div className={`${headerStyles.circle} ${headerStyles['circle-m']}`}>
             <div className={`${headerStyles.circle} ${headerStyles['circle-s']}`}></div>
