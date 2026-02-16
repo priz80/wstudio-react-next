@@ -159,12 +159,12 @@ export const Tarif = () => {
       {/* <div className="arrow-tarif_container">
         <div className="arrow-tarif_circle" onClick={prevSlide}>
           <div className="arrow-tarif" id="left">
-            <img src="/img/arrowleft.svg" alt="Previous" />
+            <img src="/images/arrowleft.svg" alt="Previous" />
           </div>
         </div>
         <div className="arrow-tarif_circle" onClick={nextSlide}>
           <div className="arrow-tarif" id="right">
-            <img src="/img/arrowright.svg" alt="Next" />
+            <img src="/images/arrowright.svg" alt="Next" />
           </div>
         </div>
       </div> */}
