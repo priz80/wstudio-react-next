@@ -2,6 +2,7 @@ import Button from "../Button/button";
 import style from "./portfolio.module.scss";
 import sliderStyle from "./slider-portfolio.module.scss";
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 
 export const Portfolio = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
@@ -163,12 +164,12 @@ export const Portfolio = () => {
         <div className={sliderStyle['arrow-container']}>
           <button ref={btnLeftRef} className={sliderStyle['arrow-circle']} id="left" aria-label="Previous slide">
             <div className={sliderStyle.arrow}>
-              <img src="/img/arrowleft.svg" alt="Previous" />
+              <img src="/images/arrowleft.svg" alt="Previous" />
             </div>
           </button>
           <button ref={btnRightRef} className={sliderStyle['arrow-circle']} id="right" aria-label="Next slide">
             <div className={sliderStyle.arrow}>
-              <img src="/img/arrowright.svg" alt="Next" />
+              <img src="/images/arrowright.svg" alt="Next" />
             </div>
           </button>
         </div>
