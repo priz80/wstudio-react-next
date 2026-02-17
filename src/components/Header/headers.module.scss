@@ -228,11 +228,16 @@
 .button-header {
   width: 200px;
   height: 57px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .buttonFontHeader {
   font-weight: 600;
   font-size: 19px;
+  line-height: 2em;
 }
 
 @media (max-width: 768px) {
