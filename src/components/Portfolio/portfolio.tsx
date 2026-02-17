@@ -7,16 +7,16 @@ import { useEffect, useRef } from "react";
 const basePath = '';
 
 const slideImages = [
-  `/slide7.png`,
-  `/slide1.png`,
-  `/slide2.png`,
-  `/slide3.png`,
-  `/slide4.png`,
-  `/slide5.png`,
-  `/slide6.png`,
-  `/slide7.png`,
-  `/slide1.png`,
-  `/slide2.png`,
+  `images/slide7.png`,
+  `images/slide1.png`,
+  `images/slide2.png`,
+  `images/slide3.png`,
+  `images/slide4.png`,
+  `images/slide5.png`,
+  `images/slide6.png`,
+  `images/slide7.png`,
+  `images/slide1.png`,
+  `images/slide2.png`,
 ];
 
 
@@ -178,7 +178,7 @@ export const Portfolio = () => {
             aria-label="Previous slide"
           >
             <div className={sliderStyle.arrow}>
-              <img src={`/arrowleft.svg`} alt="Previous" />
+              <img src={`images/arrowleft.svg`} alt="Previous" />
             </div>
           </button>
           <button
@@ -188,7 +188,7 @@ export const Portfolio = () => {
             aria-label="Next slide"
           >
             <div className={sliderStyle.arrow}>
-              <img src={`/arrowright.svg`} alt="Previous" />
+              <img src={`images/arrowright.svg`} alt="Previous" />
             </div>
           </button>
         </div>
