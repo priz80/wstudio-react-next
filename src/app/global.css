@@ -1,6 +1,6 @@
 :root {
   --font-family: "Ruberoid", sans-serif;
-  --cursor: url("/pointer.png"), default;
+  --cursor: url("/images/pointer.png"), default;
   /* --cursor: default; */
   --font-size-Regular: 400;
   --font-size-Medium: 500;
