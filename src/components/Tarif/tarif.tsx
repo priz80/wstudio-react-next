@@ -113,7 +113,7 @@ export const Tarif = () => {
                         fontButton={styleSlider["style-text"]}
                         nameButton={
                           <>
-                            Подробнее <img src="/images/arr.svg" alt="" />
+                            Подробнее <img src="images/arr.svg" alt="" />
                           </>
                         }
                       />
