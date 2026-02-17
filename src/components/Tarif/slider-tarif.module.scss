@@ -1,12 +1,11 @@
-
 .slider-tarif_container {
   position: relative;
   width: 1120px;
   min-height: 670px; /* убрать! */
   overflow: hidden;
-  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
-
 
 .carousel {
   position: absolute;
@@ -54,7 +53,6 @@
   pointer-events: none;
 }
 
-
 /* текстовые блоки */
 .carousel__text {
   text-align: center;
@@ -65,7 +63,6 @@
   height: 100%;
 }
 
-
 .text-block {
   padding-top: 41px;
 }
@@ -74,7 +71,6 @@
   padding-bottom: 20px;
   white-space: pre-line;
 }
-
 
 .button {
   border: 1.5px solid #2eecc5;
@@ -92,7 +88,6 @@
 .style-text {
   font-weight: var(--font-size-SemiBold);
   font-size: 17px;
-  /* color: #fff; */
   line-height: 2em;
 }
 
@@ -130,12 +125,10 @@
 /* кнопки навигации */
 .carousel__btns {
   position: absolute;
-  min-width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  top: 61%;
-  transform: translateY(-50%);
+  top: 58%;
   gap: 980px;
   pointer-events: none;
   z-index: 100;
@@ -173,163 +166,65 @@
   transition: all 0.3s ease;
 }
 
-
-@media (max-width: 1360px) {
-  .container {
-    /* width: 100%;
-    height: 100vh;
-    position: relative;
-    margin: 0 auto; */
-    position: relative;
-    height: 640px;
-  }
-
-  .carousel {
-    position: absolute;
-    display: flex;
-    top: 40%;
-    left: 50%;
+@media (max-width: 1440px) {
+  .slider-tarif_container {
+    min-height: 470px;
   }
 
   .carousel__item {
-    /* visibility: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 36px; */
     width: 274px;
     height: 374px;
-    /* box-shadow: 0 1rem 4rem rgba(0, 0, 0, 0.5);
-    position: absolute;
-    transform: translate(-50%, -50%) scale(0.1);
-    z-index: 0;
-    transition: all 0.3s linear;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(
-      155deg,
-      #313134 0%,
-      #292929 51.31%,
-      #282828 100%
-    ); */
   }
-
- 
 
   .text-block {
-  padding-top: 10px;
-}
-
-.title {
-  font-size: 20px;
-  padding-bottom: 10px;
-  white-space: pre-line;
-}
-
-  .titlep {
- /*    font-family: var(--font-family);
-    font-weight: var(--font-size-Medium); */
-    font-size: 12px;
-    line-height: 154%;
-  /*   text-align: center;
-    color: rgba(255, 255, 255, 0.75); */
+    padding-top: 10px;
   }
 
-  .price > p {
-    font-family: var(--font-family);
-    font-weight: var(--font-size-Bold);
-    font-size: 16px;
+  .title {
+    font-size: 20px;
+    padding-bottom: 10px;
+  }
+
+  .titlep {
+    font-size: 12px;
     line-height: 154%;
-    color: #fff;
+  }
+
+  .pricep {
+    font-size: 16px;
   }
 
   .price > span {
-    font-family: var(--font-family);
-    font-weight: var(--font-size-Medium);
     font-size: 13px;
-    line-height: 154%;
-    color: rgba(255, 255, 255, 0.4);
   }
 
   .carousel__item--main {
     transform: translate(-50%, -50%) scale(1);
-    z-index: 2;
-    visibility: visible;
   }
 
   .carousel__item--left {
     transform: translate(-155%, -50%) scale(1);
-    z-index: 1;
-    visibility: visible;
-    opacity: 0.65;
-    pointer-events: none;
   }
 
   .carousel__item--right {
     transform: translate(55%, -50%) scale(1);
-    z-index: 1;
-    visibility: visible;
-    opacity: 0.65;
-    pointer-events: none;
   }
 
   .carousel__btns {
     position: relative;
-    min-width: 100%;
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
-    /* top: 63%; */
-    /* transform: translateY(-50%); */
     gap: 35px;
-    /* pointer-events: none; */
-    z-index: 100;
   }
 
   .button {
-    /* border: 1.5px solid #2eecc5;
-    border-radius: 41px; */
     width: 126px;
     height: 38px;
-    /* box-shadow: 0 0 38px 0 rgba(46, 236, 197, 0.1);
-    background: rgba(46, 236, 197, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px; */
   }
 
   .style-text {
     font-size: 12px;
-}
+  }
 
-.carousel__text {
-  /*   transition: opacity 0.2s;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; */
-    /* max-width: 230px; */
+  .carousel__text {
     height: 100%;
-    /* padding-top: 27px; */
-}
-
-.price-block {
-    /* display: flex;
-    justify-content: space-between;
-    padding-bottom: 16px; */
-}
-
-
-}
-
-
-@media (max-width: 960px) {
-  .container {
-/*     width: 100%;
-    height: 100vh;
-    position: relative;
-    margin: 0 auto; */
-
-    overflow: hidden;
   }
 }
