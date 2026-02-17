@@ -1,29 +1,26 @@
 {
-  "homepage": "https://priz80.github.io/wstudio-react-next/",
-  "name": "wstudio-react-next",
+  "name": "wstudio-next",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build --webpack",
+    "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "deploy": "next build --webpack && echo. > out\\.nojekyll && git add out -f && git commit -m \"Deploy\" || exit 0 && git subtree push --prefix out origin gh-pages || git push origin gh-pages --force"
+    "lint": "eslint"
   },
   "dependencies": {
-    "next": "^16.1.6",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "next": "16.1.6",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "sass": "^1.97.3"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "gh-pages": "^6.3.0",
-    "sass": "^1.97.3",
     "typescript": "^5"
   }
 }
