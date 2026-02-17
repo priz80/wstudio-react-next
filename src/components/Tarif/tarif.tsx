@@ -1,10 +1,10 @@
+// src/components/Tarif/tarif.tsx
 import style from "./tarif.module.scss";
 import styleSlider from "./slider-tarif.module.scss";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Button from "../Button/button";
 
 export const Tarif = () => {
-  const [currentItem, setCurrentItem] = useState(0); // Индекс текущего элемента
   const items = [
     {
       title: 'Сайт\n "Визитка"',
@@ -55,34 +55,48 @@ export const Tarif = () => {
       description:
         "Мы готовы выслушать вашу идею, и выполнить задание. Цена проекта будет складываться от ее технического задания и сроков выполнения.",
     },
-  ]; // Массив данных
+  ];
 
-  const totalItems = items.length;
+  const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Обработчики кликов
+  const updatePositions = (index: number) => {
+    return items.map((item, i) => {
+      const position =
+        i === index
+          ? "main"
+          : i === (index + 1) % items.length
+          ? "right"
+          : i === (index - 1 + items.length) % items.length
+          ? "left"
+          : "";
+      return { ...item, position };
+    });
+  };
+
+  const [itemsState, setItemsState] = useState(() => updatePositions(0));
+
   const handleRightClick = () => {
-    setCurrentItem((prev) => (prev + 1) % items.length);
+    setCurrentIndex((i) => {
+      const nextIndex = (i + 1) % items.length;
+      setItemsState(updatePositions(nextIndex));
+      return nextIndex;
+    });
   };
 
   const handleLeftClick = () => {
-    setCurrentItem((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+    setCurrentIndex((i) => {
+      const nextIndex = (i - 1 + items.length) % items.length;
+      setItemsState(updatePositions(nextIndex));
+      return nextIndex;
+    });
   };
 
-  // Определяем индексы для текущего, следующего и предыдущего элементов
-  const nextIndex = (currentItem + 1) % items.length;
-  const prevIndex = currentItem === 0 ? items.length - 1 : currentItem - 1;
-
-  // Создаем массив элементов с их позициями
-  const carouselItems = [
-    { position: "left", index: prevIndex },
-    { position: "main", index: currentItem },
-    { position: "right", index: nextIndex },
-  ];
+  
 
   return (
     <div className={`container ${style["container-tarif"]}`} id="tarif">
       <div className="aside-line"></div>
-      <div className={`'content' ${style["tarif-contant"]}`}>
+      <div className={`content ${style["tarif-contant"]}`}>
         <div className={style["title-tarif"]}>
           <h2>Тарифы</h2>
         </div>
@@ -90,26 +104,21 @@ export const Tarif = () => {
         {/* Контейнер слайдера */}
         <div className={styleSlider["slider-tarif_container"]}>
           <div className={styleSlider.carousel}>
-            {carouselItems.map((item, index) => (
+            {itemsState.map((item, index) => (
               <div
                 key={index}
                 className={`${styleSlider["carousel__item"]} ${styleSlider[`carousel__item--${item.position}`]}`}
+                /* style={{ transition: "all 1s ease" }} */
               >
                 <div className={styleSlider["carousel__text"]}>
                   <div>
-                    <h4 className={styleSlider.title}>
-                      {items[item.index].title}
-                    </h4>
-                    <p className={styleSlider.titlep}>
-                      {items[item.index].description}
-                    </p>
+                    <h4 className={styleSlider.title}>{item.title}</h4>
+                    <p className={styleSlider.titlep}>{item.description}</p>
                   </div>
                   <div className={styleSlider["price-block"]}>
                     <div className={styleSlider.price}>
-                      <p className={styleSlider.pricep}>
-                        {items[item.index].price}
-                      </p>
-                      <span>{items[item.index].time}</span>
+                      <p className={styleSlider.pricep}>{item.price}</p>
+                      <span>{item.time}</span>
                     </div>
                     <a href="/">
                       <Button
@@ -136,7 +145,7 @@ export const Tarif = () => {
             onClick={handleLeftClick}
           >
             <div className={styleSlider.ball}>
-              <img src="images/arrowleft.svg" alt="" />
+              <img src="images/arrowleft.svg" alt="Предыдущий" />
             </div>
           </button>
           <button
@@ -144,7 +153,7 @@ export const Tarif = () => {
             onClick={handleRightClick}
           >
             <div className={styleSlider.ball}>
-              <img src="images/arrowright.svg" alt="" />
+              <img src="images/arrowright.svg" alt="Следующий" />
             </div>
           </button>
         </div>
