@@ -95,7 +95,11 @@ export const Header = () => {
             <div className={headerStyles['header-manifesto']}><p></p></div>
             <div className={headerStyles['question-block']}>
               <a href="#about">
-                <Button styleButton={headerStyles['button-header']} fontButton={headerStyles['buttonFontHeader']} nameButton="Подробнее" />
+                <Button styleButton={headerStyles['button-header']} fontButton={headerStyles['buttonFontHeader']} nameButton={
+                        <>
+      Подробнее <img src="/images/arr.svg" alt="" />
+    </>
+                      } />
               </a>
               <a href="/"><span className={headerStyles.question}>Остались вопросы?</span></a>
             </div>
