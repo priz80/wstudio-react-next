@@ -1,3 +1,0 @@
-:HL["/wstudio-react-next/_next/static/css/f9aae4561c363d9f.css","style"]
-:HL["/wstudio-react-next/_next/static/css/bf3b12e2da983f5c.css","style"]
-0:{"buildId":"_oiH9gAzasYsBr3imL4GL","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
