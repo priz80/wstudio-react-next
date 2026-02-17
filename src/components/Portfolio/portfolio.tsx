@@ -2,24 +2,21 @@ import Button from "../Button/button";
 import style from "./portfolio.module.scss";
 import sliderStyle from "./slider-portfolio.module.scss";
 import { useEffect, useRef } from "react";
-import slide1Placeholder from "../../../public/images/slide1.png";
 
 // Базовый путь — зависит от режима (production/local)
-const basePath = process.env.NODE_ENV === 'production' 
-  ? '/wstudio-react-next' 
-  : '';
+const basePath = '';
 
 const slideImages = [
-  `${basePath}/images/slide7.png`,
-  `${basePath}/images/slide1.png`,
-  `${basePath}/images/slide2.png`,
-  `${basePath}/images/slide3.png`,
-  `${basePath}/images/slide4.png`,
-  `${basePath}/images/slide5.png`,
-  `${basePath}/images/slide6.png`,
-  `${basePath}/images/slide7.png`,
-  `${basePath}/images/slide1.png`,
-  `${basePath}/images/slide2.png`,
+  `/slide7.png`,
+  `/slide1.png`,
+  `/slide2.png`,
+  `/slide3.png`,
+  `/slide4.png`,
+  `/slide5.png`,
+  `/slide6.png`,
+  `/slide7.png`,
+  `/slide1.png`,
+  `/slide2.png`,
 ];
 
 
@@ -181,7 +178,7 @@ export const Portfolio = () => {
             aria-label="Previous slide"
           >
             <div className={sliderStyle.arrow}>
-              <img src={`${basePath}/images/arrowleft.svg`} alt="Previous" />
+              <img src={`/arrowleft.svg`} alt="Previous" />
             </div>
           </button>
           <button
@@ -191,7 +188,7 @@ export const Portfolio = () => {
             aria-label="Next slide"
           >
             <div className={sliderStyle.arrow}>
-              <img src={`${basePath}/images/arrowleft.svg`} alt="Previous" />
+              <img src={`/arrowright.svg`} alt="Previous" />
             </div>
           </button>
         </div>
