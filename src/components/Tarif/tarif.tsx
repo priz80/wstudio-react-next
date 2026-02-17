@@ -96,15 +96,19 @@ export const Tarif = () => {
                 className={`${styleSlider["carousel__item"]} ${styleSlider[`carousel__item--${item.position}`]}`}
               >
                 <div className={styleSlider["carousel__text"]}>
-                  <div className={styleSlider["text-block"]}>
+                  <div>
                     <h4 className={styleSlider.title}>
                       {items[item.index].title}
                     </h4>
-                    <p className={styleSlider.titlep}>{items[item.index].description}</p>
+                    <p className={styleSlider.titlep}>
+                      {items[item.index].description}
+                    </p>
                   </div>
                   <div className={styleSlider["price-block"]}>
                     <div className={styleSlider.price}>
-                      <p className={styleSlider.pricep}>{items[item.index].price}</p>
+                      <p className={styleSlider.pricep}>
+                        {items[item.index].price}
+                      </p>
                       <span>{items[item.index].time}</span>
                     </div>
                     <a href="/">
