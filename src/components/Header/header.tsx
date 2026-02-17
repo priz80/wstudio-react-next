@@ -97,7 +97,7 @@ export const Header = () => {
               <a href="#about">
                 <Button styleButton={headerStyles['button-header']} fontButton={headerStyles['buttonFontHeader']} nameButton={
                         <>
-      Подробнее <img src="/images/arr.svg" alt="" />
+      Подробнее <img src="images/arr.svg" alt="" />
     </>
                       } />
               </a>
