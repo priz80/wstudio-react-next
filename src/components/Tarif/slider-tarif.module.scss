@@ -216,7 +216,7 @@
  
 
   .text-block {
-  padding-top: 21px;
+  padding-top: 10px;
 }
 
 .title {
@@ -226,12 +226,12 @@
 }
 
   .titlep {
-    font-family: var(--font-family);
-    font-weight: var(--font-size-Medium);
+ /*    font-family: var(--font-family);
+    font-weight: var(--font-size-Medium); */
     font-size: 12px;
     line-height: 154%;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.75);
+  /*   text-align: center;
+    color: rgba(255, 255, 255, 0.75); */
   }
 
   .price > p {
