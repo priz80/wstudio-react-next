@@ -12,13 +12,13 @@ export const Header = () => {
       
       <div className={`container ${headerStyles['container-header']}`}  id="header">
         <img
-          src="./images/lamp.svg"
+          src="/lamp.svg"
           className={headerStyles['lamp-container']}
           alt="lamp"
         />
         <div className="aside-line"></div>
-        <div className={headerStyles['man-container']}> <img src="./images/man.png" alt="Man" /> </div>
-        <div className={headerStyles['man-container-small']}> <img src="./images/man-small.png" alt="Man" /> </div>
+        <div className={headerStyles['man-container']}> <img src="/man.png" alt="Man" /> </div>
+        <div className={headerStyles['man-container-small']}> <img src="/man-small.png" alt="Man" /> </div>
         <div className={headerStyles.circle}>
           <div className={`${headerStyles.circle} ${headerStyles['circle-m']}`}>
             <div className={`${headerStyles.circle} ${headerStyles['circle-s']}`}></div>
@@ -32,7 +32,7 @@ export const Header = () => {
               <p className={menuStyles['logo-web']}>Web</p>
             </div>
             <img
-              src="./images/logo.svg"
+              src="/logo.svg"
               className={menuStyles['logo-mobile']}
               alt="logo"
             />
