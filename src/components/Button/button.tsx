@@ -3,7 +3,7 @@ import styles from "./button.module.scss";
 type ButtonProps = {
   styleButton?: string;
   fontButton?: string;
-  nameButton?: string;
+  nameButton: React.ReactNode;
 };
 
 const Button = ({
