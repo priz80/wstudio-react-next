@@ -56,11 +56,9 @@
 }
 
 .menuUl {
-
   list-style: none;
   display: flex;
-  /* gap: 35px; */
-  padding-top: 112px;
+  gap: 35px;
 }
 
 .menuLink {
@@ -116,6 +114,7 @@
     padding-right: 16px; */
   }
 
+
   .nav-menu.active {
     top: 0;
   }
@@ -124,6 +123,13 @@
     flex-direction: column;
     text-align: center;
   }
+
+.menuUl {
+  list-style: none;
+  display: flex;
+  gap: 0;
+  padding-top: 112px;
+}
 
   .nav-menu ul li {
     min-height: 43px;
