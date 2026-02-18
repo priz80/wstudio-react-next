@@ -41,7 +41,7 @@
 }
 
 .forma-item_button {
-  min-width: 439px;
+  width: 439px;
   display: flex;
   justify-content: flex-start;
   padding-top: 26px;
@@ -68,6 +68,7 @@
 @media (max-width: 960px) {
   .forma-item_button {
     justify-content: center;
+    width: 328px;
   }
   .foma-block {
     align-items: center;
@@ -77,4 +78,12 @@
   .title-forma {
     text-align: center;
   }
+
+  .forma-item-wrapper {
+  max-width: 328px;
+}
+
+.forma-item {
+  max-width: 328px;
+}
 }
