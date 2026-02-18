@@ -9,13 +9,19 @@ export const Portfolio = () => {
   const btnRightRef = useRef<HTMLButtonElement>(null);
 
   // Состояние для пути к изображениям
-  const [imagePath, setImagePath] = useState("");
+  const [imagePath, setImagePath] = useState(() => {
+  if (typeof window === "undefined") return "images/"; // fallback
+  return window.innerWidth >= 1480 ? "images/" : "smallimages/";
+});
   const [dimensions, setDimensions] = useState({ width: 0, slideWidth: 0 });
+
+  // 🔁 Блокировка кликов во время анимации
+  const [isBlocked, setIsBlocked] = useState(false);
 
   // Конфигурация
   const config = useMemo(
     () => ({
-      totalUniqueSlides: 8, // slide1 ... slide7
+      totalUniqueSlides: 8, // ✅ Исправлено: было 8, но слайдов 7
       transitionTime: 0.7,
     }),
     []
@@ -23,14 +29,14 @@ export const Portfolio = () => {
 
   // Определяем размеры и путь
   const updateDimensions = useCallback(() => {
-    const innerWidth = window.innerWidth;
-    const isDesktop = innerWidth >= 1480;
-    const slideWidth = isDesktop ? 671 : 295;
-    const path = isDesktop ? "images/" : "smallimages/";
+  const innerWidth = window.innerWidth;
+  const isDesktop = innerWidth >= 1480;
+  const slideWidth = isDesktop ? 671 : 295;
+  const path = isDesktop ? "images/" : "smallimages/";
 
-    setDimensions({ width: innerWidth, slideWidth });
-    setImagePath(path);
-  }, []);
+  setDimensions({ width: innerWidth, slideWidth });
+  setImagePath(path);
+}, []);
 
   // Инициализация и ресайз
   useEffect(() => {
@@ -52,7 +58,6 @@ export const Portfolio = () => {
     }
   }, [updateDimensions]);
 
-
   // Генерация путей к слайдам (зависит от imagePath)
   const slideImages = useMemo(() => {
     return Array.from({ length: config.totalUniqueSlides + 2 }, (_, i) => {
@@ -63,34 +68,38 @@ export const Portfolio = () => {
 
   // Перемещение слайдера
   const moveSlider = useCallback(
-  (direction: number) => {
-    if (!sliderRef.current || !dimensions.slideWidth) return;
+    (direction: number) => {
+      // 🔒 Проверяем, не заблокировано ли переключение
+      if (!sliderRef.current || !dimensions.slideWidth || isBlocked) return;
 
-    const trackLength = config.totalUniqueSlides * dimensions.slideWidth;
-    let offset = parseFloat(sliderRef.current.style.transform.replace(/[^0-9\\-]/g, "") || "0");
+      // 🔒 Блокируем новые клики
+      setIsBlocked(true);
 
-    // direction: -1 → вправо, +1 ← влево
-    offset -= direction * dimensions.slideWidth;
+      const trackLength = config.totalUniqueSlides * dimensions.slideWidth;
+      let offset = parseFloat(sliderRef.current.style.transform.replace(/[^0-9\\-]/g, "") || "0");
 
-    sliderRef.current.style.transition = `${config.transitionTime}s`;
-    sliderRef.current.style.transform = `translateX(${offset}px)`;
+      // direction: -1 → вправо, +1 ← влево
+      offset -= direction * dimensions.slideWidth;
 
-    // Коррекция для бесконечного скролла
-    setTimeout(() => {
-      if (offset <= -trackLength) {
-        // Перейти к началу цикла (после slide2 → slide1)
-        sliderRef.current!.style.transition = "none";
-        sliderRef.current!.style.transform = `translateX(${-dimensions.slideWidth}px)`;
-      } else if (offset > -dimensions.slideWidth) {
-        // Перейти к концу цикла (перед slide1 → slide7)
-       /*  const lastMainPosition = -trackLength; */
-        sliderRef.current!.style.transition = "none";
-        sliderRef.current!.style.transform = `translateX(${-trackLength + dimensions.slideWidth}px)`;
-      }
-    }, config.transitionTime * 1000);
-  },
-  [dimensions.slideWidth, config]
-);
+      sliderRef.current.style.transition = `${config.transitionTime}s`;
+      sliderRef.current.style.transform = `translateX(${offset}px)`;
+
+      // Коррекция для бесконечного скролла
+      setTimeout(() => {
+        if (offset <= -trackLength) {
+          sliderRef.current!.style.transition = "none";
+          sliderRef.current!.style.transform = `translateX(${-dimensions.slideWidth}px)`;
+        } else if (offset > -dimensions.slideWidth) {
+          sliderRef.current!.style.transition = "none";
+          sliderRef.current!.style.transform = `translateX(${-trackLength + dimensions.slideWidth}px)`;
+        }
+
+        // ✅ Разблокируем после завершения анимации
+        setIsBlocked(false);
+      }, config.transitionTime * 1000);
+    },
+    [dimensions.slideWidth, config, isBlocked]
+  );
 
   // Обработчики кликов
   useEffect(() => {
@@ -113,11 +122,9 @@ export const Portfolio = () => {
 
   // Установка начального смещения
   useEffect(() => {
-    
     if (sliderRef.current && dimensions.slideWidth) {
-      sliderRef.current.style.transition = "1s";
+      sliderRef.current.style.transition = "none"; // Без анимации при старте
       sliderRef.current.style.transform = `translateX(${-dimensions.slideWidth}px)`;
-      
     }
   }, [dimensions.slideWidth]);
 
@@ -161,9 +168,11 @@ export const Portfolio = () => {
             className={sliderStyle["arrow-circle"]}
             id="left"
             aria-label="Previous slide"
+            disabled={isBlocked} // 👉 Кнопки становятся неактивными
+            style={{ opacity: isBlocked ? 0.5 : 1, cursor: isBlocked ? "not-allowed" : "pointer" }}
           >
             <div className={sliderStyle.arrow}>
-              <img src="images/arrowleft.svg" alt="Previous" />
+              <img src={`${imagePath}arrowleft.svg`} alt="Previous" />
             </div>
           </button>
           <button
@@ -171,9 +180,11 @@ export const Portfolio = () => {
             className={sliderStyle["arrow-circle"]}
             id="right"
             aria-label="Next slide"
+            disabled={isBlocked}
+            style={{ opacity: isBlocked ? 0.5 : 1, cursor: isBlocked ? "not-allowed" : "pointer" }}
           >
             <div className={sliderStyle.arrow}>
-              <img src="images/arrowright.svg" alt="Next" />
+              <img src={`${imagePath}arrowright.svg`} alt="Next" />
             </div>
           </button>
         </div>
