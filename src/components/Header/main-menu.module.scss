@@ -9,7 +9,7 @@
   .menu-container {
     padding-top: 56px;
     padding-bottom: 140px;
-}
+  }
 }
 
 .logo {
@@ -56,13 +56,14 @@
 }
 
 .menuUl {
+
   list-style: none;
   display: flex;
-  gap: 35px;
+  /* gap: 35px; */
+  padding-top: 112px;
 }
 
-
-.menuLink  {
+.menuLink {
   font-weight: 600;
   font-size: 20px;
   color: #fff;
@@ -102,17 +103,17 @@
 
   /* === Мобильное меню === */
   .nav-menu {
-    position: fixed;
+    position: absolute;
     top: -100%;
     width: 95%;
-    height: 338px;
+    height: 352px;
     background-image: linear-gradient(137deg, #161919 0%, #373a3a 98.26%);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 0 0 15px 15px;
     transition: top 0.3s ease;
     z-index: 999;
-    padding-left: 8px;
-    padding-right: 16px;
+    /* padding-left: 8px;
+    padding-right: 16px; */
   }
 
   .nav-menu.active {
@@ -124,9 +125,22 @@
     text-align: center;
   }
 
+  .nav-menu ul li {
+    min-height: 43px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
   .nav-menu ul li a {
-    color: white;
-    font-size: 1.5rem;
+    font-family: var(--font-family);
+    font-weight: var(--font-size-Bold);
+    font-size: 20px;
+    line-height: 118%;
+    background: linear-gradient(149deg, #b5feef 0%, #2eecc5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   /* Скрываем кнопку "Заказать" в мобильном меню, если нужно */
