@@ -53,11 +53,16 @@
   border: 1.5px solid #153630;
   border-radius: 49%;
   box-shadow: 0 0 106px 0 rgba(46, 236, 197, 0.1);
-  cursor: var(--cursor);
+  cursor: var(--cursor, pointer);
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
+
+   &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 }
 
 .arrow-circle:hover {
