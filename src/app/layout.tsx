@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./global.css";
 
+
 export const metadata: Metadata = {
   title: "Web Studio",
   description: "Более 3-х лет делаем сайты, чат-боты, web-приложения.",
