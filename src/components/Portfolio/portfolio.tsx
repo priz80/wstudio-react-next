@@ -1,18 +1,15 @@
 import Button from "../Button/button";
 import style from "./portfolio.module.scss";
 import sliderStyle from "./slider-portfolio.module.scss";
-import { useEffect, useRef, useState, useMemo } from "react";
+import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 
 export const Portfolio = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const btnLeftRef = useRef<HTMLButtonElement>(null);
   const btnRightRef = useRef<HTMLButtonElement>(null);
 
-  // Состояние для пути к изображениям
-  const [imagePath, setImagePath] = useState(() => {
-  if (typeof window === "undefined") return "images/"; // fallback
-  return window.innerWidth >= 1480 ? "images/" : "smallimages/";
-});
+  // Состояние для пути к изображениям (null = ещё не определён)
+  const [imagePath, setImagePath] = useState<string | null>(null);
   const [dimensions, setDimensions] = useState({ width: 0, slideWidth: 0 });
 
   // 🔁 Блокировка кликов во время анимации
@@ -21,70 +18,66 @@ export const Portfolio = () => {
   // Конфигурация
   const config = useMemo(
     () => ({
-      totalUniqueSlides: 8, // ✅ Исправлено: было 8, но слайдов 7
+      totalUniqueSlides: 8,
       transitionTime: 0.7,
     }),
     []
   );
 
-  // Определяем размеры и путь
-  const updateDimensions = useCallback(() => {
-  const innerWidth = window.innerWidth;
-  const isDesktop = innerWidth >= 1480;
-  const slideWidth = isDesktop ? 671 : 295;
-  const path = isDesktop ? "images/" : "smallimages/";
-
-  setDimensions({ width: innerWidth, slideWidth });
-  setImagePath(path);
-}, []);
-
-  // Инициализация и ресайз
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      updateDimensions();
-
-      const handleResize = () => {
-        clearTimeout((window as any).resizeTimeout);
-        (window as any).resizeTimeout = setTimeout(updateDimensions, 100);
-      };
-
-      window.addEventListener("resize", handleResize);
-      return () => {
-        window.removeEventListener("resize", handleResize);
-        if ((window as any).resizeTimeout) {
-          clearTimeout((window as any).resizeTimeout);
-        }
-      };
-    }
-  }, [updateDimensions]);
-
-  // Генерация путей к слайдам (зависит от imagePath)
+  // Генерация путей к слайдам (вызывается всегда!)
   const slideImages = useMemo(() => {
+    // Если imagePath ещё не определён — возвращаем пустые пути
+    if (!imagePath) return [];
+
     return Array.from({ length: config.totalUniqueSlides + 2 }, (_, i) => {
       const num = i === 0 ? 7 : i <= 7 ? i : i - 7;
       return `${imagePath}slide${num}.png`;
     });
   }, [imagePath, config.totalUniqueSlides]);
 
+  // Определяем размеры и путь
+  useEffect(() => {
+    const updatePathAndDimensions = () => {
+      const width = window.innerWidth;
+      const isDesktop = width >= 1480;
+      const slideWidth = isDesktop ? 671 : 295;
+      const path = isDesktop ? "images/" : "smallimages/";
+
+      setDimensions({ width, slideWidth });
+      setImagePath(path);
+    };
+
+    updatePathAndDimensions();
+
+    const handleResize = () => {
+      clearTimeout((window as any).resizeTimeout);
+      (window as any).resizeTimeout = setTimeout(updatePathAndDimensions, 100);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      if ((window as any).resizeTimeout) {
+        clearTimeout((window as any).resizeTimeout);
+      }
+    };
+  }, []);
+
   // Перемещение слайдера
   const moveSlider = useCallback(
     (direction: number) => {
-      // 🔒 Проверяем, не заблокировано ли переключение
       if (!sliderRef.current || !dimensions.slideWidth || isBlocked) return;
 
-      // 🔒 Блокируем новые клики
       setIsBlocked(true);
 
       const trackLength = config.totalUniqueSlides * dimensions.slideWidth;
       let offset = parseFloat(sliderRef.current.style.transform.replace(/[^0-9\\-]/g, "") || "0");
 
-      // direction: -1 → вправо, +1 ← влево
       offset -= direction * dimensions.slideWidth;
 
       sliderRef.current.style.transition = `${config.transitionTime}s`;
       sliderRef.current.style.transform = `translateX(${offset}px)`;
 
-      // Коррекция для бесконечного скролла
       setTimeout(() => {
         if (offset <= -trackLength) {
           sliderRef.current!.style.transition = "none";
@@ -94,7 +87,6 @@ export const Portfolio = () => {
           sliderRef.current!.style.transform = `translateX(${-trackLength + dimensions.slideWidth}px)`;
         }
 
-        // ✅ Разблокируем после завершения анимации
         setIsBlocked(false);
       }, config.transitionTime * 1000);
     },
@@ -123,11 +115,27 @@ export const Portfolio = () => {
   // Установка начального смещения
   useEffect(() => {
     if (sliderRef.current && dimensions.slideWidth) {
-      sliderRef.current.style.transition = "none"; // Без анимации при старте
+      sliderRef.current.style.transition = "none";
       sliderRef.current.style.transform = `translateX(${-dimensions.slideWidth}px)`;
     }
   }, [dimensions.slideWidth]);
 
+  // Если путь ещё не определён — показываем заглушку
+  if (imagePath === null) {
+    return (
+      <div className={`container ${style["container-portfolio"]}`} id="portfolio">
+        <div className="aside-line"></div>
+        <div className={`content ${style["portfolio-content"]}`}>
+          <div className={style["title-portfolio_block"]}>
+            <h2>Наше портфолио</h2>
+            <p>Загрузка...</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // Теперь все хуки уже вызваны — можно безопасно рендерить
   return (
     <div className={`container ${style["container-portfolio"]}`} id="portfolio">
       <div className="aside-line"></div>
@@ -168,11 +176,11 @@ export const Portfolio = () => {
             className={sliderStyle["arrow-circle"]}
             id="left"
             aria-label="Previous slide"
-            disabled={isBlocked} // 👉 Кнопки становятся неактивными
+            disabled={isBlocked}
             style={{ opacity: isBlocked ? 0.5 : 1, cursor: isBlocked ? "not-allowed" : "pointer" }}
           >
             <div className={sliderStyle.arrow}>
-              <img src={`${imagePath}arrowleft.svg`} alt="Previous" />
+              <img src="images/arrowleft.svg" alt="Previous" />
             </div>
           </button>
           <button
@@ -184,7 +192,7 @@ export const Portfolio = () => {
             style={{ opacity: isBlocked ? 0.5 : 1, cursor: isBlocked ? "not-allowed" : "pointer" }}
           >
             <div className={sliderStyle.arrow}>
-              <img src={`${imagePath}arrowright.svg`} alt="Next" />
+              <img src="images/arrowright.svg" alt="Next" />
             </div>
           </button>
         </div>
@@ -192,6 +200,3 @@ export const Portfolio = () => {
     </div>
   );
 };
-
-// Вспомогательная функция
-const useCallback = (...args: any[]) => require("react").useCallback(...args);
