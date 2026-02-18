@@ -177,7 +177,7 @@ export const Portfolio = () => {
             id="left"
             aria-label="Previous slide"
             disabled={isBlocked}
-            style={{ opacity: isBlocked ? 0.5 : 1, cursor: isBlocked ? "not-allowed" : "pointer" }}
+            style={{ opacity: isBlocked ? 0.5 : 1, cursor: isBlocked ? "not-allowed" : "var(--cursor)" }}
           >
             <div className={sliderStyle.arrow}>
               <img src="images/arrowleft.svg" alt="Previous" />
@@ -189,7 +189,7 @@ export const Portfolio = () => {
             id="right"
             aria-label="Next slide"
             disabled={isBlocked}
-            style={{ opacity: isBlocked ? 0.5 : 1, cursor: isBlocked ? "not-allowed" : "pointer" }}
+            style={{ opacity: isBlocked ? 0.5 : 1, cursor: isBlocked ? "not-allowed" : "var(--cursor)" }}
           >
             <div className={sliderStyle.arrow}>
               <img src="images/arrowright.svg" alt="Next" />
