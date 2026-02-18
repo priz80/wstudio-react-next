@@ -1,125 +1,103 @@
 import Button from "../Button/button";
 import style from "./portfolio.module.scss";
 import sliderStyle from "./slider-portfolio.module.scss";
-import { useEffect, useRef } from "react";
-
-// Базовый путь — зависит от режима (production/local)
-const basePath = '';
-
-const slideImages = [
-  `images/slide7.png`,
-  `images/slide1.png`,
-  `images/slide2.png`,
-  `images/slide3.png`,
-  `images/slide4.png`,
-  `images/slide5.png`,
-  `images/slide6.png`,
-  `images/slide7.png`,
-  `images/slide1.png`,
-  `images/slide2.png`,
-];
-
+import { useEffect, useRef, useState, useMemo } from "react";
 
 export const Portfolio = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const btnLeftRef = useRef<HTMLButtonElement>(null);
   const btnRightRef = useRef<HTMLButtonElement>(null);
 
+  // Состояние для пути к изображениям
+  const [imagePath, setImagePath] = useState("");
+  const [dimensions, setDimensions] = useState({ width: 0, slideWidth: 0 });
+
   // Конфигурация
-  const config = {
-    totalUniqueSlides: 7,
-    transitionTime: 0.7, // секунды
-  };
+  const config = useMemo(
+    () => ({
+      totalUniqueSlides: 8, // slide1 ... slide7
+      transitionTime: 0.7,
+    }),
+    []
+  );
 
-  let slideWidth: number, step: number, trackLength: number, offset: number;
-  let isAnimating = false;
-
-  // Настройки под размер экрана
-  const getBreakpointConfig = () => {
+  // Определяем размеры и путь
+  const updateDimensions = useCallback(() => {
     const innerWidth = window.innerWidth;
-    return innerWidth >= 1480 ? { slideWidth: 671 } : { slideWidth: 295 };
-  };
+    const isDesktop = innerWidth >= 1480;
+    const slideWidth = isDesktop ? 671 : 295;
+    const path = isDesktop ? "images/" : "smallimages/";
 
-  // Обновление параметров слайдера
-  const updateConfig = () => {
-    const { slideWidth: width } = getBreakpointConfig();
-    slideWidth = width;
+    setDimensions({ width: innerWidth, slideWidth });
+    setImagePath(path);
+  }, []);
 
-    trackLength = config.totalUniqueSlides * slideWidth;
-    offset = -slideWidth; // начальное смещение
+  // Инициализация и ресайз
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      updateDimensions();
 
-    // Применяем без анимации
-    if (sliderRef.current) {
-      sliderRef.current.style.transition = "0s";
-      sliderRef.current.style.transform = `translateX(${offset}px)`;
+      const handleResize = () => {
+        clearTimeout((window as any).resizeTimeout);
+        (window as any).resizeTimeout = setTimeout(updateDimensions, 100);
+      };
+
+      window.addEventListener("resize", handleResize);
+      return () => {
+        window.removeEventListener("resize", handleResize);
+        if ((window as any).resizeTimeout) {
+          clearTimeout((window as any).resizeTimeout);
+        }
+      };
     }
-  };
+  }, [updateDimensions]);
+
+
+  // Генерация путей к слайдам (зависит от imagePath)
+  const slideImages = useMemo(() => {
+    return Array.from({ length: config.totalUniqueSlides + 2 }, (_, i) => {
+      const num = i === 0 ? 7 : i <= 7 ? i : i - 7;
+      return `${imagePath}slide${num}.png`;
+    });
+  }, [imagePath, config.totalUniqueSlides]);
 
   // Перемещение слайдера
-  const moveSlider = (direction: number) => {
-    if (isAnimating || !sliderRef.current) return;
-    isAnimating = true;
+  const moveSlider = useCallback(
+  (direction: number) => {
+    if (!sliderRef.current || !dimensions.slideWidth) return;
 
-    // direction: +1 ←, -1 →
-    offset -= direction * slideWidth;
+    const trackLength = config.totalUniqueSlides * dimensions.slideWidth;
+    let offset = parseFloat(sliderRef.current.style.transform.replace(/[^0-9\\-]/g, "") || "0");
 
-    // Анимация
+    // direction: -1 → вправо, +1 ← влево
+    offset -= direction * dimensions.slideWidth;
+
     sliderRef.current.style.transition = `${config.transitionTime}s`;
     sliderRef.current.style.transform = `translateX(${offset}px)`;
 
-    // Бесконечная прокрутка — коррекция после анимации
-    const handleInfiniteScroll = () => {
-      if (offset <= -trackLength) {
-        // Сброс влево (после последнего уникального слайда)
-        offset = 0; // возвращаемся к начальной видимой позиции
-      } else if (offset >= 0) {
-        // Сброс вправо (перед первым уникальным слайдом)
-        offset = -trackLength;
-      } else {
-        return; // Не требуется коррекция
-      }
-
-      // Мгновенный переход без анимации
-      sliderRef.current!.style.transition = "0s";
-      sliderRef.current!.style.transform = `translateX(${offset}px)`;
-    };
-
-    // Ожидание окончания анимации
+    // Коррекция для бесконечного скролла
     setTimeout(() => {
-      handleInfiniteScroll();
-      isAnimating = false;
-    }, config.transitionTime * 1000);
-  };
-
-  useEffect(() => {
-    updateConfig();
-
-    const handleResize = () => {
-      clearTimeout((window as any).resizeTimeout);
-      (window as any).resizeTimeout = setTimeout(() => {
-        updateConfig();
-        console.log("Окно изменено. Конфиг обновлён.");
-      }, 100);
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Очистка
-    return () => {
-      window.removeEventListener("resize", handleResize);
-      if ((window as any).resizeTimeout) {
-        clearTimeout((window as any).resizeTimeout);
+      if (offset <= -trackLength) {
+        // Перейти к началу цикла (после slide2 → slide1)
+        sliderRef.current!.style.transition = "none";
+        sliderRef.current!.style.transform = `translateX(${-dimensions.slideWidth}px)`;
+      } else if (offset > -dimensions.slideWidth) {
+        // Перейти к концу цикла (перед slide1 → slide7)
+       /*  const lastMainPosition = -trackLength; */
+        sliderRef.current!.style.transition = "none";
+        sliderRef.current!.style.transform = `translateX(${-trackLength + dimensions.slideWidth}px)`;
       }
-    };
-  }, []);
+    }, config.transitionTime * 1000);
+  },
+  [dimensions.slideWidth, config]
+);
 
-  // Инициализация обработчиков кликов
+  // Обработчики кликов
   useEffect(() => {
     const leftBtn = btnLeftRef.current;
     const rightBtn = btnRightRef.current;
-    const slider = sliderRef.current;
 
-    if (!leftBtn || !rightBtn || !slider) return;
+    if (!leftBtn || !rightBtn) return;
 
     const clickLeft = () => moveSlider(1);
     const clickRight = () => moveSlider(-1);
@@ -131,7 +109,17 @@ export const Portfolio = () => {
       leftBtn.removeEventListener("click", clickLeft);
       rightBtn.removeEventListener("click", clickRight);
     };
-  }, []);
+  }, [moveSlider]);
+
+  // Установка начального смещения
+  useEffect(() => {
+    
+    if (sliderRef.current && dimensions.slideWidth) {
+      sliderRef.current.style.transition = "1s";
+      sliderRef.current.style.transform = `translateX(${-dimensions.slideWidth}px)`;
+      
+    }
+  }, [dimensions.slideWidth]);
 
   return (
     <div className={`container ${style["container-portfolio"]}`} id="portfolio">
@@ -141,8 +129,7 @@ export const Portfolio = () => {
           <h2>Наше портфолио</h2>
           <p>
             <br />
-            В данном портфолио вы сможете увидеть кейсы наших работ на 2025 -
-            2026 год
+            В данном портфолио вы сможете увидеть кейсы наших работ на 2025 - 2026 год
             <br />
             <br />
             <br />
@@ -155,21 +142,19 @@ export const Portfolio = () => {
             />
           </a>
         </div>
+
         <div className={sliderStyle["slider-block"]}>
           <div className={sliderStyle["slider-portfolio_container"]}>
             <div ref={sliderRef} className={sliderStyle.slider}>
-              {slideImages.map((slide, index) => (
-                <div
-                  key={index}
-                  className={sliderStyle.slide}
-                >
-                  <img src={slide} alt={`Slide ${index + 1}`} />
-                  
+              {slideImages.map((src, index) => (
+                <div key={index} className={sliderStyle.slide}>
+                  <img src={src} alt={`Slide ${index + 1}`} loading="lazy" />
                 </div>
               ))}
             </div>
           </div>
         </div>
+
         <div className={sliderStyle["arrow-container"]}>
           <button
             ref={btnLeftRef}
@@ -178,7 +163,7 @@ export const Portfolio = () => {
             aria-label="Previous slide"
           >
             <div className={sliderStyle.arrow}>
-              <img src={`images/arrowleft.svg`} alt="Previous" />
+              <img src="images/arrowleft.svg" alt="Previous" />
             </div>
           </button>
           <button
@@ -188,7 +173,7 @@ export const Portfolio = () => {
             aria-label="Next slide"
           >
             <div className={sliderStyle.arrow}>
-              <img src={`images/arrowright.svg`} alt="Previous" />
+              <img src="images/arrowright.svg" alt="Next" />
             </div>
           </button>
         </div>
@@ -196,3 +181,6 @@ export const Portfolio = () => {
     </div>
   );
 };
+
+// Вспомогательная функция
+const useCallback = (...args: any[]) => require("react").useCallback(...args);
