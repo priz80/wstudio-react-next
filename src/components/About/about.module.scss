@@ -65,7 +65,7 @@
 
 .tileImgMoney {
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   right: 0;
 }
 
@@ -111,6 +111,7 @@
 
   .aboutTileBlock {
     align-items: center;
+    gap: 32px;
   }
 
   .aboutTitle {
@@ -118,23 +119,29 @@
     margin: 0 auto;
   }
 
-  .aboutTileBlock {
-    gap: 32px;
+
+  .about-tile {
+    width: 289px;
+    height: 289px;
   }
+
+.tile-subtitle {
+    font-size: 12px;
 }
 
-@media (max-width: 1440px) {
+.tileTextBlock {
+    padding: 20px 24px 0 24px;
+}
+
   .hide-span_about {
     display: none;
   }
-}
 
-@media (max-width: 1440px) {
   .container-about {
     min-height: 1062px;
     padding-top: 0;
     padding-bottom: 148px;
-}
+  }
   .block-about {
     border: 1.5px solid #208c76;
     border-radius: 41px;
@@ -149,15 +156,15 @@
     margin-bottom: 18px;
   }
   .block-about_textup > p::after {
-    content: 'Работаем в сфере web-разработки более 3-х лет';
+    content: "Работаем в сфере web-разработки более 3-х лет";
   }
   .block-about_textdown > p::after {
-    content: 'В нашей команде работают лучшие специалисты';
+    content: "В нашей команде работают лучшие специалисты";
   }
- .aboutTitleBlock {
+  .aboutTitleBlock {
     padding-top: 68px;
     padding-bottom: 17px;
-      align-items: center;
+    align-items: center;
     flex-direction: column;
-}
+  }
 }
