@@ -7,6 +7,7 @@ import { Tarif } from "@/components/Tarif/tarif";
 import { Forma } from "@/components/Forma/forma";
 import { Contacty } from "@/components/Contacty/contacty";
 import { Footer } from "@/components/Footer/footer";
+import { ScrollToTopButton } from "@/components/ScrollToButton/ScrollToTopButton";
 
 
 
@@ -20,6 +21,8 @@ export default function Home() {
       <Forma />
       <Contacty />
       <Footer />
+      {/* Кнопка "Наверх" */}
+      <ScrollToTopButton />
     </>
   );
 }
