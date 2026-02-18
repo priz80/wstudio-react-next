@@ -1,3 +1,15 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(0, 0);
+    
+  }
+  to {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
 .slider-tarif_container {
   position: relative;
   width: 1120px;
@@ -6,13 +18,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  // Добавляем анимацию
+  animation: fadeIn 1s ease-in-out forwards;
 }
 
 .carousel {
   position: relative;
   display: flex;
-  /* align-items: center;
-  justify-content: center; */
 }
 
 .carousel__item {
@@ -38,7 +50,7 @@
   transform: translate(-50%, -50%) scale(1);
   z-index: 2;
   visibility: visible;
-  transition: 0.6s ease;
+  transition: 0.6s linear;
 }
 
 .carousel__item--left {
@@ -47,7 +59,7 @@
   visibility: visible;
   opacity: 0.65;
   pointer-events: none;
-  transition: 0.6s ease;
+  transition: 0.6s linear;
 }
 
 .carousel__item--right {
@@ -56,7 +68,7 @@
   visibility: visible;
   opacity: 0.65;
   pointer-events: none;
-  transition: 0.6s ease;
+  transition: 0.6s linear;
 }
 
 /* текстовые блоки */
