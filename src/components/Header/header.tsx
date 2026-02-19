@@ -4,7 +4,6 @@ import Button from "../Button/button";
 import headerStyles from "./headers.module.scss";
 import menuStyles from "./main-menu.module.scss";
 import burgerStyles from "./burger.module.scss";
-import Link from "next/link";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -99,7 +98,7 @@ export const Header = () => {
             <span className={headerStyles['header-subtitle']}>Для твоего бизнеса</span>
             <div className={headerStyles['header-manifesto']}><p></p></div>
             <div className={headerStyles['question-block']}>
-              <Link href="/examples">
+              <a href="#about">
                 <Button
                   styleButton={headerStyles['button-header']}
                   fontButton={headerStyles['buttonFontHeader']}
@@ -109,7 +108,7 @@ export const Header = () => {
                     </>
                   }
                 />
-              </Link>
+              </a>
               <a href="/"><span className={headerStyles.question}>Остались вопросы?</span></a>
             </div>
           </div>
