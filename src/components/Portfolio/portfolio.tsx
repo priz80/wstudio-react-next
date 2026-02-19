@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "../Button/button";
 import style from "./portfolio.module.scss";
 import sliderStyle from "./slider-portfolio.module.scss";
@@ -149,13 +150,13 @@ export const Portfolio = () => {
             <br />
             <br />
           </p>
-          <a href="/">
+          <Link href="examples">
             <Button
               styleButton={style["button-portfolio"]}
               fontButton={style["button-font_portfolio"]}
               nameButton="Компьютерные версии"
             />
-          </a>
+          </Link>
         </div>
 
         <div className={sliderStyle["slider-block"]}>
