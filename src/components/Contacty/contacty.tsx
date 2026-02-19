@@ -11,49 +11,49 @@ export const Contacty = () => {
         </div>
         <div className={styles["ball-block_contacty"]}>
           <a href="/">
-            <div className={styles["ball-circle"]}>
+            {/* <div className={styles["ball-circle"]}> */}
               <div className={styles.ball}>
                 <div className={styles["ball-icon"]}>
                   {/* SVG content remains commented */}
                 </div>
               </div>
-            </div>
+            {/* </div> */}
           </a>
           <a href="/">
-            <div className={styles["ball-circle"]}>
+            {/* <div className={styles["ball-circle"]}> */}
               <div className={styles.ball}>
                 <div className={styles["ball-icon"]}>
                   {/* SVG content remains commented */}
                 </div>
               </div>
-            </div>
+            {/* </div> */}
           </a>
           <a href="/">
-            <div className={styles["ball-circle"]}>
+            {/* <div className={styles["ball-circle"]}> */}
               <div className={styles.ball}>
                 <div className={styles["ball-icon"]}>
                   {/* SVG content remains commented */}
                 </div>
               </div>
-            </div>
+            {/* </div> */}
           </a>
           <a href="/">
-            <div className={styles["ball-circle"]}>
+            {/* <div className={styles["ball-circle"]}> */}
               <div className={styles.ball}>
                 <div className={styles["ball-icon"]}>
                   {/* SVG content remains commented */}
                 </div>
               </div>
-            </div>
+            {/* </div> */}
           </a>
           <a href="/">
-            <div className={styles["ball-circle"]}>
+            {/* <div className={styles["ball-circle"]}> */}
               <div className={styles.ball}>
                 <div className={styles["ball-icon"]}>
                   {/* SVG content remains commented */}
                 </div>
               </div>
-            </div>
+            {/* </div> */}
           </a>
         </div>
       </div>
