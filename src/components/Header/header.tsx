@@ -1,24 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../Button/button";
 import headerStyles from "./headers.module.scss";
 import menuStyles from "./main-menu.module.scss";
 import burgerStyles from "./burger.module.scss";
 
-
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Блокировка скролла при открытом меню
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
+
   return (
     <header className={headerStyles.header}>
-      
-      <div className={`container ${headerStyles['container-header']}`}  id="header">
+      <div className={`container ${headerStyles['container-header']}`} id="header">
         <img
           src="images/lamp.svg"
           className={headerStyles['lamp-container']}
           alt="lamp"
         />
         <div className="aside-line"></div>
-        <div className={headerStyles['man-container']}> <img src="images/man.png" alt="Man" /> </div>
-        <div className={headerStyles['man-container-small']}> <img src="images/man-small.svg" alt="Man" /> </div>
+        <div className={headerStyles['man-container']}>
+          <img src="images/man.png" alt="Man" />
+        </div>
+        <div className={headerStyles['man-container-small']}>
+          <img src="images/man-small.svg" alt="Man" />
+        </div>
         <div className={headerStyles.circle}>
           <div className={`${headerStyles.circle} ${headerStyles['circle-m']}`}>
             <div className={`${headerStyles.circle} ${headerStyles['circle-s']}`}></div>
@@ -36,54 +51,42 @@ export const Header = () => {
               className={menuStyles['logo-mobile']}
               alt="logo"
             />
+
             <div className={menuStyles.menu}>
               {/* Бургер-иконка */}
               <div
                 className={`${burgerStyles.burger} ${isMenuOpen ? burgerStyles.active : ""}`}
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
               >
                 <span className={burgerStyles.span}></span>
                 <span className={`${burgerStyles.span} ${burgerStyles['span-m']}`}></span>
                 <span className={burgerStyles.span}></span>
               </div>
 
-              {/* Основное меню (бургер-версия + десктоп) */}
+              {/* Мобильное меню */}
               <nav
-                onClick={() => setIsMenuOpen(false)}
                 className={`${menuStyles['nav-menu']} ${isMenuOpen ? menuStyles.active : ""}`}
+                onClick={() => setIsMenuOpen(false)}
               >
                 <ul className={menuStyles.menuUl}>
-                  <li>
-                    <a className={menuStyles.menuLink} href="/" onClick={() => setIsMenuOpen(false)}>
-                      Главная
-                    </a>
-                  </li>
-                  <li>
-                    <a className={menuStyles.menuLink} href="#about" onClick={() => setIsMenuOpen(false)}>
-                      Почему именно мы?
-                    </a>
-                  </li>
+                  <li><a href="/" className={menuStyles.menuLink}>Главная</a></li>
+                  <li><a href="#about" className={menuStyles.menuLink}>Почему именно мы?</a></li>
+                  <li className={menuStyles['mobile-only']}><a href="#portfolio" className={menuStyles.menuLink}>Портфолио</a></li>
+                  <li><a href="#contacty" className={menuStyles.menuLink}>Контакты</a></li>
                   <li className={menuStyles['mobile-only']}>
-                    <a className={menuStyles.menuLink} href="#portfolio" onClick={() => setIsMenuOpen(false)}>
-                      Портфолио
-                    </a>
-                  </li>
-                  <li>
-                    <a className={menuStyles.menuLink} href="#contacty" onClick={() => setIsMenuOpen(false)}>
-                      Контакты
-                    </a>
-                  </li>
-                  <li className={menuStyles['mobile-only']}>
-                    <a href="#forma" onClick={() => setIsMenuOpen(false)}>
-                      Оставить заявку
-                    </a>
+                    <a href="#forma" className={menuStyles.menuLink}>Оставить заявку</a>
                   </li>
                 </ul>
               </nav>
 
-              {/* Кнопка "Заказать" */}
+              {/* Кнопка "Заказать" (десктоп) */}
               <a href="#forma">
-                <Button styleButton={menuStyles['button-menu']} fontButton={menuStyles['button-font_menu']} nameButton="Заказать" />
+                <Button
+                  styleButton={menuStyles['button-menu']}
+                  fontButton={menuStyles['button-font_menu']}
+                  nameButton="Заказать"
+                />
               </a>
             </div>
           </div>
@@ -95,19 +98,22 @@ export const Header = () => {
             <div className={headerStyles['header-manifesto']}><p></p></div>
             <div className={headerStyles['question-block']}>
               <a href="#about">
-                <Button styleButton={headerStyles['button-header']} fontButton={headerStyles['buttonFontHeader']} nameButton={
-                        <>
-      Подробнее <img src="images/arr.svg" alt="" />
-    </>
-                      } />
+                <Button
+                  styleButton={headerStyles['button-header']}
+                  fontButton={headerStyles['buttonFontHeader']}
+                  nameButton={
+                    <>
+                      Подробнее <img src="images/arr.svg" alt="" />
+                    </>
+                  }
+                />
               </a>
               <a href="/"><span className={headerStyles.question}>Остались вопросы?</span></a>
             </div>
           </div>
         </div>
-        
       </div>
       <div className={headerStyles['line-header']}></div>
     </header>
   );
-}
+};
