@@ -45,7 +45,7 @@
 @media (max-width: 768px) {
   .ball-block_contacty {
     height: 105px;
-    max-width: 95%;
+    max-width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.2);
     background-image: linear-gradient(
       110deg,
@@ -53,22 +53,23 @@
       #222224 42.27%,
       #292929 100%
     );
+    justify-content: center;
+    gap: 14px;
   }
 
   .ball {
-  width: 63px;
-  height: 63px;
-  border-radius: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: linear-gradient(181deg, #fff 2.5%, rgba(255, 255, 255, 0) 100%);
-  background-clip: content-box;
-  padding: 5px;
-}
+    width: 63px;
+    height: 63px;
+    border-radius: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(181deg, #fff 2.5%, rgba(255, 255, 255, 0) 100%);
+    background-clip: content-box;
+    padding: 5px;
+  }
 
-    .ball:hover {
-      background: radial-gradient(74.19% 74.19% at 50% 50%, rgb(46, 236, 197) 2.500000037252903%, rgb(0, 148, 117) 100%);;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 5px;
-      background-clip: content-box;
+  .ball:hover {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    background-clip: content-box;
   }
 }
