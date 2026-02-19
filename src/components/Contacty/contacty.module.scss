@@ -12,17 +12,19 @@
   max-width: 92%;
   height: 196px;
   margin: 0 auto;
-  /* padding: 0 30px; */
 }
 
 .ball {
-  width: 110px;
-  height: 110px;
+  width: 85px;
+  height: 85px;
   border-radius: 100%;
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: #fff;
   background-clip: content-box;
   padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .ball:hover {
@@ -54,12 +56,12 @@
       #292929 100%
     );
     justify-content: center;
-    gap: 14px;
+    gap: 10px;
   }
 
   .ball {
-    width: 63px;
-    height: 63px;
+    width: 46px;
+    height: 46px;
     border-radius: 100%;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: linear-gradient(181deg, #fff 2.5%, rgba(255, 255, 255, 0) 100%);
