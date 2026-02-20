@@ -92,6 +92,74 @@ h5 {
   top: -28px;
 }
 
+.iphoneButton {
+  position: absolute;
+  border-radius: 29px;
+  border: none;
+min-width: 213px;
+max-height: 58px;
+backdrop-filter: blur(30px);
+background: rgba(255, 255, 255, 0.1);
+z-index: 99;
+display: flex;
+justify-content: space-between;
+/* align-items: center; */
+padding: 12px 15px 10px 11px;
+
+p{
+font-weight: var(--font-size-Regular);
+font-size: 14px;
+/* text-align: center; */
+color: rgba(255, 255, 255, 0.9);
+white-space: pre-line; /* или pre-wrap */
+}
+
+p span {
+font-weight: var(--font-size-Regular);
+font-size: 12px;
+line-height: 106%;
+color: rgba(255, 255, 255, 0.7);
+}
+}
+
+.leftButton {
+right: 150px;
+top: 50px;
+}
+
+.rightButton {
+  right: -100;
+  top: 215px;
+}
+
+.iconGroup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconElips {
+  width: 51px;
+  height: 51px;
+  background-image: url('/images/Ellips.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconElipse {
+  width: 51px;
+  height: 51px;
+  background-image: url('/images/Ellipse.svg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (max-width: 960px) {
   .forma-item_button {
     justify-content: center;
