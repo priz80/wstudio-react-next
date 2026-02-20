@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import Linck from "next/link"
 import Button from "../Button/button";
 import headerStyles from "./headers.module.scss";
 import menuStyles from "./main-menu.module.scss";
@@ -109,7 +108,7 @@ export const Header = () => {
                   }
                 />
               </a>
-              <a href="/"><span className={headerStyles.question}>Остались вопросы?</span></a>
+              <a href="https://t.me/Studio_WWW" target="blank_"><span className={headerStyles.question}>Остались вопросы?</span></a>
             </div>
           </div>
         </div>
