@@ -6,14 +6,14 @@ import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 
 // Список проектов: десктопный и мобильный формат
 const projects = [
-  { desktop: "portfolio-site.png", mobile: "portfolio-site.webp" },
-  { desktop: "calypso.png", mobile: "calypso-hotel.webp" },
-  { desktop: "drupal-studio.png", mobile: "drupal-studio.webp" },
-  { desktop: "pagelist-tool.png", mobile: "pagelist-tool.webp" },
-  { desktop: "ecommerce-demo.png", mobile: "ecommerce-demo.webp" },
-  { desktop: "blog-platform.png", mobile: "blog-platform.webp" },
-  { desktop: "landing-modern.png", mobile: "landing-modern.webp" },
-  { desktop: "dashboard-app.png", mobile: "dashboard-app.webp" },
+  { desktop: "portfolio.png", mobile: "portfolio.png" },
+  { desktop: "calypso.png", mobile: "calypso.png" },
+  { desktop: "drupal.png", mobile: "drupal.png" },
+  { desktop: "pagelist.png", mobile: "pagelist.png" },
+  { desktop: "portfolio.png", mobile: "portfolio.png" },
+  { desktop: "calypso.png", mobile: "calypso.png" },
+  { desktop: "drupal.png", mobile: "drupal.png" },
+  { desktop: "pagelist.png", mobile: "pagelist.png" },
 ];
 
 export const Portfolio = () => {
@@ -26,14 +26,14 @@ export const Portfolio = () => {
   const [isBlocked, setIsBlocked] = useState(false);
 
   const config = useMemo(() => ({
-    totalUniqueSlides: projects.length,
+    totalUniqueSlides: 9,
     transitionTime: 0.7,
   }), []);
 
   // Определяем устройство
   useEffect(() => {
     const handleResize = () => {
-      const mobile = window.innerWidth < 768;
+      const mobile = window.innerWidth < 1482;
       setIsMobile(mobile);
       setSlideWidth(mobile ? 295 : 671);
     };
@@ -45,8 +45,8 @@ export const Portfolio = () => {
 
   // Формируем пути к изображениям
   const slideImages = useMemo(() => {
-    const basePath = "/screenshots/";
-    const format = isMobile ? "mobile" : "desktop";
+    const basePath = isMobile ? "/screenshots/mobile/" : "/screenshots/desktop/";
+    /* const format = isMobile ? "mobile" : "desktop"; */
 
     // Для бесконечного слайдера: [последний] + [все] + [первый]
     const first = projects[0];
