@@ -18,47 +18,51 @@ const sites = [
 ];
 
 // Настройки
-const VIEWPORT = { width: 1200, height: 800 };
+const VIEWPORT = { width: 567, height: 363 };
 const DELAY_AFTER_LOAD = 3000; // ms (ждём анимации, JS)
 
 async function captureScreenshots() {
   console.log("🚀 Запуск браузера...");
   const browser = await chromium.launch({
-    headless: true, // false — если хотите видеть процесс
+    headless: true,
   });
 
   const context = await browser.newContext({
     viewport: VIEWPORT,
     userAgent:
       "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+    ignoreHTTPSErrors: true,
   });
 
   const page = await context.newPage();
 
- for (const site of sites) {
-  try {
-    console.log(`📷 Захват: ${site.url}`);
-    await page.goto(site.url, { waitUntil: 'networkidle' });
+  for (const site of sites) {
+    try {
+      console.log(`📷 Захват: ${site.url}`);
+      await page.goto(site.url, {
+        waitUntil: "domcontentloaded",
+        timeout: 60000,
+      });
 
-    // Просто ждём 3 секунды после полной загрузки
-    await new Promise(r => setTimeout(r, 3000));
+      await new Promise((r) => setTimeout(r, DELAY_AFTER_LOAD));
 
-    const pngPath = path.join(SCREENSHOTS_DIR, `${site.name}.png`);
-    await page.screenshot({
-      path: pngPath,
-      type: 'png',
-    });
+      const pngPath = path.join(SCREENSHOTS_DIR, `${site.name}.png`);
+      await page.screenshot({
+        path: pngPath,
+        type: "png",
+      });
 
-    console.log(`✅ PNG сохранён: ${pngPath}`);
+      console.log(`✅ PNG сохранён: ${pngPath}`);
 
-    const webpPath = path.join(SCREENSHOTS_DIR, `${site.name}.webp`);
-    await sharp(pngPath).webp({ quality: 85 }).toFile(webpPath);
-    console.log(`✅ WebP сохранён: ${webpPath}`);
-
-  } catch (error) {
-    console.error(`❌ Ошибка при скриншоте ${site.url}:`, error);
+      const webpPath = path.join(SCREENSHOTS_DIR, `${site.name}.webp`);
+      await sharp(pngPath).webp({ quality: 85 }).toFile(webpPath);
+      console.log(`✅ WebP сохранён: ${webpPath}`);
+    } catch (error) {
+      // ✅ Правильная обработка unknown
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`❌ Ошибка при скриншоте ${site.url}:`, errorMessage);
+    }
   }
-}
 
   await browser.close();
   console.log("🎉 Все скриншоты готовы!");
