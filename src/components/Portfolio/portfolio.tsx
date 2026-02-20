@@ -129,7 +129,7 @@ export const Portfolio = () => {
           <p>
             В данном портфолио вы сможете увидеть кейсы наших работ на 2025 - 2026 год
           </p>
-          <Link href="/examples">
+          <Link href="/examples" key={0}>
             <Button
               styleButton={style["button-portfolio"]}
               fontButton={style["button-font_portfolio"]}
@@ -143,7 +143,7 @@ export const Portfolio = () => {
           <div className={sliderStyle["slider-portfolio_container"]} >
             <div ref={sliderRef} className={sliderStyle.slider}>
               {slideImages.map((src, index) => (
-                <a href="/examples">
+                <a href="/examples" key={index}>
                   <div key={index} className={sliderStyle.slide}>
                     <img src={src} alt={`Проект ${index}`} loading="lazy" />
                   </div>
