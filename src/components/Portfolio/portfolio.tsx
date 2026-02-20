@@ -140,12 +140,14 @@ export const Portfolio = () => {
 
         {/* Слайдер */}
         <div className={sliderStyle["slider-block"]}>
-          <div className={sliderStyle["slider-portfolio_container"]}>
+          <div className={sliderStyle["slider-portfolio_container"]} >
             <div ref={sliderRef} className={sliderStyle.slider}>
               {slideImages.map((src, index) => (
-                <div key={index} className={sliderStyle.slide}>
-                  <img src={src} alt={`Проект ${index}`} loading="lazy" />
-                </div>
+                <a href="/examples">
+                  <div key={index} className={sliderStyle.slide}>
+                    <img src={src} alt={`Проект ${index}`} loading="lazy" />
+                  </div>
+                </a>
               ))}
             </div>
           </div>
