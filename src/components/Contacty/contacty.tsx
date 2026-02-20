@@ -13,45 +13,45 @@ export const Contacty = () => {
           <a href="/">
             {/* <div className={styles["ball-circle"]}> */}
               <div className={styles.ball}>
-                <div className={styles["ball-icon"]}>
+                
                   {/* SVG content remains commented */}
-                </div>
+                
+              </div>
+            {/* </div> */}
+          </a>
+          <a href="/" target="blank_">
+            {/* <div className={styles["ball-circle"]}> */}
+              <div className={styles.ball}>
+                
+                  <img src="/icons/max.svg" alt="" />
+                
+              </div>
+            {/* </div> */}
+          </a>
+          <a href="https://t.me/Studio_WWW" target="blank_">
+            {/* <div className={styles["ball-circle"]}> */}
+              <div className={styles.ball}>
+                
+                  <img src="/icons/telegram.svg" alt="" />
+                
+              </div>
+            {/* </div> */}
+          </a>
+          <a href="/" target="blank_">
+            {/* <div className={styles["ball-circle"]}> */}
+              <div className={styles.ball}>
+                
+                  <img src="/icons/vk.svg" alt="" />
+                
               </div>
             {/* </div> */}
           </a>
           <a href="/">
             {/* <div className={styles["ball-circle"]}> */}
               <div className={styles.ball}>
-                <div className={styles["ball-icon"]}>
-                  {/* SVG content remains commented */}
-                </div>
-              </div>
-            {/* </div> */}
-          </a>
-          <a href="/">
-            {/* <div className={styles["ball-circle"]}> */}
-              <div className={styles.ball}>
-                <div className={styles["ball-icon"]}>
-                  {/* SVG content remains commented */}
-                </div>
-              </div>
-            {/* </div> */}
-          </a>
-          <a href="/">
-            {/* <div className={styles["ball-circle"]}> */}
-              <div className={styles.ball}>
-                <div className={styles["ball-icon"]}>
-                  {/* SVG content remains commented */}
-                </div>
-              </div>
-            {/* </div> */}
-          </a>
-          <a href="/">
-            {/* <div className={styles["ball-circle"]}> */}
-              <div className={styles.ball}>
-                <div className={styles["ball-icon"]}>
-                  {/* SVG content remains commented */}
-                </div>
+                
+                  <img src="/icons/gmail.svg" alt="" />
+                
               </div>
             {/* </div> */}
           </a>
