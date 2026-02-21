@@ -68,20 +68,30 @@ h5 {
   line-height: 154%;
 }
 
-.formaBlock {
+/* .formaBlock {
   display: flex;
   justify-content: space-between;
   max-width: 1200px;
+} */
+
+.imagesIphone {
+  position: absolute;
+  min-width: 269px;
+  min-height: 529px;
+  top: -31px;
+  right: 0;
+  background-image: url(/images/iPhone.png);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-
-.iPhone {
+/* .iPhone {
   position: absolute;
   min-width: 269px;
   min-height: 529px;
   top: -27px;
   right: 0;
-}
+} */
 
 
 .iphoneButton {
@@ -195,28 +205,29 @@ h5 {
 
 
 @media (max-width: 1680px) {
-.iPhone {
+.imagesIphone {
     display: none;
   }
 
-  .iphoneButton {
+ /*  .iphoneButton {
     display: none;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
-.iPhone {
+.imagesIphone {
     display: block;
     top: 836px;
     right: 50%;
     transform: translateX(50%);
+    background-image: url(/images/iPhone-small.png);
   }
 
-  .iphoneButton {
+ /*  .iphoneButton {
     display: flex;
-  }
+  } */
 
    .forma-container {
-    margin-bottom: 577px;
+    margin-bottom: 570px;
   }
 }
