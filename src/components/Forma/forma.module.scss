@@ -214,3 +214,16 @@ top: 50px;
     display: none;
   }
 }
+
+@media (max-width: 768px) {
+.iPhone {
+    display: block;
+    top: 836px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .iphoneButton {
+    display: flex;
+  }
+}
