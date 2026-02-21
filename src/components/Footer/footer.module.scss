@@ -18,3 +18,13 @@
   text-align: center;
   color: rgba(255, 255, 255, 0.4);
 }
+
+@media (max-width: 576px) {
+  .copyright {
+    font-size: 9px;
+  }
+
+  .policy {
+    font-size: 9px;
+  }
+  }
