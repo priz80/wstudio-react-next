@@ -33,7 +33,7 @@ export const Portfolio = () => {
   // Определяем устройство
   useEffect(() => {
     const handleResize = () => {
-      const mobile = window.innerWidth < 1482;
+      const mobile = window.innerWidth < 1200;
       setIsMobile(mobile);
       setSlideWidth(mobile ? 295 : 671);
     };
