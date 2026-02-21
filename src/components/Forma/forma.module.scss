@@ -11,12 +11,7 @@
   height: 458px;
 }
 
-.formaContent {
-  position: relative;
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto;
-}
+
 
 .title-forma {
 h5 {
@@ -156,13 +151,8 @@ top: 50px;
 }
 
 @media (max-width: 1200px) {
-.formaBlock {
-  justify-content: center;
-}
-
   .forma-container {
     height: 677px;
-   
   }
 
   .forma-item_button {
