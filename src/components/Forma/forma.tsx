@@ -97,11 +97,9 @@ export const Forma = () => {
             </form>
           </div>
           <div className={`${styles.iphoneButton} ${styles.leftButton}`}>
-            <div>
-              <div className={styles.iconGroup}>
-                <div className={styles.iconElips}>
-                  <div><img src="/images/Group.svg" alt="Web icon" /></div>
-                </div>
+            <div className={styles.iconGroup}>
+              <div className={styles.iconElips}>
+                <div><img src="/images/Group.svg" alt="Web icon" /></div>
               </div>
             </div>
             <p>
