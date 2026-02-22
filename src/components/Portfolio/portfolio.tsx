@@ -6,14 +6,15 @@ import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 
 // Список проектов: десктопный и мобильный формат
 const projects = [
-  { desktop: "portfolio.png", mobile: "portfolio.png" },
+  
   { desktop: "calypso.png", mobile: "calypso.png" },
   { desktop: "drupal.png", mobile: "drupal.png" },
   { desktop: "pagelist.png", mobile: "pagelist.png" },
   { desktop: "portfolio.png", mobile: "portfolio.png" },
-  { desktop: "calypso.png", mobile: "calypso.png" },
-  { desktop: "drupal.png", mobile: "drupal.png" },
-  { desktop: "pagelist.png", mobile: "pagelist.png" },
+  { desktop: "calculate.png", mobile: "calculate.png" },
+  /* { desktop: "calypso.png", mobile: "calypso.png" }, */
+  /* { desktop: "drupal.png", mobile: "drupal.png" }, */
+  /* { desktop: "calculate.png", mobile: "calculate.png" }, */
 ];
 
 export const Portfolio = () => {
@@ -25,17 +26,20 @@ export const Portfolio = () => {
   const [slideWidth, setSlideWidth] = useState(671);
   const [isBlocked, setIsBlocked] = useState(false);
 
-  const config = useMemo(() => ({
-    totalUniqueSlides: 9,
-    transitionTime: 0.7,
-  }), []);
+  const config = useMemo(
+    () => ({
+      totalUniqueSlides: 6,
+      transitionTime: 0.7,
+    }),
+    [],
+  );
 
   // Определяем устройство
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth < 1200;
       setIsMobile(mobile);
-      setSlideWidth(mobile ? 295 : 671);
+      setSlideWidth(mobile ? 297 : 669);
     };
 
     handleResize();
@@ -45,7 +49,9 @@ export const Portfolio = () => {
 
   // Формируем пути к изображениям
   const slideImages = useMemo(() => {
-    const basePath = isMobile ? "/screenshots/mobile/" : "/screenshots/desktop/";
+    const basePath = isMobile
+      ? "/screenshots/mobile/"
+      : "/screenshots/desktop/";
     /* const format = isMobile ? "mobile" : "desktop"; */
 
     // Для бесконечного слайдера: [последний] + [все] + [первый]
@@ -53,9 +59,9 @@ export const Portfolio = () => {
     const last = projects[projects.length - 1];
 
     const ordered = [
-      last,           // для плавного перехода назад
-      ...projects,    // основные
-      first,          // для плавного перехода вперёд
+      last, // для плавного перехода назад
+      ...projects, // основные
+      first, // для плавного перехода вперёд
     ];
 
     return ordered.map((proj) => {
@@ -72,7 +78,9 @@ export const Portfolio = () => {
       setIsBlocked(true);
 
       const trackLength = config.totalUniqueSlides * slideWidth;
-      let offset = parseFloat(sliderRef.current.style.transform.replace(/[^0-9\\-]/g, "") || "0");
+      let offset = parseFloat(
+        sliderRef.current.style.transform.replace(/[^0-9\\-]/g, "") || "0",
+      );
 
       offset -= direction * slideWidth;
 
@@ -90,7 +98,7 @@ export const Portfolio = () => {
         setIsBlocked(false);
       }, config.transitionTime * 1000);
     },
-    [slideWidth, config, isBlocked]
+    [slideWidth, config, isBlocked],
   );
 
   // Обработчики кнопок
@@ -127,7 +135,8 @@ export const Portfolio = () => {
         <div className={style["title-portfolio_block"]}>
           <h2>Наше портфолио</h2>
           <p>
-            В данном портфолио вы сможете увидеть кейсы наших работ на 2025 - 2026 год
+            В данном портфолио вы сможете увидеть кейсы наших работ на 2025 -
+            2026 год
           </p>
           <Link href="/examples" key={0}>
             <Button
@@ -137,23 +146,9 @@ export const Portfolio = () => {
             />
           </Link>
         </div>
+      </div>
 
-        {/* Слайдер */}
-        <div className={sliderStyle["slider-block"]}>
-          <div className={sliderStyle["slider-portfolio_container"]} >
-            <div ref={sliderRef} className={sliderStyle.slider}>
-              {slideImages.map((src, index) => (
-                <a href="/examples" key={index}>
-                  <div key={index} className={sliderStyle.slide}>
-                    <img src={src} alt={`Проект ${index}`} loading="lazy" />
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Кнопки */}
+      {/* Кнопки */}
         <div className={sliderStyle["arrow-container"]}>
           <button
             ref={btnLeftRef}
@@ -184,7 +179,22 @@ export const Portfolio = () => {
             </div>
           </button>
         </div>
-      </div>
+
+{/* Слайдер */}
+        <div className={sliderStyle["slider-block"]}>
+          <div className={sliderStyle["slider-portfolio_container"]}>
+            <div ref={sliderRef} className={sliderStyle.slider}>
+              {slideImages.map((src, index) => (
+                <a href="/examples" key={index}>
+                  <div key={index} className={sliderStyle.slide}>
+                    <img src={src} alt={`Проект ${index}`} loading="lazy" />
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
     </div>
   );
 };
