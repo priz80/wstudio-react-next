@@ -6,15 +6,11 @@ import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 
 // Список проектов: десктопный и мобильный формат
 const projects = [
-  
   { desktop: "calypso.png", mobile: "calypso.png" },
   { desktop: "drupal.png", mobile: "drupal.png" },
   { desktop: "pagelist.png", mobile: "pagelist.png" },
   { desktop: "portfolio.png", mobile: "portfolio.png" },
   { desktop: "calculate.png", mobile: "calculate.png" },
-  /* { desktop: "calypso.png", mobile: "calypso.png" }, */
-  /* { desktop: "drupal.png", mobile: "drupal.png" }, */
-  /* { desktop: "calculate.png", mobile: "calculate.png" }, */
 ];
 
 export const Portfolio = () => {
