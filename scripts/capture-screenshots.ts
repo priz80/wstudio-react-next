@@ -15,6 +15,7 @@ const sites = [
   { url: "https://calypso.calypso-hotel.ru", name: "calypso" },
   { url: "https://drupalsite.wstudio.tech", name: "drupal" },
   { url: "https://pagelist.ru", name: "pagelist" },
+  { url: "https://calculate.wstudio.tech/", name: "calculate" },
 ];
 
 // Настройки
