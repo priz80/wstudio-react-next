@@ -1,5 +1,10 @@
 .slider-block {
-  padding-top: 144px;
+  /* padding-top: 144px; */
+  width: 914px;
+  overflow: hidden;
+  position: absolute;
+  top: 146px;
+  right: 0;
 }
 
 @keyframes fadeIn {
@@ -14,8 +19,8 @@
 }
 
 .slider-portfolio_container {
-  overflow: hidden;
-  max-width: 573px;
+  /* overflow: hidden; */
+  max-width: 571px;
 }
 
 .arrow-container {
@@ -24,13 +29,13 @@
   display: flex;
   justify-content: space-between;
   z-index: 1;
-  right: -20px;
+  right: 307px;
   top: 290px;
 }
 
 .slider {
   display: flex;
-  width: 6611px;
+  width: 4586px; /* для gap: 104px; */
   justify-content: space-between;
 }
 
@@ -40,7 +45,7 @@
   border-radius: 5px;
   background-repeat: no-repeat;
   background-size: contain;
-  border: 1px solid green;
+  /* border: 1px solid green; */
   // Добавляем анимацию
   animation: fadeIn 3s ease-out forwards;
 }
@@ -103,9 +108,10 @@
   }
 
   .slider {
-    justify-content: space-between;
+    /* justify-content: space-between; */
     width: 2918px;
     display: flex;
+    
   }
 
   .slide {
