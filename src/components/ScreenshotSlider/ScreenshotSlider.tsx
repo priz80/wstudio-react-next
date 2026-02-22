@@ -31,6 +31,11 @@ const projects: Project[] = [
     url: "https://pagelist.ru",
     description: "Сервис онлайн конструктора сайтов",
   },
+  {
+    title: "Web-сервис «Pagelist»",
+    url: "https://calculate.wstudio.tech",
+    description: "Сервис онлайн конструктора сайтов",
+  },
 ];
 
 export default function ScreenshotSlider() {
