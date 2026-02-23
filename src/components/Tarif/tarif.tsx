@@ -1,7 +1,7 @@
 // src/components/Tarif/tarif.tsx
 import style from "./tarif.module.scss";
 import styleSlider from "./slider-tarif.module.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Button from "../Button/button";
 import Image from "next/image";
 
@@ -118,7 +118,7 @@ export const Tarif = () => {
                       <p className={styleSlider.pricep}>{item.price}</p>
                       <span>{item.time}</span>
                     </div>
-                    <a href="/">
+                    <a href="Link /">
                       <Button
                         styleButton={styleSlider["button"]}
                         fontButton={styleSlider["style-text"]}
