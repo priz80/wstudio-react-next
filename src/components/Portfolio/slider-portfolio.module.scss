@@ -1,6 +1,7 @@
 .slider-block {
   /* padding-top: 144px; */
-  width: 914px;
+  width: 100%;
+  max-width: 914px;
   overflow: hidden;
   position: absolute;
   top: 146px;
@@ -101,8 +102,9 @@
 
 @media (max-width: 1200px) {
   .slider-block {
-    padding-top: 0;
-    padding-left: 26px;
+    /* padding-top: 0; */
+    /* padding-left: 26px; */
+    max-width: 340px;
   }
 
   .arrow-container {
@@ -116,13 +118,13 @@
 
   .slider-portfolio_container {
     position: relative;
-    width: 360px;
+    max-width: 258px;
   }
 
   .slider {
     /* justify-content: space-between; */
-    width: 2918px;
-    display: flex;
+    width: 2043px;
+    /* display: flex; */
     
   }
 
