@@ -4,6 +4,7 @@ import { useState } from "react";
 import styles from "./screenshot-slider.module.scss";
 import Button from "../Button/button";
 import Image from 'next/image';
+import Link from "next/link";
 
 
 interface Project {
@@ -84,7 +85,8 @@ export default function ScreenshotSlider() {
             <a onClick={() =>
             window.open(currentProject.url, "_blank", "noopener,noreferrer")
           }><Button styleButton={styles.buttonSite} nameButton={`перейти на сайт: ${currentProject.title}`}/></a>
-            <a href="Link /"><Button styleButton={styles.buttonSlider} nameButton="вернуться на главную"/></a>
+            <Link href="/">
+            <Button styleButton={styles.buttonSlider} nameButton="вернуться на главную"/></Link>
           </div>
           
         </div>
