@@ -3,6 +3,7 @@ import style from "./tarif.module.scss";
 import styleSlider from "./slider-tarif.module.scss";
 import { useState, useEffect } from "react";
 import Button from "../Button/button";
+import Image from "next/image";
 
 export const Tarif = () => {
   const items = [
@@ -65,10 +66,10 @@ export const Tarif = () => {
         i === index
           ? "main"
           : i === (index + 1) % items.length
-          ? "right"
-          : i === (index - 1 + items.length) % items.length
-          ? "left"
-          : "";
+            ? "right"
+            : i === (index - 1 + items.length) % items.length
+              ? "left"
+              : "";
       return { ...item, position };
     });
   };
@@ -91,8 +92,6 @@ export const Tarif = () => {
     });
   };
 
-  
-
   return (
     <div className={`container ${style["container-tarif"]}`} id="tarif">
       <div className="aside-line"></div>
@@ -108,7 +107,6 @@ export const Tarif = () => {
               <div
                 key={index}
                 className={`${styleSlider["carousel__item"]} ${styleSlider[`carousel__item--${item.position}`]}`}
-                /* style={{ transition: "all 1s ease" }} */
               >
                 <div className={styleSlider["carousel__text"]}>
                   <div>
@@ -126,7 +124,13 @@ export const Tarif = () => {
                         fontButton={styleSlider["style-text"]}
                         nameButton={
                           <>
-                            Подробнее <img src="images/arr.svg" alt="" />
+                            Подробнее{" "}
+                            <Image
+                              src="images/arr.svg"
+                              alt="arrow"
+                              width={24}
+                              height={24}
+                            />
                           </>
                         }
                       />
@@ -145,7 +149,12 @@ export const Tarif = () => {
             onClick={handleLeftClick}
           >
             <div className={styleSlider.ball}>
-              <img src="images/arrowleft.svg" alt="Предыдущий" />
+              <Image
+                src="images/arrowleft.svg"
+                alt="Предыдущий"
+                width={24}
+                height={24}
+              />
             </div>
           </button>
           <button
@@ -153,7 +162,12 @@ export const Tarif = () => {
             onClick={handleRightClick}
           >
             <div className={styleSlider.ball}>
-              <img src="images/arrowright.svg" alt="Следующий" />
+              <Image
+                src="images/arrowright.svg"
+                alt="Следующий"
+                width={24}
+                height={24}
+              />
             </div>
           </button>
         </div>
