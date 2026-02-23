@@ -6,16 +6,11 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d out",
     "screenshots": "npx tsx scripts/capture-screenshots.ts",
     "postinstall": "npx playwright install chromium"
   },
   "dependencies": {
-    "gh-pages": "^6.3.0",
     "next": "16.1.6",
-    "playwright": "^1.58.2",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "sass": "^1.97.3",
@@ -30,9 +25,5 @@
     "eslint-config-next": "16.1.6",
     "tsx": "^4.21.0",
     "typescript": "^5"
-  },
-  "rules": {
-    "no-unused-vars": "warn",
-    "no-unreachable": "error"
   }
 }
