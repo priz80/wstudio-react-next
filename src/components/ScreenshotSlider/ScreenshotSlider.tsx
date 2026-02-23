@@ -32,9 +32,9 @@ const projects: Project[] = [
     description: "Сервис онлайн конструктора сайтов",
   },
   {
-    title: "Web-сервис «Pagelist»",
+    title: "Финансовый калькулятор",
     url: "https://calculate.wstudio.tech",
-    description: "Сервис онлайн конструктора сайтов",
+    description: "Страница с калькулятором для финансового сервиса",
   },
 ];
 
