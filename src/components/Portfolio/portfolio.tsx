@@ -157,7 +157,8 @@ export const Portfolio = () => {
           }}
         >
           <div className={sliderStyle.arrow}>
-            <Image src="/images/arrowleft.svg" alt="Назад" />
+            <Image src="/images/arrowleft.svg" alt="Назад" width={24}
+  height={24}/>
           </div>
         </button>
         <button
@@ -171,7 +172,8 @@ export const Portfolio = () => {
           }}
         >
           <div className={sliderStyle.arrow}>
-            <Image src="/images/arrowright.svg" alt="Вперёд" />
+            <Image src="/images/arrowright.svg" alt="Вперёд"width={24}
+  height={24} />
           </div>
         </button>
       </div>
