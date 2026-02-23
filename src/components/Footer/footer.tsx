@@ -8,7 +8,7 @@ export const Footer = () => {
           <br />
           <br />
         </p>
-      <a href="/">
+      <a href="Link /">
         <p className={styles.policy}>Политика сайта и обработка персональных данных</p>
       </a>
     </div>
