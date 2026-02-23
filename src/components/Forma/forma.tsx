@@ -96,36 +96,37 @@ export const Forma = () => {
           </form>
         </div>
         
-          <div className={styles.imagesIphone}>
+          <div className={styles.imagesBlock}>
             <div className={`${styles.iphoneButton} ${styles.leftButton}`}>
-              <div className={styles.iconGroup}>
-                <div className={styles.iconElips}>
-                  <div>
-                    <img src="/images/Group.svg" alt="Web icon" />
+                <div className={styles.iconGroup}>
+                  <div className={styles.iconElips}>
+                    <div>
+                      <img src="/images/Group.svg" alt="Web icon" />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <p>
-                Уведомление!
-                <span>
-                  В скорейшем времени вам перезвонят
-                </span>
-              </p>
+                <p>
+                  Уведомление!
+                  <span>
+                    В скорейшем времени вам перезвонят
+                  </span>
+                </p>
             </div>
+            <div className={styles.imagesIphone}></div>
             <div className={`${styles.iphoneButton} ${styles.rightButton}`}>
-              <div className={styles.iconGroup}>
-                <div className={styles.iconElipse}>
-                  <div>
-                    <img src="/images/web.svg" alt="Web icon" />
+                <div className={styles.iconGroup}>
+                  <div className={styles.iconElipse}>
+                    <div>
+                      <img src="/images/web.svg" alt="Web icon" />
+                    </div>
                   </div>
                 </div>
-              </div>
-              <p>
-                Работа закончена!
-                <span>
-                  Мы закончили работу над вашим сайтом
-                </span>
-              </p>
+                <p>
+                  Работа закончена!
+                  <span>
+                    Мы закончили работу над вашим сайтом
+                  </span>
+                </p>
             </div>
           </div>
           
