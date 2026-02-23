@@ -5,6 +5,7 @@ import styles from "./screenshot-slider.module.scss";
 import Button from "../Button/button";
 import Image from 'next/image';
 
+
 interface Project {
   title: string;
   url: string;
