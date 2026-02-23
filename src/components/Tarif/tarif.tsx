@@ -58,8 +58,7 @@ export const Tarif = () => {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
+  // Функция расчёта позиций
   const updatePositions = (index: number) => {
     return items.map((item, i) => {
       const position =
@@ -74,28 +73,29 @@ export const Tarif = () => {
     });
   };
 
+  // Единственное состояние — текущие данные слайдов
   const [itemsState, setItemsState] = useState(() => updatePositions(0));
 
   const handleRightClick = () => {
-    setCurrentIndex((i) => {
-      const nextIndex = (i + 1) % items.length;
-      setItemsState(updatePositions(nextIndex));
-      return nextIndex;
+    setItemsState(prev => {
+      const currentMainIndex = prev.findIndex(item => item.position === "main");
+      const nextIndex = (currentMainIndex + 1) % items.length;
+      return updatePositions(nextIndex);
     });
   };
 
   const handleLeftClick = () => {
-    setCurrentIndex((i) => {
-      const nextIndex = (i - 1 + items.length) % items.length;
-      setItemsState(updatePositions(nextIndex));
-      return nextIndex;
+    setItemsState(prev => {
+      const currentMainIndex = prev.findIndex(item => item.position === "main");
+      const nextIndex = (currentMainIndex - 1 + items.length) % items.length;
+      return updatePositions(nextIndex);
     });
   };
 
   return (
     <div className={`container ${style["container-tarif"]}`} id="tarif">
       <div className="aside-line"></div>
-      <div className={`content ${style["tarif-contant"]}`}>
+      <div className={`content ${style["tarif-content"]}`}>
         <div className={style["title-tarif"]}>
           <h2>Тарифы</h2>
         </div>
@@ -118,7 +118,7 @@ export const Tarif = () => {
                       <p className={styleSlider.pricep}>{item.price}</p>
                       <span>{item.time}</span>
                     </div>
-                    <a href="Link /">
+                    <a href="#forma">
                       <Button
                         styleButton={styleSlider["button"]}
                         fontButton={styleSlider["style-text"]}
@@ -126,7 +126,7 @@ export const Tarif = () => {
                           <>
                             Подробнее{" "}
                             <Image
-                              src="images/arr.svg"
+                              src="/images/arr.svg"
                               alt="arrow"
                               width={24}
                               height={24}
@@ -147,11 +147,12 @@ export const Tarif = () => {
           <button
             className={styleSlider["carousel__btn"]}
             onClick={handleLeftClick}
+            aria-label="Предыдущий слайд"
           >
             <div className={styleSlider.ball}>
               <Image
-                src="images/arrowleft.svg"
-                alt="Предыдущий"
+                src="/images/arrowleft.svg"
+                alt=""
                 width={24}
                 height={24}
               />
@@ -160,11 +161,12 @@ export const Tarif = () => {
           <button
             className={styleSlider["carousel__btn"]}
             onClick={handleRightClick}
+            aria-label="Следующий слайд"
           >
             <div className={styleSlider.ball}>
               <Image
-                src="images/arrowright.svg"
-                alt="Следующий"
+                src="/images/arrowright.svg"
+                alt=""
                 width={24}
                 height={24}
               />
