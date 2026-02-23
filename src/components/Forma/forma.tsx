@@ -1,5 +1,6 @@
 import Button from "../Button/button";
 import styles from "./forma.module.scss";
+import Image from 'next/image';
 
 export const Forma = () => {
   return (
@@ -101,7 +102,8 @@ export const Forma = () => {
                 <div className={styles.iconGroup}>
                   <div className={styles.iconElips}>
                     <div>
-                      <img src="/images/Group.svg" alt="Web icon" />
+                      <Image src="/images/Group.svg" alt="Web icon"  width={24} 
+  height={24} />
                     </div>
                   </div>
                 </div>
@@ -117,7 +119,8 @@ export const Forma = () => {
                 <div className={styles.iconGroup}>
                   <div className={styles.iconElipse}>
                     <div>
-                      <img src="/images/web.svg" alt="Web icon" />
+                      <Image src="/images/web.svg" alt="Web icon"  width={24} 
+  height={24} />
                     </div>
                   </div>
                 </div>
