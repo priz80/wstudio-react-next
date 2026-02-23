@@ -157,7 +157,7 @@ export const Portfolio = () => {
           }}
         >
           <div className={sliderStyle.arrow}>
-            <img src="/images/arrowleft.svg" alt="Назад" />
+            <Image src="/images/arrowleft.svg" alt="Назад" />
           </div>
         </button>
         <button
@@ -171,7 +171,7 @@ export const Portfolio = () => {
           }}
         >
           <div className={sliderStyle.arrow}>
-            <img src="/images/arrowright.svg" alt="Вперёд" />
+            <Image src="/images/arrowright.svg" alt="Вперёд" />
           </div>
         </button>
       </div>
@@ -182,7 +182,7 @@ export const Portfolio = () => {
         <div ref={sliderRef} className={sliderStyle.slider}>
           {slideImages.map((src, index) => (
             <div key={index} className={sliderStyle.slide}>
-              <img src={src} alt={`Проект ${index}`} loading="lazy" />
+              <Image src={src} alt={`Проект ${index}`} loading="lazy" />
               <div className={sliderStyle.hoverSlide}>
               </div>
             </div>
