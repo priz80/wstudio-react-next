@@ -86,7 +86,7 @@ export const Forma = () => {
               />
             </div>
             <div className={styles["forma-item_button"]}>
-              <a href="/">
+              <a href="Link /">
                 <Button
                   styleButton={styles["button-forma"]}
                   fontButton={styles["button-font_forma"]}
