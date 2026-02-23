@@ -1,5 +1,4 @@
 .slider-block {
-  /* padding-top: 144px; */
   width: 100%;
   max-width: 914px;
   overflow: hidden;
@@ -18,7 +17,6 @@
     transform: translate(0, 0);
   }
 }
-
 
 .arrow-container {
   position: absolute;
@@ -59,8 +57,6 @@
   animation: fadeIn 3s ease-out forwards;
 }
 
-
-
 .arrow-circle {
   pointer-events: auto;
   min-width: 70px;
@@ -98,12 +94,8 @@
   transition: all 0.3s ease;
 }
 
-
-
-@media (max-width: 1200px) {
+@media (max-width: 1201px) {
   .slider-block {
-    /* padding-top: 0; */
-    /* padding-left: 26px; */
     max-width: 340px;
   }
 
@@ -117,15 +109,8 @@
     padding-bottom: 60px;
   }
 
- /*  .slider-portfolio_container {
-    position: relative;
-    max-width: 258px;
-  }
- */
   .slider {
-    /* justify-content: space-between; */
     width: 2043px;
-    /* display: flex; */
   }
 
   .slide {
