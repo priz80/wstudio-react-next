@@ -34,7 +34,8 @@ export const ScrollToTopButton = () => {
       aria-label="Наверх"
       title="Наверх"
     >
-      <Image className={style.arrowUp} src="images/arrowleft.svg" alt="" />
+      <Image className={style.arrowUp} src="images/arrowleft.svg" alt="" width={24} 
+  height={24} />
     </button>
   );
 };
