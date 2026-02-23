@@ -11,13 +11,11 @@
   height: 458px;
 }
 
-
-
 .title-forma {
-h5 {
-  padding-bottom: 21px;
-  padding-top: 45px;
-}
+  h5 {
+    padding-bottom: 21px;
+    padding-top: 45px;
+  }
 }
 
 .foma-block {
@@ -93,38 +91,37 @@ h5 {
   right: 0;
 } */
 
-
 .iphoneButton {
   position: absolute;
   border-radius: 29px;
   border: none;
-min-width: 213px;
-max-height: 58px;
-backdrop-filter: blur(30px);
-background: rgba(255, 255, 255, 0.1);
-z-index: 99;
-display: flex;
-justify-content: space-between;
-padding: 12px 15px 10px 11px;
+  min-width: 213px;
+  max-height: 58px;
+  backdrop-filter: blur(30px);
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 99;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 15px 10px 11px;
 
-p{
-font-weight: var(--font-size-Regular);
-font-size: 14px;
-color: rgba(255, 255, 255, 0.9);
-white-space: pre-line; /* или pre-wrap */
-}
+  p {
+    font-weight: var(--font-size-Regular);
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: pre-line; /* или pre-wrap */
+  }
 
-p span {
-font-weight: var(--font-size-Regular);
-font-size: 12px;
-line-height: 106%;
-color: rgba(255, 255, 255, 0.7);
-}
+  p span {
+    font-weight: var(--font-size-Regular);
+    font-size: 12px;
+    line-height: 106%;
+    color: rgba(255, 255, 255, 0.7);
+  }
 }
 
 .leftButton {
-right: 150px;
-top: 50px;
+  right: 150px;
+  top: 50px;
 }
 
 .rightButton {
@@ -141,7 +138,7 @@ top: 50px;
 .iconElips {
   width: 51px;
   height: 51px;
-  background-image: url('/images/Ellips.svg');
+  background-image: url("/images/Ellips.svg");
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;
@@ -152,7 +149,7 @@ top: 50px;
 .iconElipse {
   width: 51px;
   height: 51px;
-  background-image: url('/images/Ellipse.svg');
+  background-image: url("/images/Ellipse.svg");
   background-repeat: no-repeat;
   background-size: contain;
   display: flex;
@@ -194,42 +191,53 @@ top: 50px;
   }
 
   .title-forma {
-h5 {
-  padding-bottom: 30px;
-  padding-top: 24px;
+    h5 {
+      padding-bottom: 30px;
+      padding-top: 24px;
+    }
+  }
 }
-}
-
-  
-}
-
 
 @media (max-width: 1680px) {
-.imagesIphone {
+  .imagesIphone {
     display: none;
   }
 
- /*  .iphoneButton {
+  /*  .iphoneButton {
     display: none;
   } */
 }
 
 @media (max-width: 768px) {
-.imagesIphone {
+  .imagesIphone {
     display: block;
     width: 254px;
-height: 492px;
+    height: 492px;
     top: 836px;
     right: 50%;
     transform: translateX(50%);
     background-image: url(/images/iPhone-small.png);
   }
 
- /*  .iphoneButton {
+  /*  .iphoneButton {
     display: flex;
   } */
 
-   .forma-container {
+  .forma-container {
     margin-bottom: 543px;
+  }
+
+  .iphoneButton {
+    min-width: 161px;
+    max-height: 45px;
+    padding: 12px 15px 10px 11px;
+  }
+
+  .iphoneButton p {
+    font-size: 14px;
+  }
+
+  .iphoneButton p span {
+    font-size: 8px;
   }
 }
