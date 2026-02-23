@@ -1,0 +1,20 @@
+{
+  "ignore": [
+    "src/app/**/page.tsx",
+    "src/app/**/layout.tsx",
+    "src/app/page.tsx",
+    "src/app/layout.tsx",
+    "src/components/Header/**",
+    "src/components/Footer/**",
+    "src/components/Button/**",
+    "src/components/ScreenshotSlider/**",
+    "src/components/ScrollToTopButton/**",
+    "src/components/Tarif/**",
+    "src/components/Portfolio/**",
+    "src/components/Forma/**",
+    "src/components/Contacty/**",
+    "src/components/About/**"
+  ],
+  "ignoreDependencies": [],
+  "ignoreFiles": []
+}
