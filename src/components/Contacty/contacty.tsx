@@ -3,7 +3,7 @@ import styles from "./contacty.module.scss";
 export const Contacty = () => {
   return (
     <div className="container">
-      <div className='content' id="contacty">
+      <div  id="contacty">
         {/* <div className={styles.content}> */}
           <div className={styles["title-contacty"]}>
             <h6>Контакты</h6>
