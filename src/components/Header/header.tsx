@@ -35,8 +35,8 @@ export const Header = () => {
   height={844} />
         </div>
         <div className={headerStyles['man-container-small']}>
-          <Image src="images/man-small.svg" alt="Man"  width={24} 
-  height={24} />
+          <Image src="images/man-small.svg" alt="Man"  width={241} 
+  height={412} />
         </div>
         <div className={headerStyles.circle}>
           <div className={`${headerStyles.circle} ${headerStyles['circle-m']}`}>
