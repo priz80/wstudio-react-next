@@ -1,5 +1,5 @@
 .container-tarif {
-    min-height: 984px;
+    height: 984px;
 }
 
 .title-tarif {
@@ -16,8 +16,17 @@
   align-items: center;
 }
 
-@media (max-width: 786px) {
+@media (max-width: 1200px) {
+  .tarif-contant {
+    height: 380px;
+  }
+  
   .container-tarif {
-    min-height: 840px;
+    height: 840px;
+  }
+
+  .title-tarif {
+    padding-bottom: 40px;
+    padding-top: 0;
   }
 }
