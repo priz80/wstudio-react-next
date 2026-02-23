@@ -1,5 +1,5 @@
 .container-portfolio {
-  min-height: 778px;
+  height: 778px;
 }
 
 .portfolio-content {
@@ -45,6 +45,19 @@
 }
 
 @media (max-width: 1200px) {
+  .container-portfolio {
+height: 511px;
+  }
+
+  .title-portfolio_block {
+    padding-top: 0;
+  }
+
+  .title-portfolio_block p {
+    padding-top: 11px;
+    padding-bottom: 42px;
+}
+  
   .portfolio-content {
     flex-direction: column;
   }
@@ -57,22 +70,20 @@
     gap: 0;
   }
 
-  .title-portfolio_block {
-    padding-top: 143px;
-    text-align: center;
-  }
-
   .button-portfolio {
     display: none;
   }
 
   .arrow-container {
-    z-index: 1;
-    justify-content: space-between;
+    /* z-index: 1; */
+    /* justify-content: space-between; */
     width: 641px;
-    display: flex;
-    position: absolute;
+    /* display: flex; */
+    /* position: absolute; */
     top: 290px;
     right: 16px;
+    padding-top: 33px;
   }
+
+  
 }
