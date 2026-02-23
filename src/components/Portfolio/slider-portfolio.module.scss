@@ -73,14 +73,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 99;
+  
 }
 
 .slide:hover {
   .hoverSlide {
     visibility: visible;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 99;
+    
   }
 }
 
@@ -124,7 +124,7 @@
 .slideButton {
   width: 269px;
   height: 51px;
-  z-index: 99;
+  
 }
 
 .fontSlide {
