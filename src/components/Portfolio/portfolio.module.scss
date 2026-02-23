@@ -7,10 +7,27 @@
   justify-content: space-between; */
 }
 
+
+
+
+
 .title-portfolio_block {
   padding-top: 143px;
   max-width: 526px;
 }
+
+@media (max-width: 1919px) {
+.portfolio-content {
+  /* align-items: center;
+  text-align: center; */
+}
+
+.title-portfolio_block {
+  margin: 0 auto;
+  text-align: center;
+}
+}
+
 
 .title-portfolio_block p {
   padding-top: 18px;
