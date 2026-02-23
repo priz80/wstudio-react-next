@@ -3,6 +3,7 @@
 import { useState } from "react";
 import styles from "./screenshot-slider.module.scss";
 import Button from "../Button/button";
+import Image from 'next/image';
 
 interface Project {
   title: string;
@@ -59,20 +60,12 @@ export default function ScreenshotSlider() {
         onClick={prevSlide}
         aria-label="Предыдущий слайд"
       >
-        <img src="/images/arrowleft.svg" alt="Назад" />
+        <Image src="/images/arrowleft.svg" alt="Назад" />
       </button>
 
       <div className={styles.slider}>
         <div
           className={styles.slide}
-          /* onClick={() =>
-            window.open(currentProject.url, "_blank", "noopener,noreferrer")
-          } */
-          /* role="button"
-          tabIndex={0}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") nextSlide();
-          }} */
           aria-label={`Посмотреть сайт: ${currentProject.title}`}
         >
           <iframe
@@ -119,7 +112,7 @@ export default function ScreenshotSlider() {
         onClick={nextSlide}
         aria-label="Следующий слайд"
       >
-        <img src="/images/arrowright.svg" alt="Вперёд" />
+        <Image src="/images/arrowright.svg" alt="Вперёд" />
       </button>
     </div>
   );
