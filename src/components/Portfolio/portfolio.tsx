@@ -5,7 +5,7 @@ import sliderStyle from "./slider-portfolio.module.scss";
 import { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import Image from 'next/image';
 
-// Список проектов: десктопный и мобильный формат
+// Список проектов
 const projects = [
   { desktop: "calypso.png", mobile: "calypso.png" },
   { desktop: "drupal.png", mobile: "drupal.png" },
@@ -21,6 +21,7 @@ export const Portfolio = () => {
 
   const [isMobile, setIsMobile] = useState(false);
   const [slideWidth, setSlideWidth] = useState(671);
+  const [imageSize, setImageSize] = useState({ width: 567, height: 376 });
   const [isBlocked, setIsBlocked] = useState(false);
 
   const config = useMemo(
@@ -31,12 +32,16 @@ export const Portfolio = () => {
     [],
   );
 
-  // Определяем устройство
+  // Определяем устройство и размеры
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth < 1201;
       setIsMobile(mobile);
       setSlideWidth(mobile ? 297 : 669);
+      setImageSize(mobile 
+        ? { width: 258, height: 153 }
+        : { width: 567, height: 363 }
+      );
     };
 
     handleResize();
@@ -49,17 +54,11 @@ export const Portfolio = () => {
     const basePath = isMobile
       ? "/screenshots/mobile/"
       : "/screenshots/desktop/";
-    /* const format = isMobile ? "mobile" : "desktop"; */
 
-    // Для бесконечного слайдера: [последний] + [все] + [первый]
     const first = projects[0];
     const last = projects[projects.length - 1];
 
-    const ordered = [
-      last, // для плавного перехода назад
-      ...projects, // основные
-      first, // для плавного перехода вперёд
-    ];
+    const ordered = [last, ...projects, first];
 
     return ordered.map((proj) => {
       const filename = isMobile ? proj.mobile : proj.desktop;
@@ -73,11 +72,8 @@ export const Portfolio = () => {
       if (!sliderRef.current || isBlocked) return;
 
       setIsBlocked(true);
-
       const trackLength = config.totalUniqueSlides * slideWidth;
-      let offset = parseFloat(
-        sliderRef.current.style.transform.replace(/[^0-9\\-]/g, "") || "0",
-      );
+      let offset = parseFloat(sliderRef.current.style.transform.replace(/[^0-9\\-]/g, "") || "0");
 
       offset -= direction * slideWidth;
 
@@ -117,7 +113,7 @@ export const Portfolio = () => {
     };
   }, [moveSlider]);
 
-  // Инициализация начального положения
+  // Инициализация слайдера
   useEffect(() => {
     if (sliderRef.current && slideWidth) {
       sliderRef.current.style.transition = "none";
@@ -132,8 +128,7 @@ export const Portfolio = () => {
         <div className={style["title-portfolio_block"]}>
           <h2>Наше портфолио</h2>
           <p>
-            В данном портфолио вы сможете увидеть кейсы наших работ на 2025 -
-            2026 год
+            В данном портфолио вы сможете увидеть кейсы наших работ на 2025 - 2026 год
           </p>
           <Link href="/examples" key={0}>
             <Button
@@ -158,8 +153,7 @@ export const Portfolio = () => {
           }}
         >
           <div className={sliderStyle.arrow}>
-            <Image src="/images/arrowleft.svg" alt="Назад" width={24}
-  height={24}/>
+            <Image src="/images/arrowleft.svg" alt="Назад" width={24} height={24} />
           </div>
         </button>
         <button
@@ -173,22 +167,24 @@ export const Portfolio = () => {
           }}
         >
           <div className={sliderStyle.arrow}>
-            <Image src="/images/arrowright.svg" alt="Вперёд" width={24}
-  height={24} />
+            <Image src="/images/arrowright.svg" alt="Вперёд" width={24} height={24} />
           </div>
         </button>
       </div>
 
       {/* Слайдер */}
       <div className={sliderStyle["slider-block"]}>
-
         <div ref={sliderRef} className={sliderStyle.slider}>
           {slideImages.map((src, index) => (
             <div key={index} className={sliderStyle.slide}>
-              <Image src={src} alt={`Проект ${index}`} loading="lazy" width={567}
-  height={376}/>
-              <div className={sliderStyle.hoverSlide}>
-              </div>
+              <Image
+                src={src}
+                alt={`Проект ${index}`}
+                loading="lazy"
+                width={imageSize.width}
+                height={imageSize.height}
+              />
+              <div className={sliderStyle.hoverSlide}></div>
             </div>
           ))}
         </div>
