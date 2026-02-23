@@ -154,7 +154,6 @@
   height: 100vh;
   background: #000;
   visibility: hidden;
-  transition: all 0.4s ease;
   z-index: 99;
   overflow-y: auto;
 
@@ -162,12 +161,13 @@
     left: 0;
     opacity: 1;
     visibility: visible;
+    transition: 0.4s ease;
   }
 
   ul {
     flex-direction: column;
     list-style: none;
-    padding: 120px 20px 0;
+    padding: 110px 0px 0;
     gap: 0px;
   }
 
@@ -176,7 +176,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+  }
+
+  li:hover {
+    background: linear-gradient(100deg, #30dbb8 0%, #37a58f 36.1%, #398778 100%);
   }
 
   a {
