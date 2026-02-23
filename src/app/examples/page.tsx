@@ -1,11 +1,10 @@
-import ScreenshotSlider from '@/components/ScreenshotSlider/ScreenshotSlider';
-import Button from '@/components/Button/button';
+import ScreenshotSlider from "@/components/ScreenshotSlider/ScreenshotSlider";
 
 export default function Examples() {
   return (
     <div>
       {/* <a href='/'><div><Button nameButton={'<'} /></div></a> */}
-        <ScreenshotSlider />
+      <ScreenshotSlider />
     </div>
   );
 }
