@@ -71,7 +71,7 @@
   display: flex;
   justify-content: center;
   top: -30px;
-  right: 0;
+  right: 100px;
 }
 
 .imagesIphone {
@@ -81,7 +81,8 @@
   background-image: url(/images/iPhone.png);
   background-repeat: no-repeat;
   background-size: contain;
-  display: flex;
+  /* display: flex; */
+  
 }
 
 .iphoneButton {
@@ -113,12 +114,12 @@
 }
 
 .leftButton {
-  right: 50px;
+  left: -250px;
   top: 50px;
 }
 
 .rightButton {
-  left: 50px;
+  right: -250px;
   top: 215px;
 }
 
@@ -193,24 +194,40 @@
 }
 
 @media (max-width: 1680px) {
-  .imagesIphone {
+  .imagesBlock {
     display: none;
   }
-
-  /*  .iphoneButton {
-    display: none;
-  } */
 }
 
 @media (max-width: 768px) {
-  .imagesIphone {
-    display: block;
-    width: 254px;
-    height: 492px;
-    top: 836px;
-    right: 50%;
-    transform: translateX(50%);
-    background-image: url(/images/iPhone-small.png);
+  .imagesBlock {
+    display: flex;
+  /* position: absolute;
+  display: flex;
+  justify-content: center; */
+  top: 835px;
+  right: 50%;
+  transform: translateX(50%);
+}
+
+.imagesIphone {
+  /* position: absolute; */
+  width: 254px;
+  height: 492px;
+  background-image: url(/images/iPhone-small.png);
+  /* background-repeat: no-repeat;
+  background-size: contain; */
+  /* display: flex; */
+}
+
+  
+
+  .leftButton {
+    left: 10px;
+  }
+
+  .rightButton {
+    right: 10px;
   }
 
   /*  .iphoneButton {
