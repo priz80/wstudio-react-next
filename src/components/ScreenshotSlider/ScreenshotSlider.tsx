@@ -60,7 +60,8 @@ export default function ScreenshotSlider() {
         onClick={prevSlide}
         aria-label="Предыдущий слайд"
       >
-        <Image src="/images/arrowleft.svg" alt="Назад" />
+        <Image src="/images/arrowleft.svg" alt="Назад" width={24}
+  height={24}/>
       </button>
 
       <div className={styles.slider}>
@@ -82,7 +83,7 @@ export default function ScreenshotSlider() {
             <a onClick={() =>
             window.open(currentProject.url, "_blank", "noopener,noreferrer")
           }><Button styleButton={styles.buttonSite} nameButton={`перейти на сайт: ${currentProject.title}`}/></a>
-            <a href="/"><Button styleButton={styles.buttonSlider} nameButton="вернуться на главную"/></a>
+            <a href="Link /"><Button styleButton={styles.buttonSlider} nameButton="вернуться на главную"/></a>
           </div>
           
         </div>
@@ -112,7 +113,8 @@ export default function ScreenshotSlider() {
         onClick={nextSlide}
         aria-label="Следующий слайд"
       >
-        <Image src="/images/arrowright.svg" alt="Вперёд" />
+        <Image src="/images/arrowright.svg" alt="Вперёд"  width={24}
+  height={24}/>
       </button>
     </div>
   );
