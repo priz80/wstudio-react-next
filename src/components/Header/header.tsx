@@ -3,6 +3,7 @@ import Button from "../Button/button";
 import headerStyles from "./headers.module.scss";
 import menuStyles from "./main-menu.module.scss";
 import burgerStyles from "./burger.module.scss";
+import Image from 'next/image';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,17 +23,20 @@ export const Header = () => {
   return (
     <header className={headerStyles.header}>
       <div className={`container ${headerStyles['container-header']}`} id="header">
-        <img
-          src="images/lamp.svg"
+        <Image src="images/lamp.svg"
           className={headerStyles['lamp-container']}
           alt="lamp"
+           width={127} 
+  height={29} 
         />
         <div className="aside-line"></div>
         <div className={headerStyles['man-container']}>
-          <img src="images/man.png" alt="Man" />
+          <Image src="images/man.png" alt="Man"  width={663} 
+  height={844} />
         </div>
         <div className={headerStyles['man-container-small']}>
-          <img src="images/man-small.svg" alt="Man" />
+          <Image src="images/man-small.svg" alt="Man"  width={24} 
+  height={24} />
         </div>
         <div className={headerStyles.circle}>
           <div className={`${headerStyles.circle} ${headerStyles['circle-m']}`}>
@@ -103,7 +107,8 @@ export const Header = () => {
                   fontButton={headerStyles['buttonFontHeader']}
                   nameButton={
                     <>
-                      Подробнее <img src="images/arr.svg" alt="" />
+                      Подробнее <Image src="images/arr.svg" alt=""  width={24} 
+  height={24} />
                     </>
                   }
                 />
