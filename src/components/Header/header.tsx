@@ -50,10 +50,12 @@ export const Header = () => {
               <p className={menuStyles['logo-studio']}>Studio</p>
               <p className={menuStyles['logo-web']}>Web</p>
             </div>
-            <img
+            <Image
               src="images/logo.svg"
               className={menuStyles['logo-mobile']}
               alt="logo"
+              width={69}
+              height={47}
             />
 
             <div className={menuStyles.menu}>
