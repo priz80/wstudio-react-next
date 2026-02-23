@@ -3,6 +3,7 @@ import Button from "../Button/button";
 import style from "./portfolio.module.scss";
 import sliderStyle from "./slider-portfolio.module.scss";
 import { useEffect, useRef, useState, useMemo, useCallback } from "react";
+import Image from 'next/image';
 
 // Список проектов: десктопный и мобильный формат
 const projects = [
@@ -172,7 +173,7 @@ export const Portfolio = () => {
           }}
         >
           <div className={sliderStyle.arrow}>
-            <Image src="/images/arrowright.svg" alt="Вперёд"width={24}
+            <Image src="/images/arrowright.svg" alt="Вперёд" width={24}
   height={24} />
           </div>
         </button>
@@ -184,7 +185,8 @@ export const Portfolio = () => {
         <div ref={sliderRef} className={sliderStyle.slider}>
           {slideImages.map((src, index) => (
             <div key={index} className={sliderStyle.slide}>
-              <Image src={src} alt={`Проект ${index}`} loading="lazy" />
+              <Image src={src} alt={`Проект ${index}`} loading="lazy" width={567}
+  height={376}/>
               <div className={sliderStyle.hoverSlide}>
               </div>
             </div>
