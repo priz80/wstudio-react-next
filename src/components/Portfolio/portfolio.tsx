@@ -178,27 +178,16 @@ export const Portfolio = () => {
 
       {/* Слайдер */}
       <div className={sliderStyle["slider-block"]}>
-        {/* <div className={sliderStyle["slider-portfolio_container"]}> */}
+
         <div ref={sliderRef} className={sliderStyle.slider}>
           {slideImages.map((src, index) => (
-            // <a href="/examples" key={index}>
-
             <div key={index} className={sliderStyle.slide}>
               <img src={src} alt={`Проект ${index}`} loading="lazy" />
               <div className={sliderStyle.hoverSlide}>
-                <a href="/examples" key={index}>
-                  <Button
-                    styleButton={sliderStyle.slideButton}
-                    fontButton={sliderStyle.fontSlide}
-                    nameButton={"Полные версии сайтов"}
-                  />
-                </a>
               </div>
             </div>
-            // </a>
           ))}
         </div>
-        {/* </div> */}
       </div>
     </div>
   );
