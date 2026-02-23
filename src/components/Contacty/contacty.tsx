@@ -1,60 +1,45 @@
 import styles from "./contacty.module.scss";
+import Image from 'next/image';
 
 export const Contacty = () => {
   return (
     <div className="container">
       <div  id="contacty">
-        {/* <div className={styles.content}> */}
           <div className={styles["title-contacty"]}>
             <h6>Контакты</h6>
           </div>
-        {/* </div> */}
         <div className={styles["ball-block_contacty"]}>
           <div className={styles.ballBlock}>
-            <a href="/">
-              {/* <div className={styles["ball-circle"]}> */}
+            <a href="Link /">
                 <div className={styles.ball}>
                   
                     {/* SVG content remains commented */}
                   
                 </div>
-              {/* </div> */}
             </a>
-            <a href="/" target="blank_">
-              {/* <div className={styles["ball-circle"]}> */}
+            <a href="Link /" target="blank_">
                 <div className={styles.ball}>
-                  
-                    <img src="/icons/max.svg" alt="" />
-                  
+                    <Image src="/icons/max.svg" alt=""  width={114} 
+  height={44} />
                 </div>
-              {/* </div> */}
             </a>
             <a href="https://t.me/Studio_WWW" target="blank_">
-              {/* <div className={styles["ball-circle"]}> */}
                 <div className={styles.ball}>
-                  
-                    <img src="/icons/telegram.svg" alt="" />
-                  
+                    <Image src="/icons/telegram.svg" alt=""  width={44} 
+  height={44} />
                 </div>
-              {/* </div> */}
             </a>
-            <a href="/" target="blank_">
-              {/* <div className={styles["ball-circle"]}> */}
+            <a href="Link /" target="blank_">
                 <div className={styles.ball}>
-                  
-                    <img src="/icons/vk.svg" alt="" />
-                  
+                    <Image src="/icons/vk.svg" alt="" width={44} 
+  height={44}  />
                 </div>
-              {/* </div> */}
             </a>
-            <a href="/">
-              {/* <div className={styles["ball-circle"]}> */}
+            <a href="Link /">
                 <div className={styles.ball}>
-                  
-                    <img src="/icons/gmail.svg" alt="" />
-                  
+                    <Image src="/icons/gmail.svg" alt=""  width={44} 
+  height={44} />
                 </div>
-              {/* </div> */}
             </a>
           </div>
         </div>
