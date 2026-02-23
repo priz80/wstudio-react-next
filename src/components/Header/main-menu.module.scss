@@ -155,7 +155,7 @@
   background: #000;
   visibility: hidden;
   transition: all 0.4s ease;
-  z-index: 9999;
+  z-index: 99;
   overflow-y: auto;
 
   &.active {
@@ -168,7 +168,7 @@
     flex-direction: column;
     list-style: none;
     padding: 120px 20px 0;
-    gap: 40px;
+    gap: 0px;
   }
 
   li {
