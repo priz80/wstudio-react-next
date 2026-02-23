@@ -1,6 +1,7 @@
 // src/components/ScrollToTopButton/ScrollToTopButton.tsx
 import { useState, useEffect } from "react";
 import style from "./scroll-to-top.module.scss";
+import Image from 'next/image';
 
 export const ScrollToTopButton = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -33,7 +34,7 @@ export const ScrollToTopButton = () => {
       aria-label="Наверх"
       title="Наверх"
     >
-      <img className={style.arrowUp} src="images/arrowleft.svg" alt="" />
+      <Image className={style.arrowUp} src="images/arrowleft.svg" alt="" />
     </button>
   );
 };
