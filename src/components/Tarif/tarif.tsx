@@ -95,7 +95,7 @@ export const Tarif = () => {
   return (
     <div className={`container ${style["container-tarif"]}`} id="tarif">
       <div className="aside-line"></div>
-      <div className={`content ${style["tarif-content"]}`}>
+      <div className='content'>
         <div className={style["title-tarif"]}>
           <h2>Тарифы</h2>
         </div>
