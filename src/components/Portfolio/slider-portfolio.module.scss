@@ -7,6 +7,7 @@
   right: 0;
 }
 
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -30,8 +31,19 @@
   justify-content: space-between;
   z-index: 1;
   right: 307px;
-  top: 290px;
+  top: 301px;
 }
+
+@media (max-width: 1919px) {
+  .slider-block {
+    top: 410px;
+  }
+
+  .arrow-container {
+    top: 566px;
+  }
+}
+
 
 .slider {
   display: flex;
