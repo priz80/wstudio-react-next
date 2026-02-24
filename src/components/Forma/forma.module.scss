@@ -33,6 +33,30 @@
   height: 52px;
   box-shadow: 0 0 38px 0 rgba(255, 255, 255, 0.05);
   background: rgba(255, 255, 255, 0.1);
+
+  // === Стили для вводимого текста ===
+  color: white;                    // Цвет текста при вводе
+  font-size: 16px;                 // Размер шрифта
+  font-weight: 400;                // Вес шрифта
+  font-style: italic;
+  line-height: 1.5;                // Высота строки
+  padding-left: 20px;              // Отступ слева (чтобы текст не прилипал)
+  outline: none;                   // Убираем стандартный фокус-контур
+  caret-color: #fff;               // Цвет курсора (мигающей черты)
+
+  // Плавная анимация при фокусе
+  transition: border-color 0.8s ease, box-shadow 0.3s ease;
+
+    &:focus {
+    border-color: rgba(255, 255, 255, 0.5); // Чуть ярче рамка
+    box-shadow: 0 0 38px 0 rgba(255, 255, 255, 0.15); // Усиленная подсветка
+  }
+}
+
+.forma-item::placeholder {
+  font-weight: 700;
+  font-size: 16px;
+  font-style: italic;
 }
 
 .forma-item-wrapper {
