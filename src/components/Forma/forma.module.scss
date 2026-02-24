@@ -81,8 +81,6 @@
   background-image: url(/images/iPhone.png);
   background-repeat: no-repeat;
   background-size: contain;
-  /* display: flex; */
-  
 }
 
 .iphoneButton {
@@ -151,6 +149,74 @@
   align-items: center;
 }
 
+// Модальное окно
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modalContent {
+  background: white;
+  padding: 32px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  background: linear-gradient(
+    122deg,
+    #313134 0%,
+    #222224 29.21%,
+    #12473c 59.25%,
+    #292929 100%
+  );
+  animation: slideUp 0.3s ease-out;
+}
+
+.modalTitle {
+  margin: 0 0 12px 0;
+  font-size: 20px;
+  color: #fff;
+}
+
+.modalMessage {
+  margin: 0 0 24px 0;
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 1200px) {
   .forma-container {
     height: 677px;
@@ -202,25 +268,16 @@
 @media (max-width: 768px) {
   .imagesBlock {
     display: flex;
-  /* position: absolute;
-  display: flex;
-  justify-content: center; */
-  top: 835px;
-  right: 50%;
-  transform: translateX(50%);
-}
+    top: 835px;
+    right: 50%;
+    transform: translateX(50%);
+  }
 
-.imagesIphone {
-  /* position: absolute; */
-  width: 254px;
-  height: 492px;
-  background-image: url(/images/iPhone-small.png);
-  /* background-repeat: no-repeat;
-  background-size: contain; */
-  /* display: flex; */
-}
-
-  
+  .imagesIphone {
+    width: 254px;
+    height: 492px;
+    background-image: url(/images/iPhone-small.png);
+  }
 
   .leftButton {
     left: -170px;
@@ -229,10 +286,6 @@
   .rightButton {
     right: -170px;
   }
-
-  /*  .iphoneButton {
-    display: flex;
-  } */
 
   .forma-container {
     margin-bottom: 611px;
