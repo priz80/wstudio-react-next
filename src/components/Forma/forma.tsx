@@ -152,7 +152,7 @@ export const Forma = () => {
               {/* Бюджет */}
               <div className={styles["forma-item-wrapper"]}>
                 <label htmlFor="summ" className={styles["input-label"]}>
-                  Бюджет на сайт (если есть)
+                  Бюджет на сайт (если известен)
                 </label>
                 <input
                   type="text"
