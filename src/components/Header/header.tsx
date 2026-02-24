@@ -31,7 +31,7 @@ export const Header = () => {
         />
         <div className="aside-line"></div>
         <div className={headerStyles['man-container']}>
-          <Image src="images/man.png" alt="Man"  width={663} 
+          <Image src="/images/man.png" alt="Man"  width={663} 
   height={844} />
         </div>
         <div className={headerStyles['man-container-small']}>
