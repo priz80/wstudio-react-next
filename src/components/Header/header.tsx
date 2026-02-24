@@ -4,6 +4,7 @@ import headerStyles from "./headers.module.scss";
 import menuStyles from "./main-menu.module.scss";
 import burgerStyles from "./burger.module.scss";
 import Image from 'next/image';
+import Link from "next/link";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -76,7 +77,7 @@ export const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 <ul className={menuStyles.menuUl}>
-                  <li><a href="/" className={menuStyles.menuLink}>Главная</a></li>
+                  <li><Link href="/" className={menuStyles.menuLink}>Главная</Link></li>
                   <li><a href="#about" className={menuStyles.menuLink}>Почему именно мы?</a></li>
                   <li className={menuStyles['mobile-only']}><a href="#portfolio" className={menuStyles.menuLink}>Портфолио</a></li>
                   <li><a href="#contacty" className={menuStyles.menuLink}>Контакты</a></li>
