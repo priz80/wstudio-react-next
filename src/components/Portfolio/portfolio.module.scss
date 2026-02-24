@@ -44,6 +44,12 @@
   font-size: 17px;
 }
 
+@media (max-width: 1919px) {
+.container-portfolio {
+  height: 1052px;
+}
+}
+
 @media (max-width: 1200px) {
   .container-portfolio {
 height: 511px;
