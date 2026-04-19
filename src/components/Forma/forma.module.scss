@@ -11,6 +11,11 @@
   height: 458px;
 }
 
+.forma-content {
+  display: flex;
+  justify-content: space-between;
+}
+
 .title-forma {
   h5 {
     padding-bottom: 21px;
@@ -35,16 +40,16 @@
   background-color: rgba(255, 255, 255, 0.1);
 
   // === Стили для вводимого текста ===
-  color: white;                    // Цвет текста при вводе
-  font-size: 16px;                 // Размер шрифта
-  font-weight: 400;                // Вес шрифта
+  color: white; // Цвет текста при вводе
+  font-size: 16px; // Размер шрифта
+  font-weight: 400; // Вес шрифта
   font-style: italic;
-  line-height: 1.5;                // Высота строки
-  padding-left: 20px;              // Отступ слева (чтобы текст не прилипал)
-  outline: none;                   // Убираем стандартный фокус-контур
-  caret-color: #26d12e;               // Цвет курсора (мигающей черты)
-  
-// --- 🔥 Сброс стилей автозаполнения ---
+  line-height: 1.5; // Высота строки
+  padding-left: 20px; // Отступ слева (чтобы текст не прилипал)
+  outline: none; // Убираем стандартный фокус-контур
+  caret-color: #26d12e; // Цвет курсора (мигающей черты)
+
+  // --- 🔥 Сброс стилей автозаполнения ---
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
@@ -56,11 +61,12 @@
     transition: background-color 5000s ease-in-out 0.1s; // Хитрость: плавное "затухание"
   }
 
-
   // Плавная анимация при фокусе
-  transition: border-color 0.8s ease, box-shadow 0.3s ease;
+  transition:
+    border-color 0.8s ease,
+    box-shadow 0.3s ease;
 
-    &:focus {
+  &:focus {
     border-color: rgba(255, 255, 255, 0.5); // Чуть ярче рамка
     box-shadow: 0 0 38px 0 rgba(255, 255, 255, 0.15); // Усиленная подсветка
   }
@@ -79,7 +85,7 @@
 }
 
 .forma-item_button {
-  width: 439px;
+  width: 49%;
   display: flex;
   justify-content: flex-start;
   padding-top: 26px;
@@ -104,40 +110,41 @@
 }
 
 .imagesBlock {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  top: -30px;
-  right: 100px;
+  position: relative;
+  /* display: flex;
+  justify-content: center; */
+  /* top: -26px; */
+  /* right: 100px; */
+  width: 269px;
+  /* height: 529px; */
 }
 
 .imagesIphone {
-  position: absolute;
+  /* position: absolute; */
   width: 269px;
   height: 529px;
   background-image: url(/images/iPhone.png);
   background-repeat: no-repeat;
   background-size: contain;
+  margin-top: -30px;
 }
 
 .iphoneButton {
   position: absolute;
   border-radius: 29px;
   border: none;
-  min-width: 213px;
-  max-height: 58px;
+  width: 213px;
+  height: 58px;
   backdrop-filter: blur(30px);
   background: rgba(255, 255, 255, 0.1);
   z-index: 99;
   display: flex;
-  justify-content: space-between;
-  padding: 12px 15px 10px 11px;
+  align-items: center;
 
   p {
     font-weight: var(--font-size-Regular);
     font-size: 14px;
     color: rgba(255, 255, 255, 0.9);
-    white-space: pre-line; /* или pre-wrap */
   }
 
   p span {
@@ -149,41 +156,37 @@
 }
 
 .leftButton {
-  left: -250px;
-  top: 50px;
+  left: -122;
+  top: 46px;
 }
 
 .rightButton {
-  right: -250px;
-  top: 215px;
+  right: -140px;
+  top: 212px;
 }
 
 .iconGroup {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 7px 8px 8px 9px;
 }
 
-.iconElips {
-  width: 51px;
-  height: 51px;
+.iconButton {
+  width: 43px;
+  height: 43px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.groupImage {
   background-image: url("/images/Ellips.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
-
-.iconElipse {
-  width: 51px;
-  height: 51px;
+.webImage {
   background-image: url("/images/Ellipse.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 // Модальное окно
@@ -300,14 +303,20 @@
   .imagesBlock {
     display: none;
   }
+
+  .forma-content {
+    /* justify-content: center; */
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 768px) {
   .imagesBlock {
-    display: flex;
-    top: 835px;
-    right: 50%;
-    transform: translateX(50%);
+    display: block;
+    top: 205px;
+    /* left: 30%;
+    transform: translateX(-10%); */
   }
 
   .imagesIphone {
@@ -317,25 +326,35 @@
   }
 
   .leftButton {
-    left: -170px;
+    left: -46;
+    top: 74px;
   }
 
   .rightButton {
-    right: -170px;
+    right: -32px;
+    top: 200px;
   }
 
   .forma-container {
     margin-bottom: 611px;
   }
 
+  .iconButton {
+    width: 39px;
+    height: 39px;
+  }
+
   .iphoneButton {
-    min-width: 161px;
-    max-height: 45px;
-    padding: 12px 15px 10px 11px;
+    width: 161px;
+    height: 45px;
+  }
+
+  .iconGroup {
+    padding: 3px 5px 3px 4px;
   }
 
   .iphoneButton p {
-    font-size: 14px;
+    font-size: 10px;
   }
 
   .iphoneButton p span {
