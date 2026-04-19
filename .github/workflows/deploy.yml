@@ -46,8 +46,9 @@ jobs:
               echo "📦 Устанавливаем production-зависимости..."
               npm ci --omit=dev
 
-              echo "🔄 Останавливаем старый процесс PM2..."
-              pm2 stop wstudio || true
+              echo "🔄 Останавливаем старые процессы на порту 3000..."
+              lsof -i :3000 | grep LISTEN | awk '{print $2}' | xargs kill -9 2>/dev/null || echo "Нет процессов на порту 3000"
+
 
               echo "🚀 Запускаем приложение через PM2..."
               pm2 start "npm run start" --name "wstudio" --no-daemon
