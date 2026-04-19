@@ -39,10 +39,10 @@ jobs:
             echo "🔄 Останавливаем wstudio в PM2..."
             pm2 delete wstudio || true
 
-            echo "🔄 Ждём 3 секунды, чтобы PM2 освободил порт..."
+            echo "🔄 Ждём 3 секунды..."
             sleep 3
 
-            echo "🔄 Убиваем ВСЕ процессы на порту 3000..."
+            echo "🔄 Убиваем процессы на порту 3000..."
             fuser -k 3000/tcp || true
             sleep 3
 
@@ -50,6 +50,13 @@ jobs:
             pkill -f "next start" || true
             pkill -f "next-server" || true
             sleep 2
+
+            # 🔁 Проверяем, что порт свободен
+            echo "🔍 Проверяем, что порт 3000 свободен..."
+            while sudo lsof -i :3000; do
+              echo "⏳ Порт 3000 всё ещё занят... ждём 2 секунды"
+              sleep 2
+            done
 
             echo "🚀 Запускаем новое приложение через PM2..."
             pm2 start "npm run start" --name "wstudio"
