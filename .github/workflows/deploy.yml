@@ -41,8 +41,15 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
-            cd  /var/www/fastuser/data/www/wstudio.tech
-            npm install --production
-            pm2 stop wstudio || true
-            npm run start &
-            echo "Deployment finished."
+              cd /var/www/fastuser/data/www/wstudio.tech
+
+              echo "📦 Устанавливаем production-зависимости..."
+              npm ci --omit=dev
+
+              echo "🔄 Останавливаем старый процесс PM2..."
+              pm2 stop wstudio || true
+
+              echo "🚀 Запускаем приложение через PM2..."
+              pm2 start "npm run start" --name "wstudio" --no-daemon
+
+              echo "✅ Деплой завершён."
