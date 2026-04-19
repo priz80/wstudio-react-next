@@ -26,7 +26,7 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: Stop old app and clean port
+      - name: Deploy and restart app
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.VPS_HOST }}
@@ -34,39 +34,32 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
+            # Переходим в папку проекта
             cd /var/www/fastuser/data/www/wstudio.tech
 
+            # Устанавливаем зависимости
+            echo "📦 Устанавливаем production-зависимости..."
+            npm ci --omit=dev
+
+            # Останавливаем старое приложение
             echo "🔄 Останавливаем wstudio в PM2..."
             pm2 delete wstudio || true
 
-            echo "⏳ Ждём 3 секунды..."
-            sleep 3
+            # Даём время на освобождение порта
+            echo "⏳ Ждём 5 секунд..."
+            sleep 5
 
+            # Убиваем остатки
             echo "🔄 Убиваем процессы на порту 3000..."
             fuser -k 3000/tcp || true
-            sleep 3
-
-            echo "🔄 Убиваем по имени..."
-            pkill -f "next start" || true
-            pkill -f "next-server" || true
             sleep 2
 
-            echo "✅ Порт 3000 должен быть свободен"
+            pkill -f "next start" || true
+            pkill -f "next-server" || true
 
-      - name: Start new app
-        uses: appleboy/ssh-action@v0.1.10
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: 22
-          script: |
-            cd /var/www/fastuser/data/www/wstudio.tech
-
-            echo "📦 Устанавливаем зависимости..."
-            npm ci --omit=dev
-
+            # Запускаем новое приложение
             echo "🚀 Запускаем новое приложение через PM2..."
             pm2 start "npm run start" --name "wstudio"
 
+            # Финал
             echo "✅ Деплой завершён."
