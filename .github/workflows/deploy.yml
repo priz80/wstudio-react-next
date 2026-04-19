@@ -41,16 +41,19 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
-              cd /var/www/fastuser/data/www/wstudio.tech
+            cd /var/www/fastuser/data/www/wstudio.tech
 
-              echo "📦 Устанавливаем production-зависимости..."
-              npm ci --omit=dev
+            echo "📦 Устанавливаем зависимости..."
+            npm ci --omit=dev
 
-              echo "🔄 Останавливаем старые процессы на порту 3000..."
-              lsof -i :3000 | grep LISTEN | awk '{print $2}' | xargs kill -9 2>/dev/null || echo "Нет процессов на порту 3000"
+            echo "🔄 Останавливаем и удаляем старое приложение..."
+            pm2 delete wstudio || true
 
+            echo "🔄 Убиваем все процессы на порту 3000..."
+            sudo fuser -k 3000/tcp || true
+            sleep 3
 
-              echo "🚀 Запускаем приложение через PM2..."
-              pm2 start "npm run start" --name "wstudio" --no-daemon
+            echo "🚀 Запускаем новое приложение..."
+            pm2 start "npm run start" --name "wstudio" --no-daemon
 
-              echo "✅ Деплой завершён."
+            echo "✅ Деплой завершён."
