@@ -48,6 +48,6 @@ jobs:
             sleep 2
 
             echo "🚀 Запускаем новое приложение через PM2..."
-            pm2 start "npm run start" --name "wstudio" --no-daemon
+            pm2 start "npm run start" --name "wstudio"
 
             echo "✅ Деплой завершён."
