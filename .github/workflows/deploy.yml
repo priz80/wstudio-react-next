@@ -34,32 +34,26 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
-            # Переходим в папку проекта
             cd /var/www/fastuser/data/www/wstudio.tech
 
-            # Устанавливаем зависимости
-            echo "📦 Устанавливаем production-зависимости..."
+            echo "📦 Устанавливаем зависимости..."
             npm ci --omit=dev
 
-            # Останавливаем старое приложение
             echo "🔄 Останавливаем wstudio в PM2..."
             pm2 delete wstudio || true
 
-            # Даём время на освобождение порта
             echo "⏳ Ждём 5 секунд..."
             sleep 5
 
-            # Убиваем остатки
             echo "🔄 Убиваем процессы на порту 3000..."
             fuser -k 3000/tcp || true
-            sleep 2
+            sleep 3  # ← увеличено
 
-            pkill -f "next start" || true
-            pkill -f "next-server" || true
+            # Убираем pkill — fuser уже всё убил
+            # pkill -f "next start" || true
+            # pkill -f "next-server" || true
 
-            # Запускаем новое приложение
             echo "🚀 Запускаем новое приложение через PM2..."
             pm2 start "npm run start" --name "wstudio"
 
-            # Финал
             echo "✅ Деплой завершён."
