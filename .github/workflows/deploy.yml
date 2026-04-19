@@ -27,7 +27,7 @@ jobs:
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}  # должен быть fastuser
+          username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
@@ -36,13 +36,17 @@ jobs:
             echo "📦 Устанавливаем зависимости..."
             npm ci --omit=dev
 
-            echo "🔄 Останавливаем и удаляем wstudio из PM2..."
+            echo "🔄 Останавливаем wstudio в PM2..."
             pm2 delete wstudio || true
 
-            echo "🔄 Убиваем процессы на порту 3000..."
-            fuser -k 3000/tcp || true
-            sleep 2
+            echo "🔄 Ждём 3 секунды, чтобы PM2 освободил порт..."
+            sleep 3
 
+            echo "🔄 Убиваем ВСЕ процессы на порту 3000..."
+            fuser -k 3000/tcp || true
+            sleep 3
+
+            echo "🔄 Дополнительно: убиваем по имени..."
             pkill -f "next start" || true
             pkill -f "next-server" || true
             sleep 2
