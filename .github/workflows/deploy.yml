@@ -46,14 +46,19 @@ jobs:
             echo "📦 Устанавливаем зависимости..."
             npm ci --omit=dev
 
-            echo "🔄 Останавливаем и удаляем старое приложение..."
+            echo "🔄 Останавливаем и удаляем wstudio из PM2..."
             pm2 delete wstudio || true
 
-            echo "🔄 Убиваем все процессы на порту 3000..."
+            echo "🔄 Убиваем ВСЕ процессы на порту 3000 (включая next-server)..."
             sudo fuser -k 3000/tcp || true
-            sleep 3
+            sleep 2
 
-            echo "🚀 Запускаем новое приложение..."
+            # Дополнительно: убиваем по имени, если остался
+            pkill -f "next start" || true
+            pkill -f "next-server" || true
+            sleep 2
+
+            echo "🚀 Запускаем новое приложение через PM2..."
             pm2 start "npm run start" --name "wstudio" --no-daemon
 
             echo "✅ Деплой завершён."
