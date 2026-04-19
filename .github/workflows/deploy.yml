@@ -11,19 +11,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Debug - List files
-        run: |
-          echo "📁 Files in repo:"
-          ls -la
-          echo ""
-          echo "🔍 Checking key files:"
-          [ -f package.json ] && echo "✅ package.json found" || echo "❌ package.json missing"
-          [ -f test.txt ] && echo "✅ test.txt found" || echo "❌ test.txt missing"
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18
+          node-version: lts/*
           cache: 'npm'
 
       - name: Install dependencies
