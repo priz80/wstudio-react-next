@@ -23,21 +23,11 @@ jobs:
       - name: Build application
         run: npm run build
 
-      - name: Deploy to VPS via SSH
-        uses: appleboy/scp-action@v0.1.5
-        with:
-          host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
-          key: ${{ secrets.VPS_SSH_KEY }}
-          port: 22
-          source: "."
-          target: "/var/www/fastuser/data/www/wstudio.tech/"
-
       - name: Restart app on VPS
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.VPS_HOST }}
-          username: ${{ secrets.VPS_USER }}
+          username: ${{ secrets.VPS_USER }}  # должен быть fastuser
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
@@ -49,11 +39,10 @@ jobs:
             echo "🔄 Останавливаем и удаляем wstudio из PM2..."
             pm2 delete wstudio || true
 
-            echo "🔄 Убиваем ВСЕ процессы на порту 3000 (включая next-server)..."
+            echo "🔄 Убиваем процессы на порту 3000..."
             fuser -k 3000/tcp || true
             sleep 2
 
-            # Дополнительно: убиваем по имени, если остался
             pkill -f "next start" || true
             pkill -f "next-server" || true
             sleep 2
