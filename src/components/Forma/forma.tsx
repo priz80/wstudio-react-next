@@ -83,7 +83,7 @@ export const Forma = () => {
     <>
       {/* Форма */}
       <div className={styles["forma-container"]} id="forma">
-        <div className="content">
+        <div className={`content ${styles["forma-content"]}`}>
           <div className={styles["title-forma"]}>
             <h5>Оставь заявку</h5>
             <form onSubmit={handleSubmit} className={styles["foma-block"]}>
@@ -135,7 +135,7 @@ export const Forma = () => {
               </div>
 
               {/* Telegram */}
-              <div className={styles["forma-item-wrapper"]}>
+              {/* <div className={styles["forma-item-wrapper"]}>
                 <label htmlFor="telegram" className={styles["input-label"]}>
                   Telegram (@username)
                 </label>
@@ -147,7 +147,27 @@ export const Forma = () => {
                   placeholder="@ivan_777"
                   autoComplete="off"
                 />
-              </div>
+              </div> */}
+
+              {/* Комментарий */}
+              {
+                <div className={styles["forma-item-wrapper"]}>
+                  <label
+                    htmlFor="description"
+                    className={styles["input-label"]}
+                  >
+                    Комментарий (по желанию)
+                  </label>
+                  <input
+                    type="text"
+                    id="description"
+                    name="description"
+                    className={styles["forma-item"]}
+                    placeholder="Опишите ваш проект"
+                    autoComplete="off"
+                  />
+                </div>
+              }
 
               {/* Бюджет */}
               <div className={styles["forma-item-wrapper"]}>
@@ -163,28 +183,6 @@ export const Forma = () => {
                   autoComplete="off"
                 />
               </div>
-
-              
-
-              
-
-              
-
-              {/* Комментарий */}
-              {/* <div className={styles["forma-item-wrapper"]}>
-                <label htmlFor="description" className={styles["input-label"]}>
-                  Комментарий (по желанию)
-                </label>
-                <input
-                  type="text"
-                  id="description"
-                  name="description"
-                  className={styles["forma-item"]}
-                  placeholder="Опишите ваш проект"
-                  autoComplete="off"
-                />
-              </div> */}
-
 
               {/* Скрытое поле с темой */}
               <input
@@ -209,34 +207,34 @@ export const Forma = () => {
           <div className={styles.imagesBlock}>
             <div className={`${styles.iphoneButton} ${styles.leftButton}`}>
               <div className={styles.iconGroup}>
-                <div className={styles.iconElips}>
-                  <div>
+                <div className={`${styles.iconButton} ${styles.groupImage}`}>
+                  
                     <Image
                       src="/images/Group.svg"
                       alt="Web icon"
-                      width={24}
+                      width={25}
                       height={24}
                     />
-                  </div>
+                  
                 </div>
               </div>
               <p>
-                Уведомление!
+                Уведомление!<br/>
                 <span> В скорейшем времени вам перезвонят </span>
               </p>
             </div>
             <div className={styles.imagesIphone}></div>
             <div className={`${styles.iphoneButton} ${styles.rightButton}`}>
               <div className={styles.iconGroup}>
-                <div className={styles.iconElipse}>
-                  <div>
+                <div className={`${styles.iconButton} ${styles.webImage}`}>
+                  
                     <Image
                       src="/images/web.svg"
                       alt="Web icon"
-                      width={24}
-                      height={24}
+                      width={31}
+                      height={31}
                     />
-                  </div>
+                  
                 </div>
               </div>
               <p>
