@@ -1,0 +1,57 @@
+name: Deploy Next.js App to VPS
+
+on:
+  push:
+    branches: [ "master" ]  # или master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Debug - List files
+        run: |
+          echo "📁 Files in repo:"
+          ls -la
+          echo ""
+          echo "🔍 Checking key files:"
+          [ -f package.json ] && echo "✅ package.json found" || echo "❌ package.json missing"
+          [ -f test.txt ] && echo "✅ test.txt found" || echo "❌ test.txt missing"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build application
+        run: npm run build
+
+      - name: Deploy to VPS via SSH
+        uses: appleboy/scp-action@v0.1.5
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          source: "."
+          target: "/var/www/fastuser/data/www/wstudio.tech/"
+
+      - name: Restart app on VPS
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            cd  /var/www/fastuser/data/www/wstudio.tech
+            npm install --production
+            pm2 stop wstudio || true
+            npm run start &
+            echo "Deployment finished."
