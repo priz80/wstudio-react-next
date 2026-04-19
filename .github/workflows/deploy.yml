@@ -50,7 +50,7 @@ jobs:
             pm2 delete wstudio || true
 
             echo "🔄 Убиваем ВСЕ процессы на порту 3000 (включая next-server)..."
-            sudo fuser -k 3000/tcp || true
+            fuser -k 3000/tcp || true
             sleep 2
 
             # Дополнительно: убиваем по имени, если остался
