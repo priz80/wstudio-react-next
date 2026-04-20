@@ -3,6 +3,6 @@ const nextConfig = {
   //  images: {
   //   unoptimized: true,
   // },
-  distDir: "out", // Папка сборки
+  // distDir: "out", // Папка сборки
 };
 module.exports = nextConfig;
