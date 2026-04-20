@@ -15,15 +15,23 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'  # Лучше 18 для стабильности (Next.js рекомендует)
+        # cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build Next.js app
-        run: npm run build
+        run: |
+          npm run build
+          # Проверяем, создался ли .next
+          if [ ! -d ".next" ]; then
+            echo "❌ Ошибка: папка .next не создалась. Билд провалился."
+            exit 1
+          fi
+          echo "✅ Билд успешен, .next существует"
+          ls -la .next
 
-      # Подготавливаем минимальный дистрибутив для production
       - name: Prepare deploy directory
         run: |
           mkdir -p deploy-dist
