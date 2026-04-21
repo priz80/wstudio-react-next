@@ -57,9 +57,6 @@ jobs:
           port: 22
           script: |
             sudo -i -u wstudio_tech_usr bash << 'EOF'
-            export NVM_DIR="$HOME/.nvm"
-            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
             cd /var/www/wstudio_tech_usr/data/www/wstudio.tech
             npm install --production
             pm2 stop wstudio || true
