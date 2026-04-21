@@ -58,6 +58,13 @@ jobs:
           script: |
             sudo -i -u wstudio_tech_usr bash << 'EOF'
             cd /var/www/wstudio_tech_usr/data/www/wstudio.tech
+
+            # Перемещаем файлы из deploy-dist в корень
+            if [ -d "deploy-dist" ]; then
+              mv deploy-dist/* ./
+              rmdir deploy-dist
+            fi
+            
             ls -la
             npm install --production
             pm2 stop wstudio || true
