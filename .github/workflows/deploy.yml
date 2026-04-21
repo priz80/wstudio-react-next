@@ -60,3 +60,4 @@ jobs:
             npm install --production
             pm2 stop wstudio || true
             pm2 start npm --name "wstudio" -- start -- --port 3000
+            
