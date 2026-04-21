@@ -58,6 +58,7 @@ jobs:
           script: |
             sudo -i -u wstudio_tech_usr bash << 'EOF'
             cd /var/www/wstudio_tech_usr/data/www/wstudio.tech
+            ls -la
             npm install --production
             pm2 stop wstudio || true
             pm2 start npm --name "wstudio" -- start -- --port 3000
