@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "screenshots": "npx tsx scripts/capture-screenshots.ts",
-    "postinstall": "npx playwright install chromium"
+    "prepare": "npx playwright install chromium"
   },
   "dependencies": {
     "next": "16.1.6",
@@ -24,6 +24,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "tsx": "^4.21.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "playwright": "^1.59.1"
   }
 }
