@@ -52,7 +52,7 @@ jobs:
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.VPS_HOST }}
-          username: root
+          username: wstudio_tech_usr
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
