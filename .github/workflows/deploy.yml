@@ -45,8 +45,8 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
-          source: "deploy-dist/"
-          target: "/var/www/wstudio_tech_usr/data/www/wstudio.tech/"
+          source: "deploy-dist/*"   # ← только содержимое, без папки
+          target: "/var/www/wstudio_tech_usr/data/www/wstudio.tech"
 
       - name: Restart app on VPS via SSH
         uses: appleboy/ssh-action@v0.1.10
@@ -57,6 +57,7 @@ jobs:
           port: 22
           script: |
             cd /var/www/wstudio_tech_usr/data/www/wstudio.tech
+            ls -la  # Проверим, что .next и package.json на месте
             npm install --production
             pm2 stop wstudio || true
             pm2 start npm --name "wstudio" -- start -- --port 3000
