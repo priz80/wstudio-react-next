@@ -3,7 +3,7 @@ name: Deploy Next.js App to VPS
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -15,22 +15,15 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '18'
 
       - name: Install dependencies
         run: npm install
 
       - name: Build Next.js app
-        run: |
-          npm run build
-          # Проверяем, создался ли .next
-          if [ ! -d ".next" ]; then
-            echo "❌ Ошибка: папка .next не создалась. Билд провалился."
-            exit 1
-          fi
-          echo "✅ Билд успешен, .next существует"
-          ls -la .next
+        run: npm run build
 
+      # Подготавливаем минимальный дистрибутив для production
       - name: Prepare deploy directory
         run: |
           mkdir -p deploy-dist
@@ -45,28 +38,18 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
-          source: "deploy-dist/*"
-          target: "/var/www/wstudio_tech_usr/data/www/wstudio.tech/"
+          source: "deploy-dist/"
+          target: "/var/www/wstudio_tech_usr/data/www/wstudio.tech"
 
       - name: Restart app on VPS via SSH
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.VPS_HOST }}
-          username: wstudio_tech_usr
+          username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
-            sudo -i -u wstudio_tech_usr bash << 'EOF'
             cd /var/www/wstudio_tech_usr/data/www/wstudio.tech
-
-            # Перемещаем файлы из deploy-dist в корень
-            if [ -d "deploy-dist" ]; then
-              mv deploy-dist/* ./
-              rmdir deploy-dist
-            fi
-            
-            ls -la
             npm install --production
             pm2 stop wstudio || true
             pm2 start npm --name "wstudio" -- start -- --port 3000
-            EOF
