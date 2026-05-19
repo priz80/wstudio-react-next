@@ -59,6 +59,9 @@ jobs:
               rmdir deploy-dist
             fi
 
+            # Исправляем права → КЛЮЧЕВОЙ ШАГ
+            chown -R wstudio_tech_usr:wstudio_tech_usr .next
+
             # Устанавливаем зависимости
             npm install --production
 
