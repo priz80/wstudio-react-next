@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch: # Позволяет запускать вручную
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -16,6 +18,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'  # ← Ускоряет установку
 
       - name: Install dependencies
         run: npm install
@@ -23,13 +26,14 @@ jobs:
       - name: Build Next.js app
         run: npm run build
 
-      # Подготавливаем минимальный дистрибутив для production
       - name: Prepare deploy directory
         run: |
           mkdir -p deploy-dist
           cp -r .next package.json next.config.js public deploy-dist/
           echo "NODE_ENV=production" > deploy-dist/.env
           echo "PORT=3000" >> deploy-dist/.env
+          echo "BUILD_DATE=$(date)" >> deploy-dist/.env
+          echo "COMMIT_SHA=${{ github.sha }}" >> deploy-dist/.env
 
       - name: Copy build files to VPS via SCP
         uses: appleboy/scp-action@v0.1.6
@@ -38,7 +42,7 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
-          source: "deploy-dist/"
+          source: "deploy-dist/*"
           target: "/var/www/wstudio_tech_usr/data/www/wstudio.tech"
           overwrite: true
           strip_components: 1
@@ -47,28 +51,33 @@ jobs:
         uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.VPS_HOST }}
-          username: root
+          username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
-            sudo -i -u wstudio_tech_usr bash << 'EOF'
+            # Инициализация nvm (если используется)
+            export NVM_DIR="/home/wstudio_tech_usr/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
             cd /var/www/wstudio_tech_usr/data/www/wstudio.tech
 
-            
+            # Перемещаем новые файлы (на случай, если остались)
             if [ -d "deploy-dist" ]; then
-              mv deploy-dist/* ./
+              echo "📦 Moving new files..."
+              mv deploy-dist/* ./ || true
               rmdir deploy-dist
             fi
 
-            
-            chown -R wstudio_tech_usr:wstudio_tech_usr .next
-
-            
+            # Устанавливаем production-зависимости
+            echo "📦 Installing production dependencies..."
             npm install --production
 
-            
+            # Перезапускаем приложение
+            echo "🚀 Restarting PM2 app..."
             pm2 restart wstudio || pm2 start npm --name "wstudio" -- start -- --port 3000
 
-            
+            # Сохраняем состояние PM2
+            echo "💾 Saving PM2 process list..."
             pm2 save
-            EOF
+
+            echo "✅ Deployment successful"
