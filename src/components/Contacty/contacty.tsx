@@ -17,7 +17,7 @@ export const Contacty = () => {
                   
                 </div>
             </a>
-            <a href="Link /" target="blank_">
+            <a href="https://max.ru/u/f9LHodD0cOKa63crn54g7uzMuPnBiIzqPOAmqdZXaGAjiIrA1yKCNuXMZyo" target="blank_">
                 <div className={styles.ball}>
                     <Image src="/icons/max.svg" alt=""  width={114} 
   height={44} />
@@ -35,7 +35,7 @@ export const Contacty = () => {
   height={44}  />
                 </div>
             </a>
-            <a href="Link /">
+            <a href="mailto:wstudio@wstudio.tech">
                 <div className={styles.ball}>
                     <Image src="/icons/gmail.svg" alt=""  width={44} 
   height={44} />
