@@ -61,7 +61,8 @@ ${cleanedUsername ? `👤 <b>Telegram:</b> @${cleanedUsername}` : '👤 <b>Teleg
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'x-webhook-secret': WEBHOOK_SECRET // Защита от внешних вызовов
+        'x-webhook-secret': WEBHOOK_SECRET, // Защита от внешних вызовов
+        'x-vercel-protection-bypass': process.env.VERCEL_BYPASS_SECRET
       },
       body: JSON.stringify({
         message,
