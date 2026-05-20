@@ -10,11 +10,10 @@ export const Contacty = () => {
           </div>
         <div className={styles["ball-block_contacty"]}>
           <div className={styles.ballBlock}>
-            <a href="Link /">
+            <a href="mailto:wstudio@wstudio.tech" target="blank_">
                 <div className={styles.ball}>
-                  
-                    {/* SVG content remains commented */}
-                  
+                  <Image src="/icons/gmail.svg" alt=""  width={44} 
+  height={44} />
                 </div>
             </a>
             <a href="https://max.ru/u/f9LHodD0cOKa63crn54g7uzMuPnBiIzqPOAmqdZXaGAjiIrA1yKCNuXMZyo" target="blank_">
@@ -35,7 +34,7 @@ export const Contacty = () => {
   height={44}  />
                 </div>
             </a>
-            <a href="mailto:wstudio@wstudio.tech">
+            <a href="mailto:wstudio@wstudio.tech" target="blank_">
                 <div className={styles.ball}>
                     <Image src="/icons/gmail.svg" alt=""  width={44} 
   height={44} />
