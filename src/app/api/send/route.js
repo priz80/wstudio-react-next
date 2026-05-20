@@ -48,7 +48,7 @@ ${cleanedUsername ? `👤 <b>Telegram:</b> @${cleanedUsername}` : '👤 <b>Teleg
     `.trim();
 
     // --- Настройки промежуточного сервера (Vercel) ---
-    const RELAY_URL = process.env.RELAY_URL || 'https://telegram-relay-ag4i55v1b-my-telegram-relay.vercel.app/api/notify';
+    const RELAY_URL = process.env.RELAY_URL || 'https://telegram-relay-ik8fwzov8-my-telegram-relay.vercel.app/api/notify';
     const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET; // Должен совпадать с тем, что на Vercel
 
     if (!WEBHOOK_SECRET) {
