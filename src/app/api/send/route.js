@@ -23,13 +23,10 @@ export async function POST(request) {
     // --- Опциональная валидация Telegram (@username) ---
     let cleanedUsername = null;
     if (telegram && typeof telegram === 'string') {
-      // Удаляем @ в начале, если есть
       const username = telegram.trim().replace(/^@/, '');
-      // Проверяем формат: только буквы, цифры, подчёркивания, длина 5–32
       if (/^[a-zA-Z0-9_]{5,32}$/.test(username)) {
         cleanedUsername = username;
       }
-      // Если не прошёл валидацию — игнорируем, но не останавливаем отправку
     }
 
     // --- Тема сообщения ---
@@ -50,56 +47,35 @@ ${cleanedUsername ? `👤 <b>Telegram:</b> @${cleanedUsername}` : '👤 <b>Teleg
 ⏰ <b>Время:</b> ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Moscow' })}
     `.trim();
 
-    // --- Настройки бота ---
-    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
-    const CHAT_ID = process.env.TELEGRAM_CHAT_ID;
+    // --- Настройки промежуточного сервера (Vercel) ---
+    const RELAY_URL = process.env.RELAY_URL || 'https://telegram-relay.vercel.app/api/notify';
+    const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET; // Должен совпадать с тем, что на Vercel
 
-    if (!BOT_TOKEN || !CHAT_ID) {
-      console.error('Ошибка: Не задан TELEGRAM_BOT_TOKEN или CHAT_ID');
-      return Response.json(
-        { error: 'Ошибка сервера: настройки бота' },
-        { status: 500 }
-      );
+    if (!WEBHOOK_SECRET) {
+      console.error('Ошибка: Не задан WEBHOOK_SECRET');
+      return Response.json({ error: 'Ошибка сервера: отсутствует секретный ключ' }, { status: 500 });
     }
 
-    const url = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-
-    // --- Клавиатура: кнопка "Написать клиенту", если есть username ---
-    const reply_markup = cleanedUsername
-      ? {
-          inline_keyboard: [
-            [
-              {
-                text: '📩 Написать клиенту',
-                url: `https://t.me/${cleanedUsername}`
-              }
-            ]
-          ]
-        }
-      : undefined;
-
-    // --- Отправка в Telegram ---
-    const response = await fetch(url, {
+    // --- Отправка на промежуточный сервер ---
+    const relayRes = await fetch(RELAY_URL, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'x-webhook-secret': WEBHOOK_SECRET // Защита от внешних вызовов
       },
       body: JSON.stringify({
-        chat_id: CHAT_ID,
-        text: message,
-        parse_mode: 'HTML',
-        disable_web_page_preview: true,
-        reply_markup // кнопка только если есть username
+        message,
+        chat_id: process.env.TELEGRAM_CHAT_ID // Передаём chat_id сюда
       })
     });
 
-    if (response.ok) {
+    if (relayRes.ok) {
       return Response.json({ success: true }, { status: 200 });
     } else {
-      const data = await response.json().catch(() => ({}));
-      console.error('Telegram API ошибка:', data);
+      const errorText = await relayRes.text();
+      console.error('Ошибка промежуточного сервера:', errorText);
       return Response.json(
-        { error: 'Не удалось отправить сообщение в Telegram.' },
+        { error: 'Не удалось отправить уведомление. Повторите позже.' },
         { status: 500 }
       );
     }
