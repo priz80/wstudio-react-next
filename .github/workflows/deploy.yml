@@ -51,28 +51,24 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           port: 22
           script: |
-            # Переключаемся на wstudio_tech_usr и запускаем всё от его имени
             sudo -i -u wstudio_tech_usr bash << 'EOF'
             cd /var/www/wstudio_tech_usr/data/www/wstudio.tech
 
-            # Перемещаем файлы из deploy-dist в корень (если нужно)
+            
             if [ -d "deploy-dist" ]; then
               mv deploy-dist/* ./
               rmdir deploy-dist
             fi
 
-            # Исправляем права → КЛЮЧЕВОЙ ШАГ
+            
             chown -R wstudio_tech_usr:wstudio_tech_usr .next
 
-            # Устанавливаем зависимости
+            
             npm install --production
 
-            # Останавливаем старый процесс
-            pm2 stop wstudio || true
+            
+            pm2 restart wstudio || pm2 start npm --name "wstudio" -- start -- --port 3000
 
-            # Запускаем приложение
-            pm2 start npm --name "wstudio" -- start -- --port 3000
-
-            # Сохраняем список процессов для автозапуска
+            
             pm2 save
             EOF
