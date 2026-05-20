@@ -62,3 +62,13 @@ jobs:
             npm install --production
             pm2 restart wstudio || pm2 start npm --name wstudio -- start -- --port 3000
             pm2 save
+
+          # TODO: Before Sep 2026, update to checkout@v5 and setup-node@v5
+          # TODO: Before Sep 2026, update to checkout@v5 and setup-node@v5
+          # TODO: Before Sep 2026, update to checkout@v5 and setup-node@v5
+          # TODO: Before Sep 2026, update to checkout@v5 and setup-node@v5
+          # TODO: Before Sep 2026, update to checkout@v5 and setup-node@v5
+          # TODO: Before Sep 2026, update to checkout@v5 and setup-node@v5
+          # TODO: Before Sep 2026, update to checkout@v5 and setup-node@v5
+          # TODO: Before Sep 2026, update to checkout@v5 and setup-node@v5
+          # TODO: Before Sep 2026, update to checkout@v5 and setup-node@v5
