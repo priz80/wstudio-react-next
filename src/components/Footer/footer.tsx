@@ -11,9 +11,8 @@ export const Footer = () => {
       <a href="Link /">
         <p className={styles.policy}>Политика сайта и обработка персональных данных</p>
       </a>
+      <a href="https://fastvps.ru/c_4295ba5d6a21fdd9e4d2b8a7fad98400" target="_blank">Сайт работает на быстром VPS/VDS хостинге от FASTVPS</a>
     </div>
-    <div>
-        <a href="https://fastvps.ru/c_4295ba5d6a21fdd9e4d2b8a7fad98400" target="_blank">Сайт работает на быстром VPS/VDS хостинге от FASTVPS</a>
-      </div>
+    
   );
 };
