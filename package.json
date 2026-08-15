@@ -6,11 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "postbuild": "next-sitemap",
     "screenshots": "npx tsx scripts/capture-screenshots.ts",
     "prepare": "npx playwright install chromium"
   },
   "dependencies": {
     "next": "16.1.6",
+    "next-sitemap": "^4.2.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "sass": "^1.97.3",
@@ -23,8 +25,8 @@
     "babel-plugin-react-compiler": "1.0.0",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "playwright": "^1.59.1",
     "tsx": "^4.21.0",
-    "typescript": "^5",
-    "playwright": "^1.59.1"
+    "typescript": "^5"
   }
 }
