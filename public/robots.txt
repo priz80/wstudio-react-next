@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://wstudio.tech
+
+# Sitemaps
+Sitemap: https://wstudio.tech/sitemap.xml
